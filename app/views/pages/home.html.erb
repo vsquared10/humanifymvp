@@ -7,3 +7,21 @@
 	<br><a class="btn btn-danger" href="#" role="button">Plus sign</a>Invite friends to Humanify</br>
 	<a class="btn btn-danger" href="#" role="button">User profile</a>Find friends who already use Humanify
 </div>
+
+<hr>
+
+<% if user_signed_in? %>
+# do something
+
+<% else %>
+	<div class="container-fluid">
+		<div class="row">
+		  <div class="col-md-6">
+		  	<%= link_to "Log In", new_user_session_path, class: " btn btn-danger btn-lg" %>
+		  </div>
+		  <div class="col-md-6">
+		  	<%= link_to "Sign Up", new_user_registration_path, class: " btn btn-danger btn-lg" %>
+		  </div>
+		</div>	
+	</div>
+<% end %>
