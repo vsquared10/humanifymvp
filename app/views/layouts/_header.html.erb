@@ -21,10 +21,10 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Username<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">Profile</a></li>
-            <li><a href="#">Settings</a></li>
             <li><a href="#">FAQ</a></li>
             <li class="divider"></li>
             <% if user_signed_in? %>
+              <li><%= link_to "Settings", edit_user_registration_path %></li>
               <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
               <% else %>
                 <li><%= link_to "Log in", new_user_session_path %></li>
