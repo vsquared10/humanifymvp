@@ -80,5 +80,16 @@ Rails.application.configure do
   # Required for Heroku (via Devise gem)
   # Have this set to actual host domain
   config.action_mailer.default_url_options = { :host => 'humanify.biz' }
+  
+  # Required for Paperclip integration with AWS S3
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['S3_BUCKET_NAME'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    }
+  }
+
 
 end
