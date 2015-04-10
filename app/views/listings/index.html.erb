@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Image</th>
       <th>Description</th>
       <th>User</th>
       <th colspan="3"></th>
@@ -14,6 +15,7 @@
   <tbody>
     <% @listings.each do |listing| %>
       <tr>
+        <td><%= image_tag listing.image.url(:medium) %></td>
         <td><%= listing.description %></td>
         <td><%= listing.user.email if listing.user %></td>
         <td><%= link_to 'Show', listing %></td>
