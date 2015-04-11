@@ -189,7 +189,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  arel (~> 6.0)
   aws-sdk (~> 1.5.7)
   bootstrap-sass
   byebug
