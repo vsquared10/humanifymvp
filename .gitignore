@@ -16,3 +16,4 @@
 !/log/.keep
 /tmp
 .DS_store
+/public/system/*
