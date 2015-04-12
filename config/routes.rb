@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :listings
 
   devise_for :users
-  root 'pages#home'
+  root 'listings#index'
   get 'about' => 'pages#about' #create about_path
   get 'profile' => 'pages#profile' #create profile_path
   # The priority is based upon order of creation: first created -> highest priority.

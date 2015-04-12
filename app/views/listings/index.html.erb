@@ -1,16 +1,23 @@
-<p id="notice"><%= notice %></p>
+<%= render 'pages/home' unless user_signed_in? %>
 
 <div id="listings" class="transitions-enabled">
   <% @listings.each do |listing| %>
     <div class="box panel panel-default">
-      <%= image_tag listing.image.url(:medium) %>
+      <%= link_to image_tag(listing.image.url(:medium)), listing %>
       <div class="panel-body">
-        <%= listing.description %>
-        <%= listing.user.email if listing.user %>
-        <%= link_to 'Show', listing %>
+        <p><%= listing.description %></p>
+        <strong><%= listing.user.email if listing.user %></strong>
         <% if listing.user == current_user %>
-          <%= link_to 'Edit', edit_listing_path(listing) %>
-          <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <div class="actions">
+            <%= link_to edit_listing_path(listing) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+              Edit
+            <% end %>
+            <%= link_to listing, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+              Delete
+            <% end %>
+          </div>
         <% end %>
       </div>
     </div>
