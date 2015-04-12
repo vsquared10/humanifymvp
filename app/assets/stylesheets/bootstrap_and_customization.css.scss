@@ -8,5 +8,9 @@ $link-color: #f2253e;
 	text-align: center;
 }
 
+hr {
+	color: #666666;
+}
+
 @import "bootstrap-sprockets";
 @import 'bootstrap';
