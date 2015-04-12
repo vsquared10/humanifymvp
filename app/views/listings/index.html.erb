@@ -6,7 +6,7 @@
       <%= link_to image_tag(listing.image.url(:medium)), listing %>
       <div class="panel-body">
         <p><%= listing.description %></p>
-        <strong><%= listing.user.email if listing.user %></strong>
+        <strong><%= listing.user.name if listing.user %></strong>
         <% if listing.user == current_user %>
           <div class="actions">
             <%= link_to edit_listing_path(listing) do %>
