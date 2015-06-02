@@ -50,6 +50,11 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  
+  # An IRB alternative and runtime developer console.
+  gem 'pry-rails'
+  # Better error page for Rack apps. 
+  gem 'better_errors'
 end
 
 group :production do
