@@ -1,0 +1,6 @@
+<% if @listing.tag_list.any? %>
+  <%= f.text_field :tag_list, id: "tag",
+    class: "form-control tags", value: @listing.tag_list.join(",") %>
+<% else %>
+  <%= f.text_field :tag_list, id: "tag",class: "form-control tags" %>
+<% end %>
