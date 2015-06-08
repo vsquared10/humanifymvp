@@ -13,5 +13,8 @@ class Listing < ActiveRecord::Base
   validates :title, presence: true
   validates :points, presence: true
 
-  validates_inclusion_of :list_type, in: %w{ ask offer communtiy_project },presence: true
+  validates_inclusion_of :list_type, in: %w{ ask offer communtiy_project }
+
+  acts_as_taggable # Alias for acts_as_taggable_on :tags
+  acts_as_taggable_on :topics
 end

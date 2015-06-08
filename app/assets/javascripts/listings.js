@@ -2,6 +2,6 @@
 // which will include all the files listed below.
 //
 //= require application
-//= require listings/listings
 //= require listings/jquery-ui.min
 //= require listings/tag-it
+//= require listings/listings
