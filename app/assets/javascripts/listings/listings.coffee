@@ -6,6 +6,7 @@ $ ->
 	$('#tag').tagit
     singleField: true
     removeConfirmation: true
+    placeholderText: ""
 	$('#listings').imagesLoaded ->
 		$('#listings').masonry
       itemSelector: '.box'
