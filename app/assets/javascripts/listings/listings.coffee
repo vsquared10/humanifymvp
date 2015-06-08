@@ -3,6 +3,9 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ -> 
+	$('#tag').tagit
+    singleField: true
+    removeConfirmation: true
 	$('#listings').imagesLoaded ->
 		$('#listings').masonry
       itemSelector: '.box'
