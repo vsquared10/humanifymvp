@@ -8,4 +8,11 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w( listings.css listings.js pages.css pages.js )
+
+precomplie_assets = %w( listings pages devise/registrations )
+
+compile = []
+precomplie_assets.each do |a|
+  compile += [a+".js", a+".css"]
+end
+Rails.application.config.assets.precompile += compile
