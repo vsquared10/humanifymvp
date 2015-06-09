@@ -39,6 +39,8 @@ gem 'masonry-rails', '~> 0.2.0'
 
 gem 'acts-as-taggable-on', '~> 3.4'
 
+gem 'geocoder'
+
 group :development, :test do
 	# Use sqlite3 as the database for Active Record
 	gem 'sqlite3'
