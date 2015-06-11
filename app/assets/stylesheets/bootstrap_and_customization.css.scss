@@ -1,9 +1,12 @@
 $body-bg:           #ecf0f1;
-$navbar-default-bg: #ecf0f1;
+$navbar-default-bg: #FFFFFF;
 $navbar-default-link-color: #f2253e;
 $btn-danger-bg: #f2253e;
 $link-color: #f2253e;
 
+.navbar-header img {
+  height: 46px;
+}
 .col-md-6 {
 	text-align: center;
 }
