@@ -42,6 +42,10 @@ class ListingsController < ApplicationController
   # PATCH/PUT /listings/1
   # PATCH/PUT /listings/1.json
   def update
+    unless @listing.tag_list == listing_params[:tag_list].split(",")
+      @listing.tag_list = listing_params[:tag_list]
+      @listing.save
+    end
     respond_to do |format|
       if @listing.update(listing_params)
         format.html { redirect_to @listing, notice: 'Listing was successfully updated.' }
@@ -76,6 +80,7 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:description, :image)
+      params.require(:listing).permit(
+        :title, :list_type, :description, :image, :points, :tag_list)
     end
 end

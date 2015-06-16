@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.0'
+ruby '2.2.2'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -37,6 +37,11 @@ gem 'paperclip', '~> 4.2'
 
 gem 'masonry-rails', '~> 0.2.0'
 
+gem 'acts-as-taggable-on', '~> 3.4'
+
+gem 'geocoder'
+
+gem 'merit'
 
 group :development, :test do
 	# Use sqlite3 as the database for Active Record
@@ -50,6 +55,11 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  
+  # An IRB alternative and runtime developer console.
+  gem 'pry-rails'
+  # Better error page for Rack apps. 
+  gem 'better_errors'
 end
 
 group :production do
