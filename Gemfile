@@ -39,7 +39,7 @@ gem 'masonry-rails', '~> 0.2.0'
 
 gem 'acts-as-taggable-on', '~> 3.4'
 
-gem 'geocoder'
+gem 'area'
 
 gem 'merit'
 
