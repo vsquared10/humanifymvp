@@ -50,6 +50,10 @@
 
   <div class="form-group">
     <%= f.label :visibility, 'Which communities can see this listing?' %><br>
+    <%= f.label :visibility, 'Global' %>
+    <%= f.radio_button :visibility, :global %>
+    <%= f.label :visibility, current_user.zip_code.to_s.to_region(city: true)%>
+    <%= f.radio_button :visibility, :local %>
   </div>
 
   <div class="form-group">

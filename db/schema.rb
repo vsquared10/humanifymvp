@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150616200011) do
+ActiveRecord::Schema.define(version: 20150617185724) do
 
   create_table "badges_sashes", force: :cascade do |t|
     t.integer  "badge_id"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20150616200011) do
     t.string   "list_type"
     t.integer  "points"
     t.string   "visibility"
+    t.string   "city"
   end
 
   add_index "listings", ["user_id"], name: "index_listings_on_user_id"
