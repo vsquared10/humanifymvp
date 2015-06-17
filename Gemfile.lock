@@ -39,6 +39,8 @@ GEM
     acts-as-taggable-on (3.5.0)
       activerecord (>= 3.2, < 5)
     ambry (0.3.1)
+    area (0.10.0)
+      fastercsv (~> 1.5)
     arel (6.0.0)
     autoprefixer-rails (5.1.8.1)
       execjs
@@ -84,7 +86,7 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.5.2)
-    geocoder (1.2.8)
+    fastercsv (1.5.5)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
     hike (1.2.3)
@@ -214,13 +216,13 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on (~> 3.4)
+  area
   aws-sdk (~> 1.5.7)
   better_errors
   bootstrap-sass
   byebug
   coffee-rails (~> 4.1.0)
   devise (~> 3.4.1)
-  geocoder
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks

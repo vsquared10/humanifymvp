@@ -6,7 +6,13 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all.order("created_at DESC")
+    if user_signed_in?
+      @listings = Listing.where(["city = :city or visibility = :visibility", {
+        city: current_user.zip_code.to_s.to_region(city: true),
+        visibility: "global" }])
+    else
+      @listings = Listing.where(visibility:"global")
+    end
   end
 
   # GET /listings/1
@@ -81,6 +87,12 @@ class ListingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
       params.require(:listing).permit(
-        :title, :list_type, :description, :image, :points, :tag_list)
+        :title,
+        :list_type,
+        :description,
+        :image,
+        :points,
+        :visibility,
+        :tag_list)
     end
 end
