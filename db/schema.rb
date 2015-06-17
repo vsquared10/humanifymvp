@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150617185724) do
+ActiveRecord::Schema.define(version: 20150617194651) do
 
   create_table "badges_sashes", force: :cascade do |t|
     t.integer  "badge_id"
@@ -73,6 +73,12 @@ ActiveRecord::Schema.define(version: 20150617185724) do
   create_table "merit_scores", force: :cascade do |t|
     t.integer "sash_id"
     t.string  "category", default: "default"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string   "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sashes", force: :cascade do |t|
