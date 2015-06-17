@@ -18,8 +18,6 @@ class Listing < ActiveRecord::Base
 
   before_save :set_city
 
-  has_many :reviews
-
   private
 
   def set_city
