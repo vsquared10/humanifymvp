@@ -1,29 +1,29 @@
 <%= link_to listings_path do %>
-	<span class="glyphicon glyphicon-arrow-left"></span>
-	Back
+  <span class="glyphicon glyphicon-arrow-left"></span>
+  Back
 <% end %>
 
 <div class="row">
-	<div class="col-md-offset-2 col-md-8">
-		<div class="panel panel-default">
-			<div class="panel-heading center-block">
-				<%= image_tag @listing.image.url(:medium) %>
-			</div>
-			<div class="panel-body">
-				<p><%= @listing.description %></p>
-				<p><strong><%= @listing.user.email if @listing.user %></strong></p>
+  <div class="col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading center-block">
+        <%= image_tag @listing.image.url(:medium) %>
+      </div>
+      <div class="panel-body">
+        <p><%= @listing.description %></p>
+        <p><strong><%= @listing.user.name if @listing.user %></strong></p>
 
-				<% if @listing.user == current_user %>
-					<%= link_to edit_listing_path(@listing) do %>
-					  <span class="glyphicon glyphicon-edit"></span>
-					  Edit
-					<% end %>
-					<%= link_to @listing, method: :delete, data: { confirm: 'Are you sure?' } do %>
-					  <span class="glyphicon glyphicon-trash"></span>
-					  Delete
-					<% end %>
-				<% end %>
-			</div>	
-		</div>
-	</div>
+        <% if @listing.user == current_user %>
+          <%= link_to edit_listing_path(@listing) do %>
+            <span class="glyphicon glyphicon-edit"></span>
+            Edit
+          <% end %>
+          <%= link_to @listing, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <span class="glyphicon glyphicon-trash"></span>
+            Delete
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

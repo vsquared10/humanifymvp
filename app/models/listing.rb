@@ -24,6 +24,6 @@ class Listing < ActiveRecord::Base
   private
 
   def set_city
-    record.city = self.user.zip_code.to_s.to_region(city: true)
+    self.city = self.user.zip_code.to_s.to_region(city: true)
   end
 end
