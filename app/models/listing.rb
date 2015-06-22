@@ -1,7 +1,8 @@
 class Listing < ActiveRecord::Base
-	belongs_to :user
+  has_many :exchanges
+  belongs_to :user
 
-	has_attached_file :image, 
+  has_attached_file :image,
     styles: { :medium => "300x300>", :thumb => "100x100>" },
     default_url: "small_Humanify.png"
 

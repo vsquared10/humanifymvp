@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :listings
+  has_many :exchanges
 
   validates :name, presence: true
   validates_format_of :zip_code,
