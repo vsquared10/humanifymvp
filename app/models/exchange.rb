@@ -10,6 +10,11 @@ class Exchange < ActiveRecord::Base
 
   before_validation :check_balance
 
+# Valid Exchange
+# Exchange.create(amount:200, destination:first.id,
+  #               source:last.id,
+  #               description:
+  #               "transfer 200 points from #{last.name} to #{first.name}")
 
   private
 
