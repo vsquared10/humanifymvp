@@ -13,7 +13,6 @@ module Merit
     include Merit::PointRulesMethods
 
     def initialize
-      score 250, :on => 'users#create'
       #
       # score 15, :on => 'reviews#create', :to => [:reviewer, :reviewed]
       #

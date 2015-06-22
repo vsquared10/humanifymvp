@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150617194651) do
+ActiveRecord::Schema.define(version: 20150622175437) do
 
   create_table "badges_sashes", force: :cascade do |t|
     t.integer  "badge_id"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 20150617194651) do
   add_index "badges_sashes", ["badge_id", "sash_id"], name: "index_badges_sashes_on_badge_id_and_sash_id"
   add_index "badges_sashes", ["badge_id"], name: "index_badges_sashes_on_badge_id"
   add_index "badges_sashes", ["sash_id"], name: "index_badges_sashes_on_sash_id"
+
+  create_table "exchanges", force: :cascade do |t|
+    t.integer  "amount"
+    t.integer  "destination"
+    t.integer  "source"
+    t.boolean  "reversed",    default: false
+    t.string   "status"
+    t.string   "description"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
 
   create_table "listings", force: :cascade do |t|
     t.string   "description"
