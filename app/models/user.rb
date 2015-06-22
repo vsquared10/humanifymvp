@@ -14,7 +14,10 @@ class User < ActiveRecord::Base
 
   after_create :init_karma
 
+  private
+
   def init_karma
     self.add_points(250)
   end
+
 end
