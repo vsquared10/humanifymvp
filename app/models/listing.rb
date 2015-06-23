@@ -24,6 +24,10 @@ class Listing < ActiveRecord::Base
   has_many :reviews
   has_many :claims
 
+  def highest_offer
+    self.offers.order("points DESC").first
+  end
+
   private
 
   def set_city

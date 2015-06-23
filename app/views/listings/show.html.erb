@@ -15,7 +15,7 @@
         <% if @listing.offers.present?  %>
           <h1> 
             Highest Current Bid: <br>
-            <%= @listing.offers %> KP
+            <%= @listing.highest_offer.points %> KP
           </h1>
         <% end %>
       </div>
