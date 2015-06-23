@@ -1,5 +1,7 @@
 class Listing < ActiveRecord::Base
+  has_many :offers
   has_many :exchanges
+
   belongs_to :user
 
   has_attached_file :image,
@@ -20,6 +22,7 @@ class Listing < ActiveRecord::Base
   before_save :set_city
 
   has_many :reviews
+  has_many :claims
 
   private
 
