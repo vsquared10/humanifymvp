@@ -10,7 +10,8 @@ class OffersController < ApplicationController
         format.html { redirect_to @offer.listing, notice: 'Offer sent.' }
         format.json { render :show, status: :created, location: @offer }
       else
-        format.html { render :new }
+        format.html { redirect_to @offer.listing,
+                      notice: @offer.errors.full_messages.to_sentence }
         format.json { render json: @offer.errors, status: :unprocessable_entity }
       end
     end
