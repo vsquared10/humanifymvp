@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get 'profile' => 'pages#profile' #create profile_path
 
   post 'offer/:id' => 'offers#create', as: 'offer'
+  patch 'offer/:id' => 'offers#update', as: 'offer_update'
 end

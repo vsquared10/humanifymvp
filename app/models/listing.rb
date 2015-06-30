@@ -15,6 +15,7 @@ class Listing < ActiveRecord::Base
 
   validates_inclusion_of :list_type, in: %w{ ask offer communtiy_project }
   validates_inclusion_of :visibility, in: %w{ global local }
+  validate :listing_type_options
 
   acts_as_taggable # Alias for acts_as_taggable_on :tags
   acts_as_taggable_on :topics
@@ -28,7 +29,17 @@ class Listing < ActiveRecord::Base
     self.offers.order("points DESC").first
   end
 
+  def posted_by?(user)
+    self.user == user
+  end
+
   private
+
+  def listing_type_options
+    unless self.list_type == "ask" and self.points == 0
+      errors.add(:base, 'An listing that asks for something must be free.')
+    end
+  end
 
   def set_city
     self.city = self.user.zip_code.to_s.to_region(city: true)

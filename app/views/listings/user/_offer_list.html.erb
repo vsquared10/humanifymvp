@@ -1,0 +1,33 @@
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"></div>
+  <div class="panel-body">
+    <h1> 
+      <%= @listing.highest_offer.user.name %> offers:
+      <%= @listing.highest_offer.points %> KP
+    </h1>
+    <%= form_for @listing.highest_offer,
+      url: offer_path(@listing.highest_offer.id),
+      html: { multipart: true } do |g| %>
+      <%= g.submit "Accept", name: "status",
+        class: "btn btn-default btn-lg" %>
+      <%= g.submit "Decline", name: "status",
+        class: "btn btn-default btn-lg" %>
+    <% end %>
+    <br>
+    <br>
+    <span>
+      Not yet! Reply first <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    </span>
+  </div>
+  <!-- List group -->
+  <ul class="list-group">
+    <% @listing.offers.each do |offer| %>
+      <% unless offer == @listing.highest_offer %>
+        <li class="list-group-item">
+          <%= offer.user.name %> | <%= offer.user.points %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

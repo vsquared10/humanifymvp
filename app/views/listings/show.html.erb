@@ -27,39 +27,17 @@
           </strong>
         </p>
         <p>
-
-        <% if @listing.offers.present?  %>
-          <%= form_for @listing.offers.build, url: offer_path(@listing.id), html: { multipart: true } do |f| %>
-            Set Your Offer
-            <div class="form-group">
-                <%= f.number_field :points,
-                  value: @listing.highest_offer.points,
-                  min: @listing.highest_offer.points,
-                  step: 50, class: "form-control" %>
-            </div>
-            <div class="form-group">
-              <%= f.submit "Offer", class: "btn btn-danger" %>
-            </div>
+        <% unless @listing.posted_by?(current_user) %>
+            <%= render "listings/user/offer" %>
           <% end %>
-        <% else %>
-          <%= form_for @listing.offers.build, url: offer_path(@listing.id), html: { multipart: true } do |f| %>
-            Set Your Offer
-            <div class="form-group">
-                <%= f.number_field :points, value: @listing.points,
-                  min: @listing.points, step: 50, class: "form-control" %>
-            </div>
-            <div class="form-group">
-              <%= f.submit "Offer", class: "btn btn-danger" %>
-            </div>
-          <% end %>
-        <% end %>
         </p>
         <% if @listing.user == current_user %>
           <%= link_to edit_listing_path(@listing) do %>
             <span class="glyphicon glyphicon-edit"></span>
             Edit
           <% end %>
-          <%= link_to @listing, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <%= link_to @listing, method: :delete,
+            data: { confirm: 'Are you sure?' } do %>
             <span class="glyphicon glyphicon-trash"></span>
             Delete
           <% end %>
@@ -68,3 +46,10 @@
     </div>
   </div>
 </div>
+<% if @listing.posted_by?(current_user) and @listing.offers.any? %>
+  <div class="row">
+    <div class="col-md-offset-2 col-md-8">
+      <%= render "listings/user/offer_list" %>
+    </div>
+  </div>
+<% end %>

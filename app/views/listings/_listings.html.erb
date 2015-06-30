@@ -1,0 +1,12 @@
+<div id="listings" class="transitions-enabled">
+  <% @listings.each do |listing| %>
+    <div class="box panel panel-default">
+      <%= link_to image_tag(listing.image.url(:medium)), listing %>
+      <div class="panel-body">
+        <span><%= listing.points %>kp</span>
+        <p><%= listing.description %></p>
+        <strong><%= listing.user.name if listing.user %></strong>
+      </div>
+    </div>
+  <% end %>
+</div>
