@@ -22,12 +22,8 @@
   </div>
   <!-- List group -->
   <ul class="list-group">
-    <% @listing.offers.each do |offer| %>
-      <% unless offer == @listing.highest_offer %>
-        <li class="list-group-item">
-          <%= offer.user.name %> | <%= offer.user.points %>
-        </li>
-      <% end %>
-    <% end %>
+    <li class="list-group-item">
+      <%= @listing.offers.count - 1 %> Offers
+    </li>
   </ul>
 </div>
