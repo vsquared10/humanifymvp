@@ -139,16 +139,6 @@ ActiveRecord::Schema.define(version: 20150701001818) do
     t.string  "category", default: "default"
   end
 
-  create_table "offers", force: :cascade do |t|
-    t.string   "status",     default: "pending"
-    t.boolean  "reversed",   default: false
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.integer  "listing_id"
-    t.integer  "user_id"
-    t.integer  "points"
-  end
-
   create_table "reviews", force: :cascade do |t|
     t.string   "text"
     t.datetime "created_at", null: false
@@ -194,9 +184,9 @@ ActiveRecord::Schema.define(version: 20150701001818) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.integer  "zip_code"
     t.integer  "sash_id"
     t.integer  "level",                  default: 0
-    t.integer  "zip_code"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -16,3 +16,5 @@
 //= require jquery.turbolinks
 //= require turbolinks
 //= require masonry/jquery.masonry
+//= require menu-bar
+//= require webfonts
