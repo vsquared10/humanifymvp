@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150623191943) do
-=======
 ActiveRecord::Schema.define(version: 20150701001818) do
->>>>>>> 6e30791c5bc83093b6acc81880ba737cd0742990
 
   create_table "badges_sashes", force: :cascade do |t|
     t.integer  "badge_id"

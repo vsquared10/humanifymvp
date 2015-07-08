@@ -8,15 +8,15 @@
     <div class="panel panel-default">
       <div class="panel-heading center-block">
         <%= image_tag @listing.image.url(:medium) %>
-        <h1> 
+        <h3> 
           Asking for: <br>
           <%= @listing.points %> KP
-        </h1>
-        <% if @listing.offers.present?  %>
-          <h1> 
+        </h3>
+        <% if @listing.valid_offers.present?  %>
+          <h3> 
             Highest Current Bid: <br>
             <%= @listing.highest_offer.points %> KP
-          </h1>
+          </h3>
         <% end %>
       </div>
       <div class="panel-body">
@@ -26,11 +26,11 @@
             <%= @listing.user.name if @listing.user %>
           </strong>
         </p>
-        <p>
         <% unless @listing.posted_by?(current_user) %>
+          <p>
             <%= render "listings/user/offer" %>
-          <% end %>
-        </p>
+          </p>
+        <% end %>
         <% if @listing.user == current_user %>
           <%= link_to edit_listing_path(@listing) do %>
             <span class="glyphicon glyphicon-edit"></span>
@@ -46,7 +46,7 @@
     </div>
   </div>
 </div>
-<% if @listing.posted_by?(current_user) and @listing.offers.any? %>
+<% if @listing.posted_by?(current_user) and @listing.valid_offers.any? %>
   <div class="row">
     <div class="col-md-offset-2 col-md-8">
       <%= render "listings/user/offer_list" %>

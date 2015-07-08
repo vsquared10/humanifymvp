@@ -26,7 +26,11 @@ class Listing < ActiveRecord::Base
   has_many :claims
 
   def highest_offer
-    self.offers.order("points DESC").first
+    self.offers.where(status:"pending").order("points DESC").first
+  end
+
+  def valid_offers
+    self.offers.where(status:"pending")
   end
 
   def posted_by?(user)
@@ -36,8 +40,10 @@ class Listing < ActiveRecord::Base
   private
 
   def listing_type_options
-    unless self.list_type == "ask" and self.points == 0
-      errors.add(:base, 'An listing that asks for something must be free.')
+    if self.list_type == "ask"
+      unless self.points == 0
+        errors.add(:base, 'An listing that asks for something must be free.')
+      end
     end
   end
 
