@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  has_merit
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -15,6 +13,13 @@ class User < ActiveRecord::Base
     :with => /\A(\d{5}\z)|(\d{5}-\d{4}\z)/, presence: true
 
   after_create :init_karma
+
+  acts_as_messageable
+  has_merit
+
+  def mailboxer_email(object)
+    email
+  end
 
   private
 

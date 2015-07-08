@@ -3,10 +3,89 @@ $navbar-default-bg: #FFFFFF;
 $navbar-default-link-color: #f2253e;
 $btn-danger-bg: #f2253e;
 $link-color: #f2253e;
+$medium: 767px;
+
+body{
+  font-family:"Proxima Nova Alt Light", 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  padding-top: 70px;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: 500;
+  font-family: "Museo Slab 500", Rockwell, Georgia, serif;
+  font-style: normal; 
+}
+.navbar-brand#small-logo {
+  padding: 8px 15px;
+}
 
 .navbar-header img {
-  height: 46px;
+  max-height: 35px;
 }
+
+@media (max-width: $medium) { 
+ .navbar-right.avatar {
+   display: none;
+ }
+}
+.navbar-right.avatar {
+  margin-right: 15px;
+}
+
+span.input-group-btn {
+  z-index: 2;
+}
+
+.modal-content.auth {
+  padding: 2.5rem 0 2.5rem 0;
+}
+
+#user-avatar{
+  max-height: 35px;
+  margin-top: 10px;
+  
+  cursor: pointer;
+}
+
+#listing-search-input {
+        margin:0;
+        margin-top: 10px;
+        padding: 0;
+    }
+
+#listing-search-input .search-query {
+    padding-right: 3px;
+    padding-right: 4px \9;
+    padding-left: 3px;
+    padding-left: 4px \9;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#listing-search-input button {
+    border: 0;
+    background: none;
+    /** belows styles are working good */
+    padding: 2px 5px;
+    margin-top: 2px;
+    position: relative;
+    left: -28px;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color:#D9230F;
+}
+
+.search-query:focus + button {
+    z-index: 3;   
+}
+
 .col-md-6 {
 	text-align: center;
 }

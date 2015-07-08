@@ -11,3 +11,7 @@ $ ->
 		$('#listings').masonry
       itemSelector: '.box'
       isFitWidth: true
+
+#Hack to remove double fields - FIX THIS
+if $('.tagit').length 
+  $('.tagit').last().hide()
