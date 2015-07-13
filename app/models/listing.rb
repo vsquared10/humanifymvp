@@ -13,6 +13,7 @@ class Listing < ActiveRecord::Base
 
   validates_attachment_content_type :image, :content_type => /\Aimage/
 
+  validates_inclusion_of :status, in: %w{ pending accepted closed }
   validates_inclusion_of :list_type, in: %w{ ask offer communtiy_project }
   validates_inclusion_of :visibility, in: %w{ global local }
   validate :listing_type_options
@@ -24,6 +25,19 @@ class Listing < ActiveRecord::Base
 
   has_many :reviews
   has_many :claims
+
+  def self.open_global
+    self.where(["visibility = :visibility or status = :status",{
+      visibility:"global", status:"pending"}])
+  end
+
+  def accepted?
+    self.status == "accepted"
+  end
+
+  def accepted_user
+    self.offers.where(status: "accepted").first.user
+  end
 
   def highest_offer
     self.offers.where(status:"pending").order("points DESC").first

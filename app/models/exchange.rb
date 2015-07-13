@@ -8,28 +8,34 @@ class Exchange < ActiveRecord::Base
 
   validates_inclusion_of :status, in: %w{ pending paid failed }
 
-  before_validation :check_balance
+  before_validation :verify_balance
 
-# Valid Exchange
-# Exchange.create(amount:200, destination:first.id,
-  #               source:last.id,
-  #               description:
-  #               "transfer 200 points from #{last.name} to #{first.name}")
+  after_create :transfer_funds
+
+  def self.transfer(source,dest,amount)
+    self.create(
+      amount: amount,
+      destination: dest.id,
+      source: source.id,
+      description: "transfer #{amount} points from #{source.name} to #{dest.name}"
+    )
+  end
 
   private
 
-  def transfer(source,destination,amount)
-    source.subtract_points(amount)
-    destination.add_points(amount)
+  def transfer_funds
+    if self.status == "paid"
+      User.find(self.source).subtract_points(self.amount)
+      User.find(self.destination).add_points(self.amount)
+    end
   end
 
-  def check_balance
+  def verify_balance
     source_user = User.find(source)
     self.status = "pending"
 
-    if source_user.points > amount
+    if source_user.points >= amount
       self.status = "paid"
-      transfer(source_user, User.find(destination), amount)
     elsif  source_user.points < amount
       self.status = "failed"
     end

@@ -7,8 +7,19 @@ class Offer < ActiveRecord::Base
   validate :user_doesnt_own_listing, on: :create
   validate :offer_more_than_highest_valid_bid, on: :create
   validate :offer_more_than_listing_amount, on: :create
-  validate :offer_less_than_user_balance
-  validate :user_posted_listing?, on: "update"
+  validate :offer_less_than_user_balance, on: :create
+
+
+  def accept_offer
+    #Attempt to Exchange Points
+    offer_exchange = Exchange.transfer(self.user,
+                                       self.listing.user,
+                                       self.points)
+    if offer_exchange.status == "paid"
+      self.update(status: "accepted")
+      self.listing.update(status: "accepted")
+    end
+  end
 
   private
 
@@ -36,7 +47,4 @@ class Offer < ActiveRecord::Base
     end
   end
 
-  def user_posted_listing?
-    #Validate if current user posted listing
-  end
 end

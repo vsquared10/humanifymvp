@@ -23,7 +23,7 @@ class OffersController < ApplicationController
   def update
     respond_to do |format|
       if status_param[:status] == "Accept"
-        @offer.update(status: "accepted")
+        @offer.accept_offer
       elsif status_param[:status] == "Decline"
         @offer.update(status: "declined")
       end

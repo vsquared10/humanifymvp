@@ -83,11 +83,12 @@ span.input-group-btn {
 }
 
 .search-query:focus + button {
-    z-index: 3;   
+    z-index: 3;
 }
 
-.col-md-6 {
-	text-align: center;
+.col-centered {
+    float: none;
+    margin: 0 auto;
 }
 
 hr {

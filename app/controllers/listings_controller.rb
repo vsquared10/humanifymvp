@@ -10,9 +10,9 @@ class ListingsController < ApplicationController
       @listings = Listing.where(
         ["city = :city or visibility = :visibility",{
         city: current_user.zip_code.to_s.to_region(city: true),
-        visibility: "global" }])
+        visibility: "global" }]).where(status: "pending")
     else
-      @listings = Listing.where(visibility:"global")
+      @listings = Listing.open_global
     end
   end
 
