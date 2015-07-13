@@ -7,11 +7,12 @@ class ListingsController < ApplicationController
   # GET /listings.json
   def index
     if user_signed_in?
-      @listings = Listing.where(["city = :city or visibility = :visibility", {
+      @listings = Listing.where(
+        ["city = :city or visibility = :visibility",{
         city: current_user.zip_code.to_s.to_region(city: true),
-        visibility: "global" }])
+        visibility: "global" }]).where(status: "pending")
     else
-      @listings = Listing.where(visibility:"global")
+      @listings = Listing.open_global
     end
   end
 

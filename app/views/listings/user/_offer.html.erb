@@ -1,0 +1,20 @@
+<%= form_for @listing.offers.build, url: offer_path(@listing.id), html: { multipart: true } do |f| %>
+  Set Your Offer
+  <% if @listing.valid_offers.present? %>
+      <div class="form-group">
+          <%= f.number_field :points,
+            value: @listing.highest_offer.points,
+            min: @listing.highest_offer.points,
+            step: 50, class: "form-control" %>
+      </div>
+  <% else %>
+      <div class="form-group">
+          <%= f.number_field :points, value: @listing.points,
+             min: @listing.points,
+             step: 50, class: "form-control" %>
+      </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.submit "Offer", class: "btn btn-danger" %>
+  </div>
+<% end %>
