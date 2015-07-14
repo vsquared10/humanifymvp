@@ -45,6 +45,8 @@ gem 'merit'
 
 gem 'mailboxer'
 
+gem 'layer-ruby', require: 'layer'
+
 group :development, :test do
 	# Use sqlite3 as the database for Active Record
 	gem 'sqlite3'
@@ -62,6 +64,8 @@ group :development, :test do
   gem 'pry-rails'
   # Better error page for Rack apps. 
   gem 'better_errors'
+
+  gem 'dotenv-rails'
 end
 
 group :production do
