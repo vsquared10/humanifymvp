@@ -5,6 +5,8 @@
   <title>Humanify</title>
   <%= stylesheet_link_tag params[:controller], media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="shortcut icon" href="<%= image_path('favicon.gif') %>" type="image/icon"> 
+  <link rel="icon" href="<%= image_path('favicon.gif') %>" type="image/icon">
 </head>
 <body>
 	
@@ -15,6 +17,8 @@
 		<% end %>
 		<%= yield %>
 	</div>
+
+  <%= render 'layouts/footer' %>
 
   <%= javascript_include_tag params[:controller], 'data-turbolinks-track' => true %>
 </body>

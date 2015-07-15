@@ -31,6 +31,31 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .navbar-right.avatar {
   margin-right: 15px;
 }
+.footer {
+  padding-bottom: 18px;
+  padding-top: 26px;
+  margin-top: 10px;
+  color: rgb(210, 210, 210);
+}
+.footer .message{
+  color: #777777;
+}
+.footer .nav > li > a {
+  padding: 0px 15px;
+}
+.footer .nav-pills.links > li {
+  float: right;
+}
+.footer .nav > li > a {
+  color: #d2d2d2;
+  padding: 0px 0 0px 15px;
+}
+.footer #copyright { margin-top: 18px; }
+.split {
+  display: block;
+  width: 100%;
+  border-top: solid 1px rgb(210, 210, 210);
+}
 
 span.input-group-btn {
   z-index: 2;
