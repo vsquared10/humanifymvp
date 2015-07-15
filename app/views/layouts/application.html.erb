@@ -9,16 +9,18 @@
   <link rel="icon" href="<%= image_path('favicon.gif') %>" type="image/icon">
 </head>
 <body>
-	
-	<%= render 'layouts/header' %>
-	<div class="container">
-		<% flash.each do |name, msg| %>
-			<%= content_tag(:div, msg, class: "alert alert-info") %>
-		<% end %>
-		<%= yield %>
-	</div>
-
-  <%= render 'layouts/footer' %>
+  <%= render 'layouts/mobile_header' %>
+  <div id="panel">
+    <div id="buffer"></div>
+    <%= render 'layouts/header' %>
+    <div class="container" id="panel">
+      <% flash.each do |name, msg| %>
+        <%= content_tag(:div, msg, class: "alert alert-info") %>
+      <% end %>
+      <%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
+  </div>
 
   <%= javascript_include_tag params[:controller], 'data-turbolinks-track' => true %>
 </body>
