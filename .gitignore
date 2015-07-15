@@ -16,4 +16,5 @@
 !/log/.keep
 /tmp
 .DS_store
+.env
 /public/system/*
