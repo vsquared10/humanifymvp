@@ -169,7 +169,7 @@ span.input-group-btn {
     margin: 0 auto;
 }
 
-.welcome-banner{
+.welcome-banner {
   background-image: image-url("home-banner.png");
   position: absolute;
   z-index: -2;
@@ -191,6 +191,15 @@ span.input-group-btn {
   span { color: #d2d2d2; }
   p { font-size: 16px; }
   .btn { border-radius: 30px; }
+}
+
+@media (max-width: $small-medium) { 
+  .welcome-banner {
+    height: 768px;
+  }
+  .hero {
+    margin-bottom: 268px;
+  }
 }
 hr {
 	color: #666666;
