@@ -1,17 +1,24 @@
 <% unless user_signed_in? %>
-  <div class="container-fluid">
-    <h1>Welcome to Humanify!</h1>
-    <h2>A sharing economy platform <br>where you can build wealth by building trust.</br.></h2>
-    <p>Feel empowered to do things that make you happy. If you're happy with what you do, you'll do it really well, so use Humanify to find people who need your passion, and find passionate people who do amazing work.
+  <div class="welcome-banner"></div>
+  <div class="container-fluid hero">
+    <div class="row">
+      <div class="col-md-6">
+        <h1>Welcome to Humanify!</h1>
+        <h3>
+          <span>
+            A sharing economy platform <br>
+            where you can build wealth by building trust.</br>
+          </span>
+        </h3>
+        <p>Feel empowered to do things that make you happy. If you're happy with what you do, you'll do it really well, so use Humanify to find people who need your passion, and find passionate people who do amazing work.
 
-    The more good things you do for others, the more Kudos points you earn. Kudos points are used like cash to buy goods and services on the community marketplace.</p>
-    <br>
-    <a href="#" role="button">
-      <span class="glyphicon glyphicon-plus"></span>
-    </a>Invite friends to Humanify</br>
-    <a href="#" role="button">
-      <span class="glyphicon glyphicon-user"></span>
-    </a>Find friends who already use Humanify
+        The more good things you do for others, the more Kudos points you earn. Kudos points are used like cash to buy goods and services on the community marketplace.</p>
+        <br>
+        <%= link_to new_user_registration_path do %>
+          <button type="button" class="btn btn-lg btn-danger">Sign Up</button>
+        <% end %>
+      </div>
+    </div>
   </div>
 <% end %>
 <hr>

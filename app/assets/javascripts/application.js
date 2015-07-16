@@ -17,4 +17,6 @@
 //= require turbolinks
 //= require masonry/jquery.masonry
 //= require menu-bar
+//= require slideout
+//= require slideout_trigger
 //= require webfonts

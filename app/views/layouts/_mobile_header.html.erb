@@ -1,27 +1,19 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav id="mobile-menu" class="navbar-slideout">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
       <%= link_to image_tag('humanify-a.png'), root_path, id:"small-logo", class: "navbar-brand"%><!-- image_tag gives huge image;doesn't resize appropriately -->
     <!-- Collect the nav links, forms, and other content for toggling -->
-
-        <button class="toggle-button navbar-toggle">☰</button>
-      <ul class="nav navbar-nav navbar-right avatar">
+      <ul class="nav navbar-nav avatar">
         <% if user_signed_in? %>
           <!-- Username & Kudos Balance -->
           <%= render 'layouts/authenticated' %>
 
         <% else %>
           <!-- Sign-Up & Sign-In -->
-          <li data-toggle="modal" data-target="#myModal">
+          <li data-toggle="" data-target="">
             <%= image_tag('elements-11.png', id: "user-avatar") %>
           </li>
         <% end %>
       </ul>
-      <!-- Search function -->
-      <% if params['controller'] == "listings" %>
-        <%= render 'layouts/searchbar' %>
-      <% end %>
-    </div>
   </div><!-- /.container-fluid -->
 </nav>
