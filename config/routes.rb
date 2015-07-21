@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'about' => 'pages#about' #create about_path
   get 'profile' => 'pages#profile' #create profile_path
 
-  post 'offer/:id' => 'offers#create', as: 'offer'
-  patch 'offer/:id' => 'offers#update', as: 'offer_update'
+  resources :offer, only: [:create, :update]
+
+  # catch all => homepage
 end
