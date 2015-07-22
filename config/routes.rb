@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'about' => 'pages#about' #create about_path
   get 'profile' => 'pages#profile' #create profile_path
 
-  resources :offer, only: [:create, :update]
+  resources :offers, only: [:create, :update]
 
   # catch all => homepage
 end
