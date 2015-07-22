@@ -39,6 +39,10 @@ class Listing < ActiveRecord::Base
     self.offers.where(status: "accepted").first.user
   end
 
+  def points_starting
+    self.valid_offers.present? ? self.highest_offer.points : self.points
+  end
+
   def highest_offer
     self.offers.where(status:"pending").order("points DESC").first
   end
