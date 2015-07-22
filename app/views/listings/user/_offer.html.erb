@@ -1,5 +1,8 @@
-<%= form_for @listing.offers.build, url: offer_path(@listing.id), html: { multipart: true } do |f| %>
-  Set Your Offer
+<%= form_for @listing.offers.build, html: { multipart: true } do |f| %>
+  <b>
+    Make an offer for <%= @listing.user.name %>'s <%= @listing.title %>
+  </b>
+  <%= f.hidden_field :listing_id, value: @listing.id %>
   <% if @listing.valid_offers.present? %>
       <div class="form-group">
           <%= f.number_field :points,
