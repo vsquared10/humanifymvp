@@ -6,6 +6,9 @@
     <% current_user.notifications.each do |notification| %>
       <% unless notification.parameters[:message].nil? %>
         <li><%= notification.parameters[:message] %></li>
+        <% unless current_user.notifications.last == notification %>
+          <li role="separator" class="divider"></li>
+        <% end %>
       <% end %>
     <% end %>
   </ul>
