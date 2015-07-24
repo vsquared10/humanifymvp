@@ -26,6 +26,10 @@ class User < ActiveRecord::Base
     email
   end
 
+  def notifications
+    self.activities.all.where(viewed: false)
+  end
+
   private
 
   def init_karma
