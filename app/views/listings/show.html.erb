@@ -23,24 +23,23 @@
     <div class="panel panel-default">
       <div class="panel-heading center-block">
         <%= image_tag @listing.image.url(:medium) %>
-        <h3> 
-          Asking for: <br>
-          <%= @listing.points %> KP
-        </h3>
+        <h2><%= @listing.title %></h2>
+        <p><%= @listing.description %></p>
+      </div>
+
+      <div class="panel-body">
         <% if @listing.valid_offers.present?  %>
           <h3> 
             Highest Current Bid: <br>
             <%= @listing.highest_offer.points %> KP
           </h3>
+        <% else %>
+          <h3> 
+            <%= @listing.user.name %> is asking for: <br>
+            <%= @listing.points %> KP
+          </h3>
         <% end %>
-      </div>
-      <div class="panel-body">
-        <p><%= @listing.description %></p>
-        <p>
-          <strong>
-            <%= @listing.user.name if @listing.user %>
-          </strong>
-        </p>
+        <br>
         <% unless @listing.posted_by?(current_user) %>
           <p>
             <%= render "listings/user/offer" %>

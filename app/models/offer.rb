@@ -10,15 +10,36 @@ class Offer < ActiveRecord::Base
   validate :offer_less_than_user_balance, on: :create
 
 
-  def accept_offer
-    #Attempt to Exchange Points
+  def accept
+    # Attempt to Exchange Points
     offer_exchange = Exchange.transfer(self.user,
                                        self.listing.user,
                                        self.points)
     if offer_exchange.status == "paid"
       self.update(status: "accepted")
       self.listing.update(status: "accepted")
+
+      self.user.create_activity(
+        key: 'offer.accepted',
+        owner: self.user,
+        params:{
+          message: "#{ self.listing.user.name } has accepted your offer." 
+        }
+      )
+     #Open dialogue message between both users
     end
+  end
+
+  def decline
+    self.update(status: "declined")
+    self.user.create_activity key: 'offer.declined', owner: self.user
+    self.user.create_activity(
+      key: 'offer.accepted',
+      owner: self.user,
+      params:{
+        message: "#{ self.listing.user.name } has decided not to take your offer."
+      }
+    )
   end
 
   private

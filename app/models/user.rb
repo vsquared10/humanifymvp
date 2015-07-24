@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include PublicActivity::Model
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -22,6 +24,10 @@ class User < ActiveRecord::Base
 
   def mailboxer_email(object)
     email
+  end
+
+  def notifications
+    self.activities.all.where(viewed: false)
   end
 
   private

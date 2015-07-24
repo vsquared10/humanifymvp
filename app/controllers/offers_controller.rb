@@ -1,11 +1,11 @@
 class OffersController < ApplicationController
   before_action :authenticate_user!
 
-  before_action :set_offer, only: [:show, :edit, :update, :destroy]
+  before_action :set_offer, on: :update
 
   def create
     @offer = current_user.offers.build(offer_params)
-    @offer.listing_id = params[:id]
+    @offer.listing_id = params[:listing_id]
 
     respond_to do |format|
       if @offer.save
@@ -23,9 +23,9 @@ class OffersController < ApplicationController
   def update
     respond_to do |format|
       if status_param[:status] == "Accept"
-        @offer.accept_offer
+        @offer.accept
       elsif status_param[:status] == "Decline"
-        @offer.update(status: "declined")
+        @offer.decline
       end
 
       if @offer.save

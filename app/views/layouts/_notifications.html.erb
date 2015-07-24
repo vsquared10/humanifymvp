@@ -1,0 +1,15 @@
+<% unless current_user.notifications.nil? %>
+  <a href="#" id="alerts" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <span class="badge"><%= current_user.notifications.count %></span>
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="alerts">
+    <% current_user.notifications.each do |notification| %>
+      <% unless notification.parameters[:message].nil? %>
+        <li><%= notification.parameters[:message] %></li>
+        <% unless current_user.notifications.last == notification %>
+          <li role="separator" class="divider"></li>
+        <% end %>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
