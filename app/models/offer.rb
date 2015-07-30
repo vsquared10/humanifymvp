@@ -23,7 +23,8 @@ class Offer < ActiveRecord::Base
         key: 'offer.accepted',
         owner: self.user,
         params:{
-          message: "#{ self.listing.user.name } has accepted your offer." 
+          message: "#{ self.listing.user.name } has accepted your offer.",
+          object_id: self.id
         }
       )
      #Open dialogue message between both users
@@ -37,7 +38,8 @@ class Offer < ActiveRecord::Base
       key: 'offer.accepted',
       owner: self.user,
       params:{
-        message: "#{ self.listing.user.name } has decided not to take your offer."
+        message: "#{ self.listing.user.name } has decided not to take your offer.",
+        object_id: self.id
       }
     )
   end
