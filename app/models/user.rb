@@ -12,10 +12,11 @@ class User < ActiveRecord::Base
   has_many :listings
   has_many :exchanges
   has_many :offers
+  has_many :notifications
 
   validates :name, presence: true
   validates_format_of :zip_code,
-    :with => /\A(\d{5}\z)|(\d{5}-\d{4}\z)/, presence: true
+    with: /\A(\d{5}\z)|(\d{5}-\d{4}\z)/, presence: true
 
   after_create :init_karma
 
@@ -26,8 +27,8 @@ class User < ActiveRecord::Base
     email
   end
 
-  def notifications
-    self.activities.all.where(viewed: false)
+  def unread_notifications
+    self.notifications.all.where(viewed: false).order("created_at desc")
   end
 
   private

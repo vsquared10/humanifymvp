@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150723193605) do
+ActiveRecord::Schema.define(version: 20150727232749) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -164,6 +164,14 @@ ActiveRecord::Schema.define(version: 20150723193605) do
   create_table "merit_scores", force: :cascade do |t|
     t.integer "sash_id"
     t.string  "category", default: "default"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.string   "message"
+    t.boolean  "viewed",     default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "user_id"
   end
 
   create_table "offers", force: :cascade do |t|

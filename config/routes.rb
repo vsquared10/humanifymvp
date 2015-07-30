@@ -9,5 +9,9 @@ Rails.application.routes.draw do
 
   resources :offers, only: [:create, :update]
 
+  resources :notifications, only: [:index]
+
+  get 'notification/delete' => 'notification#delete'
+
   # catch all => homepage
 end
