@@ -7,3 +7,7 @@ Humanify.Collections.NotificationsCollection = Backbone.Collection.extend({
   model: Humanify.Models.Notification,
   url: '/notifications'
 });
+
+$('#userNoti').on('click',function(e, element){
+  $('#userNoti .alerts.dropdown-menu').toggle();
+})

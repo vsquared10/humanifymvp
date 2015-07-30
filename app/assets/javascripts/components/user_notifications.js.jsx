@@ -14,12 +14,9 @@ var UserNotifications = React.createClass({
     }
     return (
       <div>
-        <a href="#" id="alerts" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="true">
-          <span className="badge">{this.props.notifications.length}</span>
-        </a>
+        <span className="badge">{this.props.notifications.length}</span>
         <NotificationsList notificationsComp={this.props.notificationsComp}
-                          className="dropdown-menu"/>
+                          className="alerts dropdown-menu"/>
       </div>
     );
   }

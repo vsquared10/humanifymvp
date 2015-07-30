@@ -43,7 +43,26 @@ button.toggle-button.navbar-toggle:focus {
   background-color: white;
 }
 
-@media (max-width: $small-medium) { 
+#userNoti #userImg,#userNoti #notificationsW {
+  display: inline-block;
+}
+
+li#pointsU a {
+  color: #D2D2D2;
+  font-size: 17px;
+}
+#notificationsW {
+  margin-top: 8px;
+  margin-left: -22px;
+}
+#notificationsW .badge {
+  font-size: 14px;
+  color: #f2253e;
+  background-color: transparent;
+  margin-left: 5px;
+}
+
+@media (max-width: $small-medium) {
   .navbar-brand#small-logo {
     padding: 15px 15px;
   }

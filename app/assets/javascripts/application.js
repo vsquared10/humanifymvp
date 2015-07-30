@@ -6,6 +6,7 @@
 //= require bootstrap
 //= require jquery.turbolinks
 //= require turbolinks
+//= require pusher
 //= require underscore
 //= require backbone
 //= require backbone_rails_sync
