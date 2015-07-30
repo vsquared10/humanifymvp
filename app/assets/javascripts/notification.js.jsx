@@ -5,7 +5,7 @@ $(function(){
   $('#userNoti').on('click',function(e, element) {
     e.preventDefault();
     $('#userNoti .alerts.dropdown-menu').toggle();
-  })
+  });
 
   setInterval(function() {
     notificationsCollection.fetch({
