@@ -47,6 +47,17 @@ button.toggle-button.navbar-toggle:focus {
   display: inline-block;
 }
 
+#userNoti .alerts li {
+  padding: 5px;
+  width: 295px;
+  border-bottom: solid rgb(239, 239, 239) 1px;
+  margin-bottom: 5px;
+}
+.alerts.dropdown-menu {
+  border-radius: 0px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  margin-top: 4px;
+}
 li#pointsU a {
   color: #D2D2D2;
   font-size: 17px;
