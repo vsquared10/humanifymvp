@@ -46,7 +46,9 @@ button.toggle-button.navbar-toggle:focus {
 #listing-search-input {
   cursor: default;
   opacity: 0;
-  width: 80%;
+  width: 40%;
+  position: relative;
+  z-index: -10;
 }
 #listing-search-input input,
 #listing-search-input button,
@@ -55,6 +57,7 @@ button.toggle-button.navbar-toggle:focus {
 }
 .listings-index#listing-search-input {
   display: block;
+  width: 80%;
   opacity: 1;
 }
 
