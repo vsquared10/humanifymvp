@@ -5,7 +5,7 @@ class OffersController < ApplicationController
 
   def create
     @offer = current_user.offers.build(offer_params)
-    @offer.listing_id = params[:listing_id]
+    #@offer.listing_id = params[:listing_id]
 
     respond_to do |format|
       if @offer.save
@@ -48,7 +48,7 @@ class OffersController < ApplicationController
     end
 
     def offer_params
-      params.require(:offer).permit(:points,:status,:reversed)
+      params.require(:offer).permit(:listing_id,:points,:status,:reversed)
     end
 
     def status_param

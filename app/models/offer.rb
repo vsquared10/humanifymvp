@@ -9,6 +9,8 @@ class Offer < ActiveRecord::Base
   validate :offer_more_than_listing_amount, on: :create
   validate :offer_less_than_user_balance, on: :create
 
+  after_save :notify_first_listing_offer
+
 
   def accept
     # Attempt to Exchange Points
@@ -19,33 +21,31 @@ class Offer < ActiveRecord::Base
       self.update(status: "accepted")
       self.listing.update(status: "accepted")
 
-      self.user.create_activity(
-        key: 'offer.accepted',
-        owner: self.user,
-        params:{
-          message: "#{ self.listing.user.name } has accepted your offer.",
-          object_id: self.id
-        }
-      )
-     #Open dialogue message between both users
+      self.user.notifications.create(
+        message: "#{ self.listing.user.name } has accepted your offer.",
+        url: "/listings/#{self.listing.id}")
+      #Open dialogue message between both users
     end
   end
 
   def decline
     self.update(status: "declined")
-    self.user.create_activity key: 'offer.declined', owner: self.user
-    self.user.create_activity(
-      key: 'offer.accepted',
-      owner: self.user,
-      params:{
-        message: "#{ self.listing.user.name } has decided not to take your offer.",
-        object_id: self.id
-      }
-    )
+    self.user.notifications.create(
+      message: "#{ self.listing.user.name } has decided not to take your offer.",
+      url: "/listings/#{self.listing.id}")
   end
 
   private
+  # Notifications
+  def notify_first_listing_offer
+    if self.listing.offers.first == self
+      self.listing.user.notifications.create(
+        message: "Your post for #{ self.listing.title} has its first offer.",
+        url: "/listings/#{self.listing.id}")
+    end
+  end
 
+  # Custom Validations
   def user_doesnt_own_listing
     if self.listing.posted_by?(self.user)
       errors.add(:base, 'You cannot make a offer on you own listing.')
