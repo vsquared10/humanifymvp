@@ -5,7 +5,7 @@ $(function(){
   var pusher = new Pusher(PUSHER_KEY);
   var notificationsChannel = pusher.subscribe('notifications');
 
-  $('li#userNoti').on('click', function() {
+  $('#userNoti').on('click', function() {
     $('#userNoti .alerts.dropdown-menu').toggle();
   });
 
