@@ -43,7 +43,25 @@ button.toggle-button.navbar-toggle:focus {
   background-color: white;
 }
 
-#userNoti #userImg,#userNoti #notificationsW {
+#listing-search-input {
+  cursor: default;
+  opacity: 0;
+  width: 80%;
+}
+#listing-search-input input,
+#listing-search-input button,
+#listing-search-input span{
+  cursor: default;
+}
+.listings-index#listing-search-input {
+  display: block;
+  opacity: 1;
+}
+
+li#userNoti {
+  cursor: pointer;
+}
+#userNoti #userImg, #userNoti #notificationsW {
   display: inline-block;
 }
 

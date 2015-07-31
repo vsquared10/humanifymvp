@@ -4,18 +4,18 @@ var UserNotifications = React.createClass({
   mixins: [Backbone.React.Component.mixin],
   getDefaultProps: function() {
     return {
-      notifications: {length: ""},
-      notificationsComp: []
+      notificationsComponents: []
     };
   },
+
+  notificationsCount: function() {
+    return this.props.notificationsComponents.length;
+  },
   render: function() {
-    if(this.props.notifications.length == 0){
-      this.props.notifications.length = ""
-    }
     return (
       <div>
-        <span className="badge">{this.props.notifications.length}</span>
-        <NotificationsList notificationsComp={this.props.notificationsComp}
+        <span className="badge">{this.notificationsCount()}</span>
+        <NotificationsList notificationsItems={this.props.notificationsComponents}
                           className="alerts dropdown-menu"/>
       </div>
     );

@@ -13,5 +13,7 @@ Rails.application.routes.draw do
 
   get 'notification/delete' => 'notification#delete'
 
+  #Pusher Auth Endpoint
+  #'pusher/auth' => 'pusher#auth'
   # catch all => homepage
 end
