@@ -13,5 +13,6 @@
  *= require 'masonry/transitions'
  *= require 'bootstrap_and_customization'
  *= require 'slideout'
+ *= require 'chat'
  *= require_self
  */

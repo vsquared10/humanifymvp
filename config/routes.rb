@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get 'about' => 'pages#about' #create about_path
   get 'profile' => 'pages#profile' #create profile_path
+  get 'chat' => 'pages#chat' #create profile_path
 
   resources :offers, only: [:create, :update]
 
