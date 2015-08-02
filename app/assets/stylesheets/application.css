@@ -1,7 +1,9 @@
 /*
  *= require 'masonry/transitions'
- *= require 'bootstrap_and_customization'
  *= require 'slideout'
+ *= require 'ratchet'
+ *
+ *= require 'bootstrap_and_customization'
  *= require './inbox/inbox'
  *= require_self
  */

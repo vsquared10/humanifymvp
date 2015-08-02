@@ -44,7 +44,9 @@ button.toggle-button.navbar-toggle:hover,
 button.toggle-button.navbar-toggle:focus {
   background-color: white;
 }
-
+#mobile-menu {
+  display: none;
+}
 #inbox {
   font-size: 17px;
   cursor: pointer;

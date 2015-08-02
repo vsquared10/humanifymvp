@@ -6,7 +6,10 @@ ruby '2.2.2'
 gem 'rails', '4.2.0'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', git: 'git://github.com/edwardreed/sass-rails.git', branch: 'backport'
+
+gem 'sprockets', '<= 2.11.0'
+gem 'sprockets-rails', '2.2.2'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
