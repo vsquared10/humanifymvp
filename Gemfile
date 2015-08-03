@@ -35,6 +35,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # bootstrap package
 gem 'bootstrap-sass'
 
+gem 'react-rails', '~> 1.0'
+
+gem 'browserify-rails'
+
 gem 'devise', '~> 3.4.1'
 
 gem 'aws-sdk', '~> 1.5.7'
@@ -60,8 +64,6 @@ gem 'pusher'
 gem 'json-jwt'
 
 gem "rails-backbone"
-
-gem 'react-rails', '~> 1.0'
 
 gem 'httparty'
 
