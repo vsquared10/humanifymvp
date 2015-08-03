@@ -10,9 +10,12 @@ By [Victor Vulovic](http://linkedin.com/in/victorvulovic)
 rvm install ruby-2.2.0-preview1
 ```
 
-## Install Gems 
+## Install Gems / NPM Packages
 ```
 bundle install
+```
+```
+npm install
 ```
 
 ## Create Database and Migrate
