@@ -5,17 +5,20 @@ This is the alpha version of the [*Humanify MVP*](http://humanify.co) applicatio
 By [Victor Vulovic](http://linkedin.com/in/victorvulovic)
 
 # Setup
-## Project uses Ruby 2.2.0
-```
-rvm install ruby-2.2.0-preview1
-```
 
 ## Install Gems / NPM Packages
 ```
-bundle install
+bundle install;
+npm install;
 ```
+## Create an .env file with:
 ```
-npm install
+PUSHER_ID='SET ID'
+PUSHER_KEY='SET KEY'
+PUSHER_SECRET='SET SECRET'
+LAYER_KEY_ID='SET ID'
+LAYER_PROVIDER_ID='SET ID'
+LAYER_PLATFORM_TOKEN='SET TOKEN'
 ```
 
 ## Create Database and Migrate
