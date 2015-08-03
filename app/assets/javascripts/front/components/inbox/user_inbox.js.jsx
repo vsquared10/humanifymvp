@@ -1,4 +1,4 @@
-var inboxCollection = new Humanify.Collections.inboxCollection;
+var inboxCollection = new Humanify.Collections.InboxCollection;
 
 var InboxNotifications = React.createClass({
   mixins: [Backbone.React.Component.mixin],
