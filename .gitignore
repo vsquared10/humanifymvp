@@ -18,3 +18,6 @@
 .DS_store
 .env
 /public/system/*
+
+# Ignore npm packages
+/node_modules/*
