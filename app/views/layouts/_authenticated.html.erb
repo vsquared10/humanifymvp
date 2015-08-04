@@ -4,7 +4,11 @@
   <% end %>
 </li>
 <li id="userNoti">
-  <%= render 'layouts/notifications'%>
+  <div id="userImg">
+    <%= image_tag('elements-11.png', id: "user-avatar") %>
+  </div>
+  <div id="notificationsComp"> <%= react_component('UserNotifications', prerender: true) %>
+  </div>
 </li>
 <li id="inbox">
   <%= link_to inbox_index_path do %>
