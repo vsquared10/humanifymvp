@@ -55,8 +55,6 @@ gem 'merit'
 
 gem 'mailboxer'
 
-gem 'layer-ruby', require: 'layer'
-
 gem 'public_activity'
 
 gem 'pusher'

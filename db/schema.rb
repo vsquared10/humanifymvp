@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150730170531) do
+ActiveRecord::Schema.define(version: 20150804031418) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -55,10 +55,6 @@ ActiveRecord::Schema.define(version: 20150730170531) do
     t.string   "description"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-  end
-
-  create_table "layer_sessions", force: :cascade do |t|
-    t.string "token"
   end
 
   create_table "listings", force: :cascade do |t|
