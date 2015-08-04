@@ -27,10 +27,6 @@ class User < ActiveRecord::Base
     email
   end
 
-  def unread_notifications
-    self.notifications.all.where(viewed: false).order("created_at desc")
-  end
-
   private
 
   def init_karma

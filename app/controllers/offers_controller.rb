@@ -1,7 +1,7 @@
 class OffersController < ApplicationController
   before_action :authenticate_user!
 
-  before_action :set_offer, on: :update
+  before_action :set_offer, only: :update
 
   def create
     @offer = current_user.offers.build(offer_params)

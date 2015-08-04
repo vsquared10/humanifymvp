@@ -13,13 +13,15 @@
 //= require react
 //= require react_ujs
 //= require lib/pusher
+//= require lib/fingerblast
 //
 //
 //= require ui/webfonts
-//= require bootstrap
+//= require lib/_bootstrap
 //= require lib/ratchet
 //= require lib/slideout
 //
+//= require ui/ratchet_touch
 //= require ui/menu/inbox
 //= require ui/menu/slideout_trigger
 //

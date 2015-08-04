@@ -1,7 +1,7 @@
 var inboxChannel = pusher.subscribe('inbox');
 
 $('li#inbox').on('click', function() {
-  $('#userNoti .alerts.dropdown-menu').toggle();
+  //$('#userNoti .alerts.dropdown-menu').toggle();
 });
 
 var getInbox = function() {
