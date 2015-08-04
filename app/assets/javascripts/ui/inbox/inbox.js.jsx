@@ -1,1 +1,1 @@
-console.log('yo!');
+$('li#inbox').css('display','none');
