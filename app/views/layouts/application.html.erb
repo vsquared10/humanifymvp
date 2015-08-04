@@ -22,7 +22,8 @@
       <%= render 'layouts/footer' %>
     </div>
     <% unless user_signed_in? %>
-      <%= render 'layouts/authenticate' %>
+      <%= render 'layouts/modal/authenticate' %>
+      <%= render 'layouts/modal/register' %>
     <% end %>
 
     <%= javascript_include_tag params[:controller], 'data-turbolinks-track' => true %>
