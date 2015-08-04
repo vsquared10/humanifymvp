@@ -1,6 +1,6 @@
 var notificationsChannel = pusher.subscribe('notifications');
 
-$('#userNoti').on('click', function() {
+$('#userNoti').children().on('click', function() {
   $('#userNoti .alerts.dropdown-menu').toggle();
 });
 
@@ -10,16 +10,15 @@ var getNotifications = function() {
 
       var notificationsComponents =  _.map(notifications.models,
         function(notification,key) {
-          return(<NotificationItem key={notification.id}
-                                  message={notification.attributes.message}
-                                  url={notification.attributes.url}
-                                  className="text-center" />);
+          return(<NotificationItem message={notification.attributes.message}
+                                   url={notification.attributes.url}
+                                   className="text-center" />);
         });
 
       React.render(
         <UserNotifications
           notificationsComponents = {notificationsComponents} />,
-        document.getElementById('notificationsW')
+        document.getElementById('notificationsComp')
       );
     },
     error: function() {
@@ -29,7 +28,7 @@ var getNotifications = function() {
               message="Notifications could not be loaded."
               className="text-center" />}
         />,
-        document.getElementById('notificationsW')
+        document.getElementById('notificationsComp')
       );
     }
   });

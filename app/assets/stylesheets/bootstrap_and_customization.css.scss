@@ -20,6 +20,42 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: "Museo Slab 500", Rockwell, Georgia, serif;
   font-style: normal; 
 }
+.close {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 18px;
+  color: #000000;
+  text-shadow: 0 1px 0 #ffffff;
+  opacity: 0.2;
+  filter: alpha(opacity=20);
+  text-decoration: none;
+}
+.close:hover {
+  color: #000000;
+  text-decoration: none;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  cursor: pointer;
+}
+.navbar-fixed-top, .navbar-fixed-bottom {
+  z-index: 8;
+}
+.navbar-default {
+  .navbar-nav {
+    li a.touch {
+        color: #f2253e;
+        padding-top: 1px;
+        padding-bottom: 10px;
+    }
+    .home {
+      padding: 5px 8px;
+      font-size: 16px;
+    }
+  }
+  .glyphicon-search {
+    top: -8px;
+  }
+}
 .navbar.navbar-default .navbar-toggle {
   border-color: white;
   padding: 15px;
@@ -74,7 +110,7 @@ button.toggle-button.navbar-toggle:focus {
 li#userNoti {
   cursor: pointer;
 }
-#userNoti #userImg, #userNoti #notificationsW {
+#userNoti #userImg, #userNoti #notificationsComp {
   display: inline-block;
 }
 
@@ -93,11 +129,11 @@ li#pointsU a {
   color: #D2D2D2;
   font-size: 17px;
 }
-#notificationsW {
+#notificationsComp {
   margin-top: 8px;
   margin-left: -22px;
 }
-#notificationsW .badge {
+#notificationsComp .badge {
   font-size: 14px;
   color: #f2253e;
   background-color: transparent;
@@ -230,6 +266,9 @@ span.input-group-btn {
     margin: 0 auto;
 }
 
+.home.btn {
+  border-radius: 30px;
+}
 .welcome-banner {
   background-image: image-url("home-banner.png");
   position: absolute;
@@ -251,10 +290,9 @@ span.input-group-btn {
   line-height: 28px;
   span { color: #d2d2d2; }
   p { font-size: 16px; }
-  .btn { border-radius: 30px; }
 }
 
-@media (max-width: $small-medium) { 
+@media (max-width: $small-medium) {
   .welcome-banner {
     height: 768px;
   }
@@ -267,4 +305,4 @@ hr {
 }
 
 @import "bootstrap-sprockets";
-@import 'bootstrap';
+@import '_bootstrap';
