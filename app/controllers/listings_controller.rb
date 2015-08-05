@@ -85,7 +85,6 @@ class ListingsController < ApplicationController
       redirect_to listings_path, notice: "Not authorized to edit this listing." if @listing.nil?
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
       params.require(:listing).permit(
         :title,

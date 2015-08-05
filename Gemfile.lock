@@ -114,6 +114,8 @@ GEM
     ejs (1.1.1)
     erubis (2.7.0)
     execjs (2.5.2)
+    faker (1.4.3)
+      i18n (~> 0.5)
     fastercsv (1.5.5)
     foreigner (1.7.4)
       activerecord (>= 3.0.0)
@@ -286,8 +288,9 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise (~> 3.4.1)
   dotenv-rails
+  faker
   httparty
-  jbuilder (~> 2.0)
+  jbuilder (~> 2.3)
   jquery-rails
   jquery-turbolinks
   json-jwt

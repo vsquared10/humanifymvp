@@ -22,10 +22,6 @@ class User < ActiveRecord::Base
   acts_as_messageable
   has_merit
 
-  def mailboxer_email(object)
-    email
-  end
-
   private
 
   def init_karma

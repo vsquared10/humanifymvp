@@ -1,5 +1,4 @@
-var InboxList= React.createClass({
-
+var InboxList = React.createClass({
   render: function() {
     return(
       <ul className={this.props.className} aria-labelledby="alerts">
