@@ -11,6 +11,7 @@ body {
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
 }
 #buffer {
   padding-top: 69px;
@@ -311,4 +312,4 @@ hr {
 }
 
 @import "bootstrap-sprockets";
-@import '_bootstrap';
+@import "_bootstrap";
