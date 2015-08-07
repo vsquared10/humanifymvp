@@ -1,0 +1,26 @@
+<div id="listing-body" class="box col-sm-5">
+  <div id="head">
+    <div id="time">
+      Time left: 7 days
+    </div>
+    <%= image_tag @listing.image.url(:medium) %>
+  </div>
+  <div class="panel-heading center-block">
+    <h2><%= @listing.title %></h2>
+    <p><%= @listing.description %></p>
+    <p class="text-right">
+      Posted <%= time_ago_in_words(@listing.created_at) %> ago
+    </p>
+  </div>
+
+  <div class="panel-body">
+    <div class="row text-center">
+      <div id="heart" class="col-xs-6">
+        <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+      </div>
+      <div id="share" class="col-xs-6">
+        <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+</div>

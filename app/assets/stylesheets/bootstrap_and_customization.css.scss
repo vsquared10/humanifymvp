@@ -1,4 +1,4 @@
-$body-bg:           #ecf0f1;
+$body-bg:           #EFEFEF;
 $navbar-default-bg: #FFFFFF;
 $navbar-default-link-color: #f2253e;
 $btn-danger-bg: #f2253e;
@@ -15,6 +15,9 @@ body {
 }
 #buffer {
   padding-top: 69px;
+}
+#disable {
+    opacity: 0.4;
 }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-weight: 500;
@@ -119,8 +122,8 @@ li#userNoti {
 }
 #userNoti #userImg, #userNoti #notificationsComp {
   display: inline-block;
+  min-width: 35px;
 }
-
 #userNoti .alerts li {
   padding: 5px;
   width: 295px;

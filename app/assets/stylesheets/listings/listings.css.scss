@@ -1,14 +1,116 @@
-#listings {
-  margin: 0 auto;
-}
-
 .box {
-  margin: 5px;
-  width: 214px;
+  margin: 10px;
+  width: 315px;
 }
 
 .box img {
   width: 100%;
+}
+a.panel-link {
+  color: #333333;
+  &:hover { text-decoration: none; }
+}
+
+#listings {
+  margin: 0 auto;
+  .panel {
+    #type {
+      position: absolute;
+      top: 0px;
+      text-align: left;
+      font-size: 12px;
+      line-height: 3;
+      padding-left: 11px;
+      font-weight: 700;
+      color: #FFFFFF;
+      text-shadow: 0 0px 3px rgba(0, 0, 0, 0.33);
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), transparent);
+      width: 100%;
+      height: 38px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  }
+  #new-panel {
+    background-color: #F2253E;
+    height: 105px;
+    padding-top: 5px;
+    p, span {
+      color: white;
+      line-height: 1.5;
+    }
+    p { font-size: 18px; }
+    span { font-size: 23px; }
+  }
+}
+#listing-show {
+  img { border-radius: 2px; }
+  #back {
+    width: 10px;
+    padding: 3px 20px 3px 5px;
+    margin-top: 100px;
+    font-size: 18px;
+    font-weight: lighter;
+  }
+  #listing-content {
+    padding: 40px 10px 45px;
+    min-height: 550px;
+  }
+  #listing-body {
+    .panel-heading {
+      min-height: 75px;
+      background-color: #fff;
+    }
+    .panel-body {
+      min-height: 48px;
+      padding: 4px 14px 4px;
+      text-shadow: rgba(0,0,0,.01) 0 0 1px;
+      line-height: 1.8;
+      span { cursor: pointer; }
+      #heart {
+        font-size: 23px;
+        color: #F2253E;
+        border-right: 1px #ECF0F1 solid;
+      }
+      #share {
+        color: #777;
+        font-size: 23px;
+      }
+    }
+    #head {
+      min-height: 5px;
+    }
+    #time {
+      position: absolute;
+      top: 0px;
+      font-size: 12px;
+      padding: 6px;
+      border-radius: 2px;
+      color: #777777;
+      background: white;
+      margin: 5px;
+    }
+  }
+  #listing-action {
+    #disable {
+      #points {
+        color: #828282;
+      }
+    }
+    #points {
+      color: #F2253E;
+      font-size: 50px;
+      font-weight: 300;
+      i {
+        font-style: normal;
+        font-size: 40px;
+      }
+    }
+    #title {
+      border-bottom: 1px #D5D5D5 solid;
+      padding-bottom: 15px;
+    }
+  }
 }
 
 @import "../lib/jquery-ui";

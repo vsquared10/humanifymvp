@@ -9,12 +9,13 @@ class Listing < ActiveRecord::Base
     default_url: "small_Humanify.png"
 
 
-  validates_presence_of :description, :image, :title, :points, :visibility
+  validates_presence_of :description, :image, :title, :visibility
+  validates_presence_of :points, unless: :community_project?
 
   validates_attachment_content_type :image, :content_type => /\Aimage/
 
   validates_inclusion_of :status, in: %w{ pending accepted closed }
-  validates_inclusion_of :list_type, in: %w{ ask offer communtiy_project }
+  validates_inclusion_of :list_type, in: %w{ ask offer community_project }
   validates_inclusion_of :visibility, in: %w{ global local }
   validate :listing_type_options
 
@@ -67,5 +68,9 @@ class Listing < ActiveRecord::Base
 
   def set_city
     self.city = self.user.zip_code.to_s.to_region(city: true)
+  end
+
+  def community_project?
+    self.list_type == "community_project"
   end
 end
