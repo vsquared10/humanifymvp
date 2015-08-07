@@ -47,142 +47,6 @@ div.panel {
   border: 1px solid rgba(0, 0, 0, 0.12);
   padding: 0;
 }
-.navbar-fixed-top, .navbar-fixed-bottom {
-  z-index: 8;
-}
-.navbar-default {
-  .navbar-nav {
-    li a.touch {
-        color: #f2253e;
-        padding-top: 1px;
-        padding-bottom: 10px;
-    }
-    .home {
-      padding: 5px 8px;
-      font-size: 16px;
-    }
-  }
-  .glyphicon-search {
-    top: -8px;
-  }
-}
-.navbar.navbar-default .navbar-toggle {
-  border-color: white;
-  padding: 15px;
-  font-size: 16px;
-  margin: 0;
-  font-size: 1.1em;
-}
-.navbar-brand#small-logo {
-  padding: 8px 15px;
-}
-
-.navbar-header img {
-  max-height: 35px;
-}
-.navbar-slideout{
-  background-color: white;
-}
-.navbar-right.mobile-toggle{
-  display: none;
-}
-button.toggle-button.navbar-toggle:hover,
-button.toggle-button.navbar-toggle:focus {
-  background-color: white;
-}
-#mobile-menu {
-  display: none;
-}
-#inbox {
-  font-size: 17px;
-  cursor: pointer;
-  a { color: #D2D2D2; }
-}
-#listing-search-input {
-  cursor: default;
-  opacity: 0;
-  width: 40%;
-  position: relative;
-  z-index: -10;
-}
-#listing-search-input input,
-#listing-search-input button,
-#listing-search-input span{
-  cursor: default;
-}
-.listings-index#listing-search-input {
-  display: block;
-  width: 80%;
-  opacity: 1;
-  z-index: 2;
-}
-
-li#userNoti {
-  cursor: pointer;
-}
-#userNoti #userImg, #userNoti #notificationsComp {
-  display: inline-block;
-  min-width: 35px;
-}
-#userNoti .alerts li {
-  padding: 5px;
-  width: 295px;
-  border-bottom: solid rgb(239, 239, 239) 1px;
-  margin-bottom: 5px;
-}
-.alerts.dropdown-menu {
-  border-radius: 0px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  margin-top: 4px;
-}
-li#pointsU a {
-  color: #D2D2D2;
-  font-size: 17px;
-}
-#notificationsComp {
-  margin-top: 8px;
-  margin-left: -22px;
-}
-#notificationsComp .badge {
-  font-size: 14px;
-  color: #f2253e;
-  background-color: transparent;
-  margin-left: 5px;
-}
-
-@media (max-width: $small-medium) {
-  .navbar-brand#small-logo {
-    padding: 15px 15px;
-  }
-  .navbar-header img {
-    max-height: 25px;
-  }
-  #listing-search-input .input-group.col-sm-8 {
-    width: 68%;
-  }
-  .navbar-right.avatar {
-    display: none;
-  }
-  .navbar-right.mobile-toggle{
-    display: block
-  }
-}
-.navbar-right.avatar {
-  margin-right: 15px;
-}
-.navbar #listing-search-input .search-query {
-  padding-left: 18px;
-  height: 35px;
-  border: white;
-  box-shadow: inset 0 0px 0px;
-  webkit-box-shadow: inset 0 0px 0px;
-  -webkit-border-radius: 28px;
-  -moz-border-radius: 28px;
-  border-radius: 28px;
-}
-.navbar #listing-search-input button {
-  color: #f2253e;
-}
 #footer_wrapper {
   margin-top: 135px;
 }
@@ -225,47 +89,6 @@ span.input-group-btn {
   padding: 2.5rem 0 2.5rem 0;
 }
 
-#user-avatar{
-  max-height: 35px;
-  margin-top: 10px;
-  
-  cursor: pointer;
-}
-
-#listing-search-input {
-        margin:0;
-        margin-top: 10px;
-        padding: 0;
-    }
-
-#listing-search-input .search-query {
-    padding-right: 3px;
-    padding-right: 4px \9;
-    padding-left: 3px;
-    padding-left: 4px \9;
-    /* IE7-8 doesn't have border-radius, so don't indent the padding */
-
-    margin-bottom: 0;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-}
-
-#listing-search-input button {
-    border: 0;
-    background: none;
-    /** belows styles are working good */
-    padding: 2px 5px;
-    margin-top: 2px;
-    position: relative;
-    left: -28px;
-    /* IE7-8 doesn't have border-radius, so don't indent the padding */
-    margin-bottom: 0;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    color:#D9230F;
-}
 
 .search-query:focus + button {
     z-index: 3;
@@ -314,5 +137,6 @@ hr {
 	color: #666666;
 }
 
+@import "menu";
 @import "bootstrap-sprockets";
 @import "_bootstrap";

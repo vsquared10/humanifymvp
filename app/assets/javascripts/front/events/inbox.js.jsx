@@ -1,7 +1,8 @@
 var inboxChannel = pusher.subscribe('inbox');
+var inboxCollection = new Humanify.Collections.InboxCollection;
 
-$('li#inbox').on('click', function() {
-  //$('#userNoti .alerts.dropdown-menu').toggle();
+$('#inboxMenu').children().on('click', function() {
+  $('#inboxMenu .inbox-alerts.dropdown-menu').toggle();
 });
 
 var getInbox = function() {
@@ -9,17 +10,17 @@ var getInbox = function() {
     success: function(inbox) {
 
       var inboxComponents =  _.map(inbox.models,
-        function(message,key) {
-          return(<inboxItem key={message.id}
-                                  message={message.attributes.message}
-                                  url={message.attributes.url}
-                                  className="" />);
+        function(mail,key) {
+          return(<InboxItem key={mail.id}
+                            message={mail.attributes.message}
+                            url={mail.attributes.url}
+                            className="" />);
         });
 
       React.render(
         <InboxNotifications
           inboxComponents = {inboxComponents} />,
-        document.getElementById('inboxCount')
+        document.getElementById('inboxMenuComp')
       );
     },
     error: function() {
@@ -29,7 +30,7 @@ var getInbox = function() {
               message="Your inbox could not be loaded. : ("
               className="text-center" />}
         />,
-        document.getElementById('inboxCount')
+        document.getElementById('inboxMenuComp')
       );
     }
   });

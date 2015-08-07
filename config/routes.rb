@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   resources :notifications, only: [:index]
   resources :inbox, only: [:index]
 
+  # Mail Endpoints
+  resources :mailbox, only: [:index]
+
   get 'notification/delete' => 'notification#delete'
 
   #Pusher Auth Endpoint

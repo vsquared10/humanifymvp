@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_one :layer_session
   has_many :conversations
 
   has_many :listings
@@ -22,10 +21,6 @@ class User < ActiveRecord::Base
 
   acts_as_messageable
   has_merit
-
-  def mailboxer_email(object)
-    email
-  end
 
   private
 

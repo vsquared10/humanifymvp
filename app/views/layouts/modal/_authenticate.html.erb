@@ -1,7 +1,7 @@
-<!-- Modal -->
-<div id="authModal" class="modal">
+<!-- Auth Modal -->
+<div id="auth" class="modal">
   <header class="bar bar-nav">
-    <a class="touch icon pull-right close" href="#authModal">X</a>
+    <a class="touch icon pull-right close" href="#auth">X</a>
     <h1 class="title">Welcome Back</h1>
   </header>
 
@@ -21,8 +21,8 @@
                 <%= f.password_field :password, class: "form-control", autocomplete: "off" %>
               </div>
 
-              <div class="form-group">
-                <%= f.submit "Log in", class: "btn pull-right" %>
+              <div class="actions">
+                <%= f.submit "Log in", class: "btn" %>
               </div>
             <% end %>
           </div>

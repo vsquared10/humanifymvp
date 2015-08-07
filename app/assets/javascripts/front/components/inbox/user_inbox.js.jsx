@@ -1,11 +1,9 @@
-var inboxCollection = new Humanify.Collections.InboxCollection;
-
 var InboxNotifications = React.createClass({
   mixins: [Backbone.React.Component.mixin],
   getDefaultProps: function() {
     return {
       inboxComponents: [],
-      className: "inbox-alerts dropdown-menu"
+      className: "inbox-alerts alerts dropdown-menu"
     };
   },
 
@@ -15,8 +13,8 @@ var InboxNotifications = React.createClass({
   render: function() {
     return (
       <div>
-        <span className="badge">{this.inboxCount()}</span>
-        <InboxList notificationsItems={this.props.notificationsComponents}
+        <span className="badge count">{this.inboxCount()}</span>
+        <InboxList inboxItems={this.props.inboxComponents}
                           className={this.props.className}/>
       </div>
     );
