@@ -61,7 +61,7 @@ class Listing < ActiveRecord::Base
   def listing_type_options
     if self.list_type == "ask"
       unless self.points == 0
-        errors.add(:base, 'An listing that asks for something must be free.')
+        errors.add(:base, 'A listing that asks for something must be free.')
       end
     end
   end
