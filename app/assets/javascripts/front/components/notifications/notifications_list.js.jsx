@@ -1,5 +1,4 @@
-var NotificationsList= React.createClass({
-
+var NotificationsList = React.createClass({
   render: function() {
     return(
       <ul className={this.props.className} aria-labelledby="alerts">

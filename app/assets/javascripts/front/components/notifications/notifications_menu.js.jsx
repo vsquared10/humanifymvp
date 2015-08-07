@@ -1,6 +1,4 @@
-var notificationsCollection = new Humanify.Collections.NotificationsCollection;
-
-var UserNotifications = React.createClass({
+var NotificationsMenu = React.createClass({
   mixins: [Backbone.React.Component.mixin],
   getDefaultProps: function() {
     return {
@@ -17,7 +15,7 @@ var UserNotifications = React.createClass({
   render: function() {
     return (
       <div>
-        <span className="badge">{this.notificationsCount()}</span>
+        <span className="badge count">{this.notificationsCount()}</span>
         <NotificationsList notificationsItems={this.notificationsItems()}
                           className={this.props.className}/>
       </div>

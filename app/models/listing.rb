@@ -21,6 +21,8 @@ class Listing < ActiveRecord::Base
   acts_as_taggable # Alias for acts_as_taggable_on :tags
   acts_as_taggable_on :topics
 
+  acts_as_messageable
+
   before_save :set_city
 
   has_many :reviews
