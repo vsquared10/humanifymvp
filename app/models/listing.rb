@@ -18,6 +18,8 @@ class Listing < ActiveRecord::Base
   validates_inclusion_of :list_type, in: %w{ ask offer community_project }
   validates_inclusion_of :visibility, in: %w{ global local }
   validate :listing_type_options
+  validate :listing_duration
+  validate :listing_duration_length
 
   acts_as_taggable # Alias for acts_as_taggable_on :tags
   acts_as_taggable_on :topics
@@ -60,9 +62,17 @@ class Listing < ActiveRecord::Base
 
   def listing_type_options
     if self.list_type == "ask"
-      unless self.points == 0
-        errors.add(:base, 'A listing that asks for something must be free.')
-      end
+      errors.add(:base, 'A listing that asks for something must be free.') unless self.points == nil || self.points == 0
+    end
+  end
+
+  def listing_duration
+    errors.add(:base, 'A listing with a duration must be an offer.') unless self.list_type == "offer"
+  end
+
+  def listing_duration_length
+    if self.duration
+      errors.add(:base, 'Listing duration must be less than or eqaul to 15 days.') unless self.duration <= 15 and self.duration >= 1
     end
   end
 

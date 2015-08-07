@@ -49,6 +49,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :duration, 'Listing Duration' %><br>
+    <%= f.select :duration, [1,3,5,7,10].collect {|d| ["#{d} day".pluralize(d),d] }, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :visibility, 'Which communities can see this listing?' %><br>
     <%= f.label :visibility, 'Global' %>
     <%= f.radio_button :visibility, :global %>
