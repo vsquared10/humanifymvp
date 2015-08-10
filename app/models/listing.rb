@@ -10,26 +10,42 @@ class Listing < ActiveRecord::Base
 
 
   validates_presence_of :description, :image, :title, :visibility
-  validates_presence_of :points, unless: :community_project?
 
   validates_attachment_content_type :image, :content_type => /\Aimage/
 
+  validates_inclusion_of :type,
+                         in: %w{ ListingAsk ListingOffer ListingCommunity }
   validates_inclusion_of :status, in: %w{ pending accepted closed }
-  validates_inclusion_of :list_type, in: %w{ ask offer community_project }
   validates_inclusion_of :visibility, in: %w{ global local }
-  validate :listing_type_options
-  validate :listing_duration
-  validate :listing_duration_length
 
   acts_as_taggable # Alias for acts_as_taggable_on :tags
   acts_as_taggable_on :topics
 
   acts_as_messageable
 
-  before_save :set_city
+  before_save :set_location
 
   has_many :reviews
   has_many :claims
+
+  def days_left
+    unless self.duration.nil?
+      exp = self.expiration.day - Time.now.day
+      "#{exp} day".pluralize(exp)
+    end
+  end
+
+  def expiration
+    unless self.duration.nil?
+      self.created_at + self.duration.days
+    end
+  end
+
+  def expired?
+    unless self.duration.nil?
+      self.expiration.day - Time.now.day <= 0
+    end
+  end
 
   def self.open_global
     self.where(["visibility = :visibility or status = :status",{
@@ -60,26 +76,18 @@ class Listing < ActiveRecord::Base
     self.user == user
   end
 
+  def listing_type
+    list = {
+      "ListingOffer":"offer",
+      "ListingAsk":"ask",
+      "ListingCommunity":"community_project"
+    }
+    return list[self.type.to_sym]
+  end
   private
 
-  def listing_type_options
-    if self.list_type == "ask"
-      errors.add(:base, 'A listing that asks for something must be free.') unless self.points == nil || self.points == 0
-    end
-  end
-
-  def listing_duration
-    errors.add(:base, 'A listing with a duration must be an offer.') unless self.list_type == "offer"
-  end
-
-  def listing_duration_length
-    if self.duration
-      errors.add(:base, 'Listing duration must be less than or eqaul to 15 days.') unless self.duration <= 15 and self.duration >= 1
-    end
-  end
-
-  def set_city
-    self.city = self.user.zip_code.to_s.to_region(city: true)
+  def set_location
+    self.location = self.user.zip_code.to_s.to_region(city: true)
   end
 
   def community_project?

@@ -4,13 +4,14 @@ class Offer < ActiveRecord::Base
 
   validates_presence_of :points
   validates_inclusion_of :status, in: %w{ pending accepted declined }
+
+  validate :offer_not_expired, on: :create
   validate :user_doesnt_own_listing, on: :create
   validate :offer_more_than_highest_valid_bid, on: :create
   validate :offer_more_than_listing_amount, on: :create
   validate :offer_less_than_user_balance, on: :create
 
   after_save :notify_first_listing_offer
-
 
   def accept
     # Attempt to Exchange Points
@@ -59,9 +60,11 @@ class Offer < ActiveRecord::Base
   end
 
   def offer_more_than_highest_valid_bid
-      if self.listing.highest_offer.present? and self.points >= self.listing.highest_offer.points
+    if self.listing.highest_offer.present?
+      unless self.points > self.listing.highest_offer.points
         errors.add(:base, 'Try making a offer higher than the highest bid.')
       end
+    end
   end
 
   def offer_less_than_user_balance
@@ -70,4 +73,9 @@ class Offer < ActiveRecord::Base
     end
   end
 
+  def offer_not_expired
+    if self.listing.list_type == "offer" and self.listing.expired?
+      errors.add(:base, 'Listing has expired.')
+    end
+  end
 end

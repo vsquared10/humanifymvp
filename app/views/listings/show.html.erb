@@ -1,4 +1,12 @@
 <div id="listing-show" class="container">
   <%= render 'listings/layouts/notifications' %>
-  <%= render "listings/layouts/#{@listing.list_type}" %>
+
+  <div class="row">
+    <%= link_to root_path do %>
+      <div id="back" class="panel col-sm-1">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      </div>
+    <% end %>
+    <%= render "listings/layouts/#{@listing.list_type}" %>
+  </div>
 </div>

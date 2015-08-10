@@ -6,7 +6,7 @@ class OffersController < ApplicationController
   def create
     @offer = current_user.offers.build(offer_params)
     #@offer.listing_id = params[:listing_id]
-
+    #binding.pry()
     respond_to do |format|
       if @offer.save
         format.html { redirect_to @offer.listing, notice: 'Offer sent.' }

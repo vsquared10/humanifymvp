@@ -1,7 +1,7 @@
 <div id="listing-body" class="box col-sm-5">
   <div id="head">
     <div id="time">
-      Time left: 7 days
+      Time left: <%= @listing.expired? ? "0 days" : @listing.days_left %>
     </div>
     <%= image_tag @listing.image.url(:medium) %>
   </div>

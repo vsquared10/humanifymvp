@@ -8,8 +8,8 @@ class ListingsController < ApplicationController
   def index
     if user_signed_in?
       @listings = Listing.where(
-        ["city = :city or visibility = :visibility",{
-        city: current_user.zip_code.to_s.to_region(city: true),
+        ["location = :location or visibility = :visibility",{
+        location: current_user.zip_code.to_s.to_region(city: true),
         visibility: "global" }]).where(status: "pending")
     else
       @listings = Listing.open_global
@@ -30,22 +30,6 @@ class ListingsController < ApplicationController
   def edit
   end
 
-  # POST /listings
-  # POST /listings.json
-  def create
-    @listing = current_user.listings.build(listing_params)
-
-    respond_to do |format|
-      if @listing.save
-        format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
-        format.json { render :show, status: :created, location: @listing }
-      else
-        format.html { render :new }
-        format.json { render json: @listing.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   # PATCH/PUT /listings/1
   # PATCH/PUT /listings/1.json
   def update
@@ -55,7 +39,7 @@ class ListingsController < ApplicationController
     end
     respond_to do |format|
       if @listing.update(listing_params)
-        format.html { redirect_to @listing, notice: 'Listing was successfully updated.' }
+        format.html { redirect_to @listing, notice: 'Your listing has been updated.' }
         format.json { render :show, status: :ok, location: @listing }
       else
         format.html { render :edit }
@@ -69,7 +53,7 @@ class ListingsController < ApplicationController
   def destroy
     @listing.destroy
     respond_to do |format|
-      format.html { redirect_to listings_url, notice: 'Listing was successfully destroyed.' }
+      format.html { redirect_to profile_path, notice: "Your listing for #{@listing.title} has been deleted." }
       format.json { head :no_content }
     end
   end
@@ -82,17 +66,6 @@ class ListingsController < ApplicationController
 
     def correct_user
       @listing = current_user.listings.find_by(id: params[:id])
-      redirect_to listings_path, notice: "Not authorized to edit this listing." if @listing.nil?
-    end
-
-    def listing_params
-      params.require(:listing).permit(
-        :title,
-        :list_type,
-        :description,
-        :image,
-        :points,
-        :visibility,
-        :tag_list)
+      redirect_to listings_path, notice: "You don't have permission to edit this listing." if @listing.nil?
     end
 end

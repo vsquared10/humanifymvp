@@ -61,9 +61,11 @@ gem 'pusher'
 
 gem 'json-jwt'
 
-gem "rails-backbone"
+gem 'rails-backbone'
 
 gem 'httparty'
+
+gem 'whenever', require: false
 
 group :development, :test do
 	# Use sqlite3 as the database for Active Record

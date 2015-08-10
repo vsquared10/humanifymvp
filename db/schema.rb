@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150807082134) do
-=======
-ActiveRecord::Schema.define(version: 20150804031418) do
->>>>>>> e3cc7a239138a8732103354156aefcc1e134aa4b
+ActiveRecord::Schema.define(version: 20150810022615) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -62,24 +58,22 @@ ActiveRecord::Schema.define(version: 20150804031418) do
   end
 
   create_table "listings", force: :cascade do |t|
+    t.string   "type"
     t.string   "description"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
     t.integer  "user_id"
+    t.string   "title"
+    t.integer  "points"
+    t.string   "visibility"
+    t.string   "location"
+    t.string   "status",             default: "pending"
+    t.integer  "duration"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "title"
-    t.string   "list_type"
-    t.integer  "points"
-    t.string   "visibility"
-    t.string   "city"
-    t.string   "status",             default: "pending"
-    t.integer  "duration"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
-
-  add_index "listings", ["user_id"], name: "index_listings_on_user_id"
 
   create_table "mailboxer_conversation_opt_outs", force: :cascade do |t|
     t.integer "unsubscriber_id"

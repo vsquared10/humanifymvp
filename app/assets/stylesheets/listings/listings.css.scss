@@ -92,7 +92,10 @@ a.panel-link {
     }
   }
   #listing-action {
-    #disable {
+    #disable, .disable {
+      input {
+        cursor: default;
+      }
       #points {
         color: #828282;
       }

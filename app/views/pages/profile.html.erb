@@ -1,29 +1,41 @@
 <div class="container-fluid">
   Name Bio | Social Captial | Trusted by | Add To My Circle + Write Message
+
+  <h1>Karma Points: <%= @user.points%></h1>
 </div>
-<h1>Karma Points: <%= @user.points%></h1>
-<hr>
 
 <div id="listings" class="transitions-enabled">
   <% @user.listings.each do |listing| %>
     <div class="box panel panel-default">
-      <%= link_to image_tag(listing.image.url(:medium)), listing %>
-      <div class="panel-body">
-        <span><%= listing.points %>kp</span>
-        <p><%= listing.description %></p>
-        <strong><%= listing.user.name if listing.user %></strong>
-        <div class="actions">
-          <%= link_to edit_listing_path(listing) do %>
-            <span class="glyphicon glyphicon-edit"></span>
-            Edit
-          <% end %>
-          <%= link_to listing, method: :delete,
-            data: { confirm: 'Are you sure?' } do %>
-            <span class="glyphicon glyphicon-trash"></span>
-            Delete
-          <% end %>
+        <%= link_to listing, class: "panel-link" do %>
+          <div id="type">
+            <%= listing.list_type %>
+          </div>
+          <%= image_tag(listing.image.url(:medium)) %>
+          <div class="panel-body">
+            <b><%= listing.title %></b>
+            <br>
+            <span><%= listing.points_starting %> KP</span>
+            <br>
+            <br>
+          </div>
+        <% end %>
+        <div class="panel-footer">
+          <strong>
+            <%= listing.user.name if listing.user %>
+          </strong>
+          <div class="actions">
+            <%= link_to edit_listing_path(listing) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+              Edit
+            <% end %>
+            <%= link_to listing, method: :delete,
+              data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+              Delete
+            <% end %>
+          </div>
         </div>
-      </div>
     </div>
   <% end %>
 </div>
