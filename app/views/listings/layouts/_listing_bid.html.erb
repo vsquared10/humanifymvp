@@ -1,4 +1,12 @@
-<div id="listing-action" class="col-xs-3">
+<div id="listing-bid">
+  <div id="profile" class="text-center">
+    <%= image_tag('elements-11.png', size: "70x70", id: "user-avatar") %>
+    <p>
+      <%= @listing.user.name %>
+      </br>
+      <%= @listing.user.zip_code.to_s.to_region %>
+    </p>
+  </div>
   <% if @listing.valid_offers.present?  %>
     <div id="disable">
       <p id="title">
@@ -26,7 +34,7 @@
   <br>
   <% unless @listing.posted_by?(current_user) %>
     <p>
-      <%= render "listings/user/offer" %>
+      <%= render "listings/layouts/user/offer" %>
     </p>
   <% end %>
   <% if @listing.user == current_user %>
@@ -34,7 +42,7 @@
       <span class="glyphicon glyphicon-edit"></span>
       Edit
     <% end %>
-    <%= link_to @listing, method: :delete,
+    <%= link_to listing_path(@listing), method: :delete,
       data: { confirm: 'Are you sure?' } do %>
       <span class="glyphicon glyphicon-trash"></span>
       Delete

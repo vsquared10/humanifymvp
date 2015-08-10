@@ -1,6 +1,15 @@
-<h1>Editing Listing</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @listing %> |
-<%= link_to 'Back', listings_path %>
+<div id="listing-edit" class="container">
+  <div class="row">
+    <%= link_to root_path do %>
+      <div id="back" class="panel col-sm-1 col-xs-offset-1">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      </div>
+    <% end %>
+    <div id="listing-content" class="col-sm-8 panel panel-default">
+      <div class="col-xs-offset-1 col-xs-8">
+        <h1>Editing Listing</h1>
+        <%= render 'form' %>
+      </div>
+    </div>
+  </div>
+</div>

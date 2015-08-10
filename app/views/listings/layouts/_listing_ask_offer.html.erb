@@ -1,0 +1,34 @@
+<div id="listing-offer">
+  <div id="profile" class="text-center">
+    <%= image_tag('elements-11.png', size: "70x70", id: "user-avatar") %>
+    <p>
+      <%= @listing.user.name %>
+      </br>
+      <%= @listing.user.zip_code.to_s.to_region %>
+    </p>
+  </div>
+  <% if @listing.points > 0 %>
+    <p id="title">
+      <%= @listing.user.name %> is offering
+    </h2>
+    <h2 id="points">
+      <%= @listing.points %> <i>KP</i>
+    </h2>
+  <% elsif @listing.points.nil? || @listing.points == 0 %>
+    <div id="boost">
+      <p id="title">
+        Help <%= @listing.user.name %> for a Social Capital boost.
+      </p>
+    </div>
+  <% end %>
+  <div id="offer">
+    <%= form_for @listing.offers.build, html: { multipart: true } do |f| %>
+      <%= f.hidden_field :listing_id, value: @listing.id %>
+      <div class="col-xs-12 <%= "disable" if @listing.status == "closed" %>">
+        <div class="form-group">
+          <%= f.submit "Help", class: "btn btn-danger", disabled: @listing.expired?%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

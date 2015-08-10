@@ -1,5 +1,4 @@
 .box {
-  margin: 10px;
   width: 315px;
 }
 
@@ -13,6 +12,10 @@ a.panel-link {
 
 #listings {
   margin: 0 auto;
+
+  .box {
+    margin: 15px;
+  }
   .panel {
     #type {
       position: absolute;
@@ -45,16 +48,33 @@ a.panel-link {
 }
 #listing-show {
   img { border-radius: 2px; }
-  #back {
-    width: 10px;
-    padding: 3px 20px 3px 5px;
-    margin-top: 100px;
-    font-size: 18px;
-    font-weight: lighter;
-  }
   #listing-content {
     padding: 40px 10px 45px;
     min-height: 550px;
+    #profile {
+      padding: 10px 5px 0px;
+      margin-bottom: 15px;
+      background-color: rgba(205, 205, 205, 0.04);
+      border-radius: 2px;
+      border: rgba(0, 0, 0, 0.05) 1px solid;
+      min-height: 140px;
+      #user-avatar{
+        margin-bottom: 10px;
+      }
+    }
+    #points {
+      color: #F2253E;
+      font-size: 50px;
+      font-weight: 300;
+      i {
+        font-style: normal;
+        font-size: 40px;
+      }
+    }
+    #title {
+      border-bottom: 1px #D5D5D5 solid;
+      padding-bottom: 15px;
+    }
   }
   #listing-body {
     .panel-heading {
@@ -91,7 +111,7 @@ a.panel-link {
       margin: 5px;
     }
   }
-  #listing-action {
+  #listing-bid {
     #disable, .disable {
       input {
         cursor: default;
@@ -100,18 +120,13 @@ a.panel-link {
         color: #828282;
       }
     }
-    #points {
-      color: #F2253E;
-      font-size: 50px;
-      font-weight: 300;
-      i {
-        font-style: normal;
-        font-size: 40px;
+  }
+  #listing-offer {
+    #boost {
+      #title {
+        font-size: 22px;
+        margin-top: 21px;
       }
-    }
-    #title {
-      border-bottom: 1px #D5D5D5 solid;
-      padding-bottom: 15px;
     }
   }
 }

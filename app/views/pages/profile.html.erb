@@ -7,9 +7,9 @@
 <div id="listings" class="transitions-enabled">
   <% @user.listings.each do |listing| %>
     <div class="box panel panel-default">
-        <%= link_to listing, class: "panel-link" do %>
+        <%= link_to listing_path(listing), class: "panel-link" do %>
           <div id="type">
-            <%= listing.list_type %>
+            <%= listing.listing_type %>
           </div>
           <%= image_tag(listing.image.url(:medium)) %>
           <div class="panel-body">
@@ -29,7 +29,7 @@
               <span class="glyphicon glyphicon-edit"></span>
               Edit
             <% end %>
-            <%= link_to listing, method: :delete,
+            <%= link_to listing_path(listing), method: :delete,
               data: { confirm: 'Are you sure?' } do %>
               <span class="glyphicon glyphicon-trash"></span>
               Delete
