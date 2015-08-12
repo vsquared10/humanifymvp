@@ -21,6 +21,7 @@
       </div>
     <% end %>
     <%= render "listings/layouts/#{@listing.listing_type}" %>
+
     <% if @listing.posted_by?(current_user) and @listing.status == "pending" %>
       <div class="row">
         <% unless @listing.accepted? %>

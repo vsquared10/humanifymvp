@@ -1,3 +1,5 @@
 <div id="listing-review">
-  All Reviews
+  <% @listing.reviews.all.each do |r| %>
+    r.text
+  <% end %>
 </div>

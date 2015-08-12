@@ -25,7 +25,9 @@
       <%= render 'layouts/modal/authenticate' %>
       <%= render 'layouts/modal/register' %>
     <% end %>
-    <%= render 'listings/layouts/modal/review'%>
+    <% if @listing.present? %>
+      <%= render 'listings/layouts/modal/review'%>
+    <% end %>
 
     <%= javascript_include_tag params[:controller], 'data-turbolinks-track' => true %>
   </body>
