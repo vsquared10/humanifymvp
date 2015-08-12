@@ -23,8 +23,7 @@ class Listing < ActiveRecord::Base
 
   acts_as_messageable
 
-  before_save :set_location,
-              :set_status
+  before_save :set_location
 
   has_many :reviews
   has_many :claims

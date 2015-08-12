@@ -6,7 +6,7 @@ class ListingCommunitiesController < ApplicationController
 
     respond_to do |format|
       if @listing.save
-        format.html { redirect_to listing_path(@listing.id), notice: 'Your ask has been posted.' }
+        format.html { redirect_to listing_path(@listing.id), notice: 'Your community project has been created.' }
         format.json { render :show, status: :created,
                              location: listing_path(@listing.id) }
       else

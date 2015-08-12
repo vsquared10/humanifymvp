@@ -11,12 +11,20 @@ class Offer < ActiveRecord::Base
 
   def accept
     # Attempt to Exchange Points
-    unless self.points.nil?
+    if self.points.present?
       offer_exchange = Exchange.transfer(self.user,
                                          self.listing.user,
                                          self.points)
-    end
-    if offer_exchange.status == "paid"
+      if offer_exchange.status == "paid"
+        self.update(status: "accepted")
+        self.listing.update(status: "accepted")
+
+        self.user.notifications.create(
+          message: "#{ self.listing.user.name } has accepted your offer.",
+          url: "/listings/#{self.listing.id}")
+        #Open dialogue message between both users
+      end
+    elsif self.points.nil?
       self.update(status: "accepted")
       self.listing.update(status: "accepted")
 
