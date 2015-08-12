@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u|
-      u.permit(:name, :email, :password, :zip_code, :organization) 
+      u.permit(:name, :email, :password, :zip_code, :organization)
     }
     devise_parameter_sanitizer.for(:account_update) << :name
     devise_parameter_sanitizer.for(:sign_up) << :zip_code
