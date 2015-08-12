@@ -1,14 +1,17 @@
 <div id="listing-new" class="container">
   <div class="row">
-    <%= link_to root_path do %>
+    <%= link_to @listing.type ? :back : root_path do %>
       <div id="back" class="panel col-sm-1 col-xs-offset-1">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
       </div>
     <% end %>
     <div id="listing-content" class="col-sm-8 panel panel-default">
       <div class="col-xs-offset-1 col-xs-8">
-        <h1>New Listing</h1>
-        <%= render 'form' %>
+        <h1>
+          Your <%= @listing.type ? @listing.listing_type.titleize : "Listing"%>
+        </h1>
+        <br>
+        <%= render 'listings/form' %>
       </div>
     </div>
   </div>

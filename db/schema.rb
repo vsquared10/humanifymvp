@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150810022615) do
+ActiveRecord::Schema.define(version: 20150811022545) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -178,6 +178,7 @@ ActiveRecord::Schema.define(version: 20150810022615) do
     t.integer  "listing_id"
     t.integer  "user_id"
     t.integer  "points"
+    t.string   "type"
   end
 
   create_table "reviews", force: :cascade do |t|

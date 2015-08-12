@@ -25,9 +25,17 @@ class ListingsController < ApplicationController
   def new
     @listing = current_user.listings.build
   end
-
+  
+  # POST /listings
+  # POST /listings.json
+  def create
+    @listing = current_user.listings.build(listing_param)
+    @listing.form_part = @listing.listing_offer
+    render 'new'
+  end
   # GET /listings/1/edit
   def edit
+    @listing.form_part = @listing.listing_offer
   end
 
   # PATCH/PUT /listings/1
@@ -67,5 +75,9 @@ class ListingsController < ApplicationController
     def correct_user
       @listing = current_user.listings.find_by(id: params[:id])
       redirect_to listings_path, notice: "You don't have permission to edit this listing." if @listing.nil?
+    end
+
+    def listing_param
+      params.require(:listing).permit(:type)
     end
 end

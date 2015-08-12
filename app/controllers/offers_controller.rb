@@ -9,10 +9,10 @@ class OffersController < ApplicationController
     #binding.pry()
     respond_to do |format|
       if @offer.save
-        format.html { redirect_to @offer.listing, notice: 'Offer sent.' }
+        format.html { redirect_to listing_path(@offer.listing), notice: "Offer sent to #{@offer.listing.user.name}." }
         format.json { render :show, status: :created, location: @offer }
       else
-        format.html { redirect_to @offer.listing,
+        format.html { redirect_to listing_path(@offer.listing),
                       notice: @offer.errors.full_messages.to_sentence }
         format.json { render json: @offer.errors,
                       status: :unprocessable_entity }
@@ -29,11 +29,11 @@ class OffersController < ApplicationController
       end
 
       if @offer.save
-        format.html { redirect_to @offer.listing,
+        format.html { redirect_to listing_path(@offer.listing),
                       notice: "Offer #{@offer.status}." }
         format.json { render :show, status: :ok, location: @offer}
       else
-        format.html { redirect_to @offer.listing,
+        format.html { redirect_to listing_path(@offer.listing),
                       notice: @offer.errors.full_messages.to_sentence}
         format.json { render json: @offer.errors,
                       status: :unprocessable_entity }
@@ -48,7 +48,9 @@ class OffersController < ApplicationController
     end
 
     def offer_params
-      params.require(:offer).permit(:listing_id,:points,:status,:reversed)
+      params.require(:offer).permit(:listing_id,:points,
+                                    :status,:reversed,
+                                    :type)
     end
 
     def status_param

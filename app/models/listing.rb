@@ -23,10 +23,13 @@ class Listing < ActiveRecord::Base
 
   acts_as_messageable
 
-  before_save :set_location
+  before_save :set_location,
+              :set_status
 
   has_many :reviews
   has_many :claims
+
+  attr_writer :form_part
 
   def days_left
     unless self.duration.nil?
@@ -45,6 +48,10 @@ class Listing < ActiveRecord::Base
     unless self.duration.nil?
       self.expiration.day - Time.now.day <= 0
     end
+  end
+
+  def closed?
+    self.status != "pending"
   end
 
   def self.open_global
@@ -84,10 +91,30 @@ class Listing < ActiveRecord::Base
     }
     return list[self.type.to_sym]
   end
+
+  def form_part
+    @form_part || parts.first
+  end
+
+  def parts
+    %w[ type offer default ]
+  end
+
+  def listing_offer
+    offer = {
+      "ListingOffer":"offer",
+      "ListingAsk":"ask",
+      "ListingCommunity":"community"
+    }
+    return offer[self.type.to_sym]
+  end
+
   private
 
   def set_location
-    self.location = self.user.zip_code.to_s.to_region(city: true)
+    unless self.location == self.user.zip_code.to_s.to_region(city: true)
+      self.location = self.user.zip_code.to_s.to_region(city: true)
+    end
   end
 
   def community_project?

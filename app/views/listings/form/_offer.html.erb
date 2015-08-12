@@ -1,0 +1,55 @@
+<%= form_for @listing, url: listing_offers_path do |f| %>
+  <% if @listing.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        Please dont forget that:
+      </h2>
+      <% @listing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description %><br>
+    <%= f.text_field :description, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image %><br>
+    <%= f.file_field :image, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :points, 'Set your bid starting price.' %><br>
+    <%= f.number_field :points, min: 0, step: 50, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :duration, 'Listing Duration' %><br>
+    <%= f.select :duration, [1,3,5,7,10].collect {|d| ["#{d} day".pluralize(d),d] }, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :visibility, 'Which communities can see this listing?' %><br>
+    <%= f.label :visibility, 'Global' %>
+    <%= f.radio_button :visibility, :global %>
+    <%= f.label :visibility, current_user.zip_code.to_s.to_region(city: true)%>
+    <%= f.radio_button :visibility, :local %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tag, 'Tags' %><br>
+    <%= render 'listings/tags_input', f: f %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "#{request[:action].titleize} #{@listing.type ? @listing.listing_type.titleize : "Listing"}",class: "btn btn-danger" %>
+  </div>
+<% end %>
