@@ -1,6 +1,7 @@
 class Listing < ActiveRecord::Base
   has_many :offers
   has_many :exchanges
+  has_many :reviews
 
   belongs_to :user
 

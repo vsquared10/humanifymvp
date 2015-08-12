@@ -2,7 +2,7 @@ class ListingCommunitiesController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @listing = current_user.listing_asks.build(listing_ask_params)
+    @listing = current_user.listing_communities.build(listing_community_params)
 
     respond_to do |format|
       if @listing.save
@@ -19,10 +19,9 @@ class ListingCommunitiesController < ApplicationController
 
   private
 
-  def listing_ask_params
+  def listing_community_params
     params.require(:listing_community).permit(
       :title,
-      :type,
       :description,
       :image,
       :points,

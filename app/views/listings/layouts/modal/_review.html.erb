@@ -1,0 +1,42 @@
+<% if @listing.posted_by?(current_user) and @listing.status == "accepted" %>
+  <!-- Auth Modal -->
+  <div id="review" class="touch modal">
+    <header class="bar bar-nav">
+      <a class="touch icon pull-right close" href="#review">X</a>
+      <h1 class="title">Review <%= @listing.accepted_user.name %></h1>
+    </header>
+
+    <div class="content">
+      <p class="content-padded">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-5 col-md-offset-3">
+              <%= form_for @listing.reviews.build,
+                html: { multipart: true } do |f| %>
+                <div class="field">
+                  <%= f.label :text %><br />
+                  <%= f.text_field :text, autofocus: true %>
+                </div>
+                <div class="field">
+                  <%= f.label :rating %><br />
+                  <%= f.range_field :rating, min: 0, max: 100, autofocus: true %>
+                </div>
+                <div class="field">
+                  <%= f.label :recommend,
+                    "Would you recommend #{@listing.accepted_user.name}" %><br />
+                  <%= f.label :recommend, 'Yes' %>
+                  <%= f.radio_button :recommend, true, class: "touch" %>
+                  <%= f.label :recommend, 'No' %>
+                  <%= f.radio_button :recommend, false, class: "touch" %>
+                </div>
+                <div class="actions">
+                  <%= f.submit "Submit" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </p>
+    </div>
+  </div>
+<% end %>

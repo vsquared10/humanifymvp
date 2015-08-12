@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   has_many :exchanges
   has_many :offers
   has_many :notifications
+  has_many :reviews
 
   validates :name, presence: true
   validates_format_of :zip_code,

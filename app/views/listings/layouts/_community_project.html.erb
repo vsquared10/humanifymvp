@@ -1,97 +1,11 @@
-<div class="row">
-  <%= link_to root_path do %>
-    <div id="back" class="panel col-sm-1">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    </div>
-  <% end %>
-
-  <div id="listing-body" class="panel panel-default col-sm-11">
-    <div class="panel-heading center-block">
-      <%= image_tag @listing.image.url(:medium) %>
-      <h2><%= @listing.title %></h2>
-      <p><%= @listing.description %></p>
-    </div>
-
-    <div class="panel-body">
-      <% if @listing.valid_offers.present?  %>
-        <h3> 
-          Highest Current Bid: <br>
-          <%= @listing.highest_offer.points %> KP
-        </h3>
-      <% else %>
-        <% if @listing.list_type == "offer"  %>
-          <h3>
-            <%= @listing.user.name %> is asking for: <br>
-            <%= @listing.points %> KP
-          </h3>
-        <% elsif @listing.list_type == "ask" %>
-        <% elsif @listing.list_type == "community_project" %>
-          Communtity
-        <% end %>
-      <% end %>
-      <br>
-      <% unless @listing.posted_by?(current_user) %>
-        <p>
-          <%= render "listings/user/offer" %>
-        </p>
-      <% end %>
-      <% if @listing.user == current_user %>
-        <%= link_to edit_listing_path(@listing) do %>
-          <span class="glyphicon glyphicon-edit"></span>
-          Edit
-        <% end %>
-        <%= link_to @listing, method: :delete,
-          data: { confirm: 'Are you sure?' } do %>
-          <span class="glyphicon glyphicon-trash"></span>
-          Delete
-        <% end %>
-      <% end %>
-    </div>
+<div id="listing-content" class="col-sm-11 panel panel-default">
+  <div class="col-xs-4">
+    <%= render "listings/layouts/listing_info" %>
   </div>
-</div>
-<div>
-  <% if @listing.posted_by?(current_user) %>
-    <div class="row">
-      <% unless @listing.accepted? %>
-        <% if @listing.valid_offers.any? %>
-          <div class="col-md-offset-4 col-md-4">
-            <%= render "listings/user/offer_list" %>
-          </div>
-        <% elsif @listing.valid_offers.empty? %>
-          <div class="col-md-offset-2 col-md-8">
-            <div class="panel panel-default">
-              <!-- Default panel contents -->
-              <div class="panel-body text-center">
-                <h3>
-                  Share your post for more offers.
-                </h3>
-                <br>
-                <br>
-                <div class="row"> 
-                  <div class="col-md-offset-2 col-md-8">
-                    Facebook - Twitter [Link Box]
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      <% else %>
-        <div class="col-md-offset-2 col-md-8">
-          <div class="panel panel-default">
-            <!-- Default panel contents -->
-            <div class="panel-body text-center">
-              <h3>  </h3>
-              <br>
-              <br>
-              <div class="row"> 
-                <div class="col-md-offset-2 col-md-8">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+  <div class="col-xs-3">
+    <%= render "listings/layouts/listing_ask_offer" %>
+  </div>
+  <div class="col-xs-5">
+    <%= render "listings/layouts/listing_reviews" %>
+  </div>
 </div>

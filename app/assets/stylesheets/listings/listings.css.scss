@@ -1,3 +1,5 @@
+$link-color: #f2253e;
+
 .box {
   width: 315px;
 }
@@ -47,6 +49,11 @@ a.panel-link {
   }
 }
 #listing-show {
+  .list-group-item.active, .list-group-item.active:hover,
+  .list-group-item.active:focus {
+    background-color: #f2253e;
+    border-color: #ef0e2a;
+  }
   img { border-radius: 2px; }
   #listing-content {
     padding: 40px 10px 45px;
@@ -126,6 +133,28 @@ a.panel-link {
       #title {
         font-size: 22px;
         margin-top: 21px;
+      }
+    }
+  }
+  #offerList {
+    .recipients {
+      padding: 5px 15px 25px;
+      max-height: 317px;
+      overflow: scroll;
+      border-top: 40px white solid;
+      &:after {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #959595;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        content: "Offers";
+      }
+      .media {
+        border-bottom: 1px rgba(183, 183, 183, 0.1) solid;
       }
     }
   }
