@@ -1,3 +1,3 @@
 //
-//= require application
+//= require ../application
 //= require ../ui/devise/registrations
