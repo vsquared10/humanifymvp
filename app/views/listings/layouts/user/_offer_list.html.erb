@@ -1,35 +1,47 @@
 <div class="panel panel-default">
   <!-- Default panel contents -->
   <div class="panel-heading">
-    <b>Current Offers</b>
+    <b>
+      <%= @listing.valid_offers.count %> Current
+      <%= 'Offer'.pluralize(@listing.valid_offers.count) %>
+    </b>
   </div>
   <div class="panel-body text-center">
-    <h2> 
-      <%= @listing.highest_offer.user.name %> offers:
-      <%= @listing.highest_offer.points %> KP
-    </h2>
-    <div class="">
-      <%= form_for @listing.highest_offer,
-        url: offer_path(@listing.highest_offer.id),
-        html: { multipart: true } do |g| %>
-        <%= g.submit "Accept", name: "status",
-          class: "btn btn-default btn-lg" %>
-        </br>
-        </br>
-        <%= g.submit "Decline", name: "status",
-          class: "btn btn-default btn-lg" %>
-      <% end %>
+    <div class="col-md-4">
+      <h2> 
+        <%= @listing.highest_offer.user.name %> offers:
+        <%= @listing.highest_offer.points %> KP
+      </h2>
+      <div class="">
+        <%= form_for @listing.highest_offer,
+          url: offer_path(@listing.highest_offer.id),
+          html: { multipart: true } do |g| %>
+          <%= g.submit "Accept", name: "status",
+            class: "btn btn-default btn-lg" %>
+          </br>
+          </br>
+          <%= g.submit "Decline", name: "status",
+            class: "btn btn-default btn-lg" %>
+        <% end %>
+      </div>
+      </br>
+      </br>
     </div>
-    <br>
-    <br>
-    <span>
-      Not yet! Reply first <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    </span>
+    <div id="offerList" class="panel col-sm-8">
+      <div class="recipients">
+        <% @listing.valid_offers.each do |o| %>
+          <div class="media">
+            <div class="media-left">
+              <a href="#">
+                <img class="media-object img-circle" data-src="holder.js/64x64" alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PCEtLQpTb3VyY2UgVVJMOiBob2xkZXIuanMvNjR4NjQKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNGVmNjUzM2NmYyB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE0ZWY2NTMzY2ZjIj48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSIxMy40NjA5Mzc1IiB5PSIzNi41Ij42NHg2NDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==" data-holder-rendered="true" style="width: 64px; height: 64px;">
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading"><%= o.user.name %></h4>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <!-- List group -->
-  <ul class="list-group">
-    <li class="list-group-item">
-      <%= @listing.offers.count - 1 %> Offers
-    </li>
-  </ul>
 </div>

@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :notifications, only: [:index]
   resources :inbox, only: [:index]
 
+  resources :reviews, only: [:create]
+
   # Mail Endpoints
   resources :mailbox, only: [:index]
 

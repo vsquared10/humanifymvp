@@ -54,6 +54,7 @@ div.panel {
   margin-top: 100px;
   font-size: 18px;
   font-weight: lighter;
+  z-index: 10;
 }
 
 #footer_wrapper {
@@ -143,7 +144,7 @@ span.input-group-btn {
   }
 }
 hr {
-	color: #666666;
+  color: #666666;
 }
 
 @import "menu";

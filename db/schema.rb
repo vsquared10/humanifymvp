@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150812023436) do
+ActiveRecord::Schema.define(version: 20150812072746) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "trackable_id"
@@ -185,6 +185,10 @@ ActiveRecord::Schema.define(version: 20150812023436) do
     t.string   "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "rating"
+    t.boolean  "recommend"
+    t.integer  "listing_id"
+    t.integer  "user_id"
   end
 
   create_table "sashes", force: :cascade do |t|
