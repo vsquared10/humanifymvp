@@ -21,6 +21,7 @@
 //= require lib/ratchet
 //= require lib/slideout
 //
+//= require ui/application
 //= require ui/ratchet_touch
 //= require ui/menu/inbox
 //= require ui/menu/slideout_trigger

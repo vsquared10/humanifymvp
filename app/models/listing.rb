@@ -9,24 +9,49 @@ class Listing < ActiveRecord::Base
     default_url: "small_Humanify.png"
 
 
-  validates_presence_of :description, :image, :title, :points, :visibility
+  validates_presence_of :description, :image, :title, :visibility
 
   validates_attachment_content_type :image, :content_type => /\Aimage/
 
+  validates_inclusion_of :type,
+                         in: %w{ ListingAsk ListingOffer ListingCommunity }
   validates_inclusion_of :status, in: %w{ pending accepted closed }
-  validates_inclusion_of :list_type, in: %w{ ask offer communtiy_project }
   validates_inclusion_of :visibility, in: %w{ global local }
-  validate :listing_type_options
 
   acts_as_taggable # Alias for acts_as_taggable_on :tags
   acts_as_taggable_on :topics
 
   acts_as_messageable
 
-  before_save :set_city
+  before_save :set_location
 
   has_many :reviews
   has_many :claims
+
+  attr_writer :form_part
+
+  def days_left
+    unless self.duration.nil?
+      exp = self.expiration.day - Time.now.day
+      "#{exp} day".pluralize(exp)
+    end
+  end
+
+  def expiration
+    unless self.duration.nil?
+      self.created_at + self.duration.days
+    end
+  end
+
+  def expired?
+    unless self.duration.nil?
+      self.expiration.day - Time.now.day <= 0
+    end
+  end
+
+  def closed?
+    self.status != "pending"
+  end
 
   def self.open_global
     self.where(["visibility = :visibility or status = :status",{
@@ -57,17 +82,41 @@ class Listing < ActiveRecord::Base
     self.user == user
   end
 
+  def listing_type
+    list = {
+      "ListingOffer":"offer",
+      "ListingAsk":"ask",
+      "ListingCommunity":"community_project"
+    }
+    return list[self.type.to_sym]
+  end
+
+  def form_part
+    @form_part || parts.first
+  end
+
+  def parts
+    %w[ type offer default ]
+  end
+
+  def listing_offer
+    offer = {
+      "ListingOffer":"offer",
+      "ListingAsk":"ask",
+      "ListingCommunity":"community"
+    }
+    return offer[self.type.to_sym]
+  end
+
   private
 
-  def listing_type_options
-    if self.list_type == "ask"
-      unless self.points == 0
-        errors.add(:base, 'An listing that asks for something must be free.')
-      end
+  def set_location
+    unless self.location == self.user.zip_code.to_s.to_region(city: true)
+      self.location = self.user.zip_code.to_s.to_region(city: true)
     end
   end
 
-  def set_city
-    self.city = self.user.zip_code.to_s.to_region(city: true)
+  def community_project?
+    self.list_type == "community_project"
   end
 end

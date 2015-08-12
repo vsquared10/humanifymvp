@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   has_many :conversations
 
   has_many :listings
+  has_many :listing_offers
+  has_many :listing_asks
+  has_many :listing_communities
   has_many :exchanges
   has_many :offers
   has_many :notifications

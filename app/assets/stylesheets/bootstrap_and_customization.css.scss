@@ -1,4 +1,4 @@
-$body-bg:           #ecf0f1;
+$body-bg:           #EFEFEF;
 $navbar-default-bg: #FFFFFF;
 $navbar-default-link-color: #f2253e;
 $btn-danger-bg: #f2253e;
@@ -11,9 +11,13 @@ body {
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
 }
 #buffer {
   padding-top: 69px;
+}
+#disable, .disable {
+  opacity: 0.4;
 }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-weight: 500;
@@ -43,6 +47,15 @@ div.panel {
   border: 1px solid rgba(0, 0, 0, 0.12);
   padding: 0;
 }
+
+#back {
+  width: 10px;
+  padding: 3px 20px 3px 5px;
+  margin-top: 100px;
+  font-size: 18px;
+  font-weight: lighter;
+}
+
 #footer_wrapper {
   margin-top: 135px;
 }
@@ -135,4 +148,4 @@ hr {
 
 @import "menu";
 @import "bootstrap-sprockets";
-@import '_bootstrap';
+@import "_bootstrap";

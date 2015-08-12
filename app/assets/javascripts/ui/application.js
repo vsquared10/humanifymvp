@@ -1,1 +1,1 @@
-//= require ../application
+$(document).ready(function(){});

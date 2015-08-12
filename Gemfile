@@ -61,13 +61,15 @@ gem 'pusher'
 
 gem 'json-jwt'
 
-gem "rails-backbone"
+gem 'rails-backbone'
 
 gem 'httparty'
 
+gem 'whenever', require: false
+
 group :development, :test do
-	# Use sqlite3 as the database for Active Record
-	gem 'sqlite3'
+  # Use sqlite3 as the database for Active Record
+gem 'sqlite3'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -77,7 +79,7 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  
+
   # An IRB alternative and runtime developer console.
   gem 'pry-rails'
   # Better error page for Rack apps. 
@@ -89,9 +91,7 @@ group :development, :test do
 end
 
 group :production do
-	# heroku requirements
-	gem 'pg'
-	gem 'rails_12factor'
+  # heroku requirements
+  gem 'pg'
+  gem 'rails_12factor'
 end
-
-
