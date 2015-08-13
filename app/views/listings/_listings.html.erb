@@ -16,10 +16,13 @@
           <%= image_tag(listing.image.url(:medium)) %>
           <div class="panel-body">
             <b><%= listing.title %></b>
-            <br>
-            <span><%= listing.points_starting %> KP</span>
-            <br>
-            <br>
+            <p><%= truncate listing.description, length: 45 %></p>
+            <% unless listing.listing_type == "community_project" %>
+              <br>
+              <span>
+                <%= "#{ listing.points_starting + " KP" if listing.points_starting}" %>
+              </span>
+            <% end %>
           </div>
         <% end %>
         <div class="panel-footer">

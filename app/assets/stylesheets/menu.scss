@@ -89,6 +89,7 @@ nav .badge.count {
 #inboxMenu span.inbox,
 #inboxMenu #inboxMenuComp {
   display: inline-block;
+  min-width: 19px;
 }
 
 #notificationsMenuComp, #inboxMenuComp {
@@ -101,7 +102,6 @@ li#notificationsMenu {
 }
 #notificationsMenuComp .alerts li {
   padding: 5px;
-  width: 295px;
   border-bottom: solid rgb(239, 239, 239) 1px;
   margin-bottom: 5px;
 }
