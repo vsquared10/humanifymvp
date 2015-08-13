@@ -11,6 +11,15 @@ a.panel-link {
   color: #333333;
   &:hover { text-decoration: none; }
 }
+#location {
+  .panel {
+    padding: 15px 0px 15px;
+    font-size: 12px;
+  }
+  span {
+    font-size: 35px;
+  }
+}
 
 #listings {
   margin: 0 auto;
@@ -131,7 +140,7 @@ a.panel-link {
   #listing-offer {
     #boost {
       #title {
-        font-size: 22px;
+        font-size: 20px;
         margin-top: 21px;
       }
     }

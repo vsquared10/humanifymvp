@@ -1,3 +1,7 @@
+<h1>
+  Your <%= @listing.type ? @listing.listing_type.titleize : "Listing"%>
+</h1>
+<br>
 <%= form_for @listing, url: listing_offers_path do |f| %>
   <% if @listing.errors.any? %>
     <div id="error_explanation">
@@ -38,10 +42,23 @@
 
   <div class="form-group">
     <%= f.label :visibility, 'Which communities can see this listing?' %><br>
-    <%= f.label :visibility, 'Global' %>
-    <%= f.radio_button :visibility, :global %>
-    <%= f.label :visibility, current_user.zip_code.to_s.to_region(city: true)%>
-    <%= f.radio_button :visibility, :local %>
+    </br>
+    <div id="location" class="col-md-offset-2 col-md-12">
+      <div class="col-md-3 panel">
+        <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+        </br>
+        <%= f.label :visibility, 'Global' %>
+        </br>
+        <%= f.radio_button :visibility, :global %>
+      </div>
+      <div class="col-md-offset-1 col-md-3 panel">
+        <span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+        </br>
+        <%= f.label :visibility, current_user.zip_code.to_s.to_region(city: true)%>
+        </br>
+        <%= f.radio_button :visibility, :local %>
+      </div>
+    </div>
   </div>
 
   <div class="form-group">

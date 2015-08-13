@@ -14,10 +14,6 @@
               <%= form_for @listing.reviews.build,
                 html: { multipart: true } do |f| %>
                 <div class="field">
-                  <%= f.label :text %><br />
-                  <%= f.text_field :text, autofocus: true %>
-                </div>
-                <div class="field">
                   <%= f.label :rating %><br />
                   <%= f.range_field :rating, min: 0, max: 100, autofocus: true %>
                 </div>
@@ -28,6 +24,12 @@
                   <%= f.radio_button :recommend, true, class: "touch" %>
                   <%= f.label :recommend, 'No' %>
                   <%= f.radio_button :recommend, false, class: "touch" %>
+                </div>
+                <div class="field">
+                  <%= f.label :text, "Comments" %><br />
+                  <%= f.text_area :text,
+                          placeholder: "Leave additional comments for #{@listing.user.name}. (500 Character Max)",
+                          autofocus: true %>
                 </div>
                 <div class="actions">
                   <%= f.submit "Submit" %>

@@ -13,7 +13,10 @@
     <% end %>
 
     <div class="form-group">
-      <h4><%= f.label :type, "Listing Type" %></h4>
+      <h1><%= f.label :type, "Listing Type" %></h1>
+      <span>What type of listing would you like to post.</span>
+      </br>
+      </br>
       <%= f.label :type, 'Make an Ask' %>
       <%= f.radio_button :type, "ListingAsk"  %>
       <%= f.label :type, 'Make an Offer' %>
@@ -24,5 +27,6 @@
     <div class="form-group">
       <%= f.submit "Next", class: "btn btn-danger" %>
     </div>
+    </br>
   <% end %>
 <% end %>
