@@ -1,6 +1,6 @@
 <div id="listing-show" class="container">
   <%= render 'listings/layouts/notifications' %>
-  <% if @listing.accepted_user == current_user and @listing.status == "accepted" %>
+  <% if @listing.status == "accepted" and @listing.accepted_user == current_user %>
     <div class="row">
       <div id="" class="col-sm-12">
         <div id="" class="col-sm-offset-1 col-sm-10 panel panel-default">
@@ -13,7 +13,6 @@
       </div>
     </div>
   <% end %>
-
   <div class="row">
     <%= link_to root_path do %>
       <div id="back" class="panel col-sm-1">
