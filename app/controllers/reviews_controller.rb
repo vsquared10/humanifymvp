@@ -1,6 +1,9 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!
 
+  def new
+  end
+
   def create
     @review = current_user.reviews.build(review_params)
     #@offer.listing_id = params[:listing_id]

@@ -1,6 +1,6 @@
 <div id="listing-show" class="container">
   <%= render 'listings/layouts/notifications' %>
-  <% if @listing.posted_by?(current_user) and @listing.status == "accepted" %>
+  <% if @listing.accepted_user == current_user and @listing.status == "accepted" %>
     <div class="row">
       <div id="" class="col-sm-12">
         <div id="" class="col-sm-offset-1 col-sm-10 panel panel-default">
