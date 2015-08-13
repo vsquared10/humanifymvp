@@ -1,12 +1,12 @@
 {
   "name": "humanifymvp",
-  "dependencies" : {
-    "browserify": "~> 10.2.4",
+  "dependencies": {
+    "browserify": "^10.2.6",
     "browserify-incremental": "^3.0.1",
-    "reactify": "^0.13.1",
+    "lodash": "^2.4.1",
     "react-bootstrap": "^0.10.2",
-    "underscore.string": "^2.3.3",
-    "lodash": "^2.4.1"
+    "reactify": "^0.13.1",
+    "underscore.string": "^2.3.3"
   },
   "engines": {
     "node": ">= 0.10"
