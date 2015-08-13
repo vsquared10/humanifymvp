@@ -21,6 +21,18 @@ a.panel-link {
   }
 }
 
+#type {
+  .panel {
+    padding: 15px 0px 15px;
+    font-size: 12px;
+    margin: 5px;
+  }
+  span {
+    font-size: 35px;
+  }
+  padding: 15px;
+}
+
 #listings {
   margin: 0 auto;
 
@@ -168,6 +180,27 @@ a.panel-link {
     }
   }
 }
-
+#listing-content {
+  .ui-state-default,
+  .ui-widget-content .ui-state-default,
+  .ui-widget-header .ui-state-default {
+    border: 1px solid #DDDDDD;
+    background: #EFEFEF;
+    color: #F2253E;
+    &:after {
+      content: "x";
+      margin-left: 10px;
+      font-size: 25px;
+      font-weight: 500;
+      color: #E1E1E1;
+    }
+  }
+  ul.tagit li.tagit-choice {
+    line-height: 1;
+  }
+  ul.tagit li.tagit-choice-editable {
+    padding: 0em 0.4em 0.4em 0.4em;
+  }
+}
 @import "../lib/jquery-ui";
 @import "../lib/jquery.tagit";
