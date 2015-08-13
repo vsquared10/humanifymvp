@@ -5,6 +5,8 @@ ruby '2.2.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 
+gem 'puma'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', git: 'git://github.com/edwardreed/sass-rails.git', branch: 'backport'
 
