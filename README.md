@@ -9,16 +9,12 @@ By [Victor Vulovic](http://linkedin.com/in/victorvulovic)
 ## Install Gems / NPM Packages
 ```
 bundle install;
-npm install;
 ```
 ## Create an .env file with:
 ```
-PUSHER_ID='SET ID'
-PUSHER_KEY='SET KEY'
-PUSHER_SECRET='SET SECRET'
-LAYER_KEY_ID='SET ID'
-LAYER_PROVIDER_ID='SET ID'
-LAYER_PLATFORM_TOKEN='SET TOKEN'
+PUSHER_ID='YOUR PUSER ID'
+PUSHER_KEY='YOUR PUSER KEY'
+PUSHER_SECRET='YOUR PUSER SECRET'
 ```
 
 ## Create Database and Migrate
