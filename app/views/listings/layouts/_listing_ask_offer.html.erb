@@ -25,7 +25,7 @@
     <%= form_for @listing.offers.build, html: { multipart: true } do |f| %>
       <%= f.hidden_field :listing_id, value: @listing.id %>
       <%= f.hidden_field :type, value: "Help" %>
-      <div class="col-xs-12 <%= "disable" if @listing.closed? %>">
+      <div class="col-md-12 <%= "disable" if @listing.closed? %>">
         <div class="form-group">
           <%= f.submit "Help", class: "btn btn-danger",
                                disabled: @listing.expired? %>

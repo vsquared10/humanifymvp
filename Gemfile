@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
 ruby '2.2.2'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
+
+gem 'puma'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', git: 'git://github.com/edwardreed/sass-rails.git', branch: 'backport'
@@ -36,8 +37,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 
 gem 'react-rails', '~> 1.0'
-
-gem 'browserify-rails'
 
 gem 'devise', '~> 3.4.1'
 
