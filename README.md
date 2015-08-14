@@ -1,20 +1,17 @@
 # Humanify MVP
 
 This is the alpha version of the [*Humanify MVP*](http://humanify.co) application.
-
-By [Victor Vulovic](http://linkedin.com/in/victorvulovic)
-
 # Setup
 
 ## Install Gems / NPM Packages
 ```
 bundle install;
 ```
-## Create an .env file with:
+## Create an .env file with your [Pusher](https://pusher.com) enviroment variables:
 ```
-PUSHER_ID='YOUR PUSER ID'
-PUSHER_KEY='YOUR PUSER KEY'
-PUSHER_SECRET='YOUR PUSER SECRET'
+PUSHER_ID='YOUR PUSHER ID'
+PUSHER_KEY='YOUR PUSHER KEY'
+PUSHER_SECRET='YOUR PUSHER SECRET'
 ```
 
 ## Create Database and Migrate
