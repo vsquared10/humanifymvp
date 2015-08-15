@@ -20,7 +20,7 @@
             <% unless listing.listing_type == "community_project" %>
               <br>
               <span>
-                <%= "#{ listing.points_starting + " KP" if listing.points_starting}" %>
+                <%= "#{listing.points_starting} KP" if listing.points_starting %>
               </span>
             <% end %>
           </div>
