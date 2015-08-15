@@ -1,9 +1,4 @@
-require 'elasticsearch/model'
-
 class Listing < ActiveRecord::Base
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
-
   has_many :offers
   has_many :exchanges
   has_many :reviews

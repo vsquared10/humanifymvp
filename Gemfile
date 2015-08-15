@@ -66,8 +66,8 @@ gem 'httparty'
 
 gem 'whenever', require: false
 
-gem 'elasticsearch-model', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
-gem 'elasticsearch-rails', git: 'git://github.com/elasticsearch/elasticsearch-rails.git'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
