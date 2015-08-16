@@ -3,6 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Humanify</title>
+    <%= content_for :head %>
     <%= stylesheet_link_tag params[:controller], media: 'all', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <link rel="shortcut icon" href="<%= image_path('favicon.gif') %>" type="image/icon"> 
