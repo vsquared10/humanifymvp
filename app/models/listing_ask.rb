@@ -1,2 +1,0 @@
-class ListingAsk < Listing
-end
