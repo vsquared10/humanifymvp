@@ -2,7 +2,7 @@ class Listing < ActiveRecord::Base
   has_many :offers
   has_many :exchanges
   has_many :reviews
-
+  has_many :claims
   belongs_to :user
 
   has_attached_file :image,
@@ -11,9 +11,7 @@ class Listing < ActiveRecord::Base
 
 
   validates_presence_of :description, :image, :title, :visibility
-
   validates_attachment_content_type :image, :content_type => /\Aimage/
-
   validates_inclusion_of :type,
                          in: %w{ ListingAsk ListingOffer ListingCommunity }
   validates_inclusion_of :status, in: %w{ pending accepted closed }
@@ -21,13 +19,10 @@ class Listing < ActiveRecord::Base
 
   acts_as_taggable # Alias for acts_as_taggable_on :tags
   acts_as_taggable_on :topics
-
   acts_as_messageable
 
   before_save :set_location
 
-  has_many :reviews
-  has_many :claims
 
   attr_writer :form_part
 
