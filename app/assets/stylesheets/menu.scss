@@ -1,3 +1,9 @@
+.nav {
+  #new-session {
+    padding-bottom: 0px;
+    top: 0px;
+  }
+}
 .navbar-fixed-top, .navbar-fixed-bottom {
   z-index: 8;
 }
@@ -94,7 +100,6 @@ nav .badge.count {
 
 #notificationsMenuComp, #inboxMenuComp {
   position: relative;
-  margin-top: 8px;
   margin-left: -22px;
 }
 li#notificationsMenu {
@@ -106,10 +111,14 @@ li#notificationsMenu {
   margin-bottom: 5px;
 }
 #inboxMenu {
-  margin-top: 8px;
+  margin-top: 15px;
   font-size: 19px;
   cursor: pointer;
   color: #D2D2D2;
+  a {
+    color: #D2D2D2;
+    padding: 0 0;
+  }
   span.inbox {
     position: relative;
     z-index: 4;

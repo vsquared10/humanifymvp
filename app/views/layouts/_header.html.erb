@@ -13,9 +13,9 @@
         <% else %>
           <!-- Sign-Up & Sign-In -->
           <li>
-            <a href="#auth" class="touch">
+            <%= link_to :new_user_session, id:"new-session", class:"btn touch" do %>
               <button type="button" class="btn btn-lg home btn-danger">Sign In</button>
-            </a>
+            <% end %>
           </li>
         <% end %>
       </ul>
