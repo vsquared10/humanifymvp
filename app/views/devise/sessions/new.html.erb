@@ -1,7 +1,7 @@
-<div id="session-new" class="col-xs-offset-2 col-sm-8 panel panel-default">
-  <div class="col-xs-offset-1 col-xs-8">
-    <h2>Log in</h2>
-
+<div id="session-new" class="text-center col-md-offset-2 col-md-8 panel panel-default">
+  <div class="col-md-offset-2 col-md-8">
+    <h1>Welcome Back</h1>
+    <br>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
         <%= f.label :email %><br />
@@ -19,12 +19,15 @@
           <%= f.label :remember_me %>
         </div>
       <% end -%>
-
+    <br>
       <div class="actions">
-        <%= f.submit "Log in" %>
+        <%= f.submit "Log in", class:"btn btn-danger" %>
       </div>
     <% end %>
 
+    <br>
     <%= render "devise/shared/links" %>
+    <br>
+    <br>
   </div>
 </div>
