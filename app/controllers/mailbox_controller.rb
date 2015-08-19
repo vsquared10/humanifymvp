@@ -2,11 +2,7 @@ class MailboxController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @mail = current_user.mailbox.inbox.to_json
-    respond_to do |format|
-      format.html { render json: @mail }
-      format.json { render json: @mail }
-    end
+    @mailbox = current_user.mailbox
   end
 
   def create
