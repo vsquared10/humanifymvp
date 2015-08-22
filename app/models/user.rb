@@ -26,6 +26,12 @@ class User < ActiveRecord::Base
   acts_as_messageable
   has_merit
 
+  # Move to Messages Concern
+  def messages(id)
+    self.mailbox.inbox.find(id)
+        .messages.order(created_at: :desc)
+  end
+
   private
 
   def init_karma

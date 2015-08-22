@@ -65,6 +65,18 @@ $small-medium: 767px;
     postition: absolute;
     right: 0px;
     width: 100%;
+    &.disable{
+      .form-control[disabled],
+      fieldset[disabled] .form-control {
+        cursor: default;
+      }
+      .btn-default:hover{
+        cursor: default;
+        &:before{
+          content: normal;
+        }
+      }
+    }
   }
   .input-group-btn {
     position: absolute;
