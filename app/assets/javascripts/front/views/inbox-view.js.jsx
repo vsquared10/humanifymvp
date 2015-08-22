@@ -41,6 +41,11 @@ $('#inboxMenu span').on('click', function(event) {
   $('#inboxMenu .inbox-alerts.dropdown-menu').toggle();
 });
 
+React.render(
+  <InboxNotifications/>,
+  document.getElementById('inboxMenuComp')
+);
+
 var inboxChannel = pusher.subscribe('inbox');
 // Get inbox on "new-message" Pusher event
 inboxChannel.bind('new-message', function(){

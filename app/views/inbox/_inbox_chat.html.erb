@@ -1,0 +1,25 @@
+<div id="chat-box" class="col-sm-offset-4 col-sm-5">
+  <div id="chat">
+    <div class="container">
+      <% if params[:id].present? %>
+        <% @mailbox.inbox.find(params[:id]).messages.each do |message| %>
+          <div class="bubble <%= "bubble-alt" if message.sender_id != current_user.id %>">
+            <p><%= message.body %></p>
+          </div>
+        <% end %>
+        <p class="humanify datestamp">
+         <%= @mailbox.inbox.find(params[:id]).created_at.strftime("%b %d, %Y") %>
+        </p>
+      <% else %>
+      <% end %>
+    </div>
+  </div>
+  <div class="<%= "disable" if params[:id].nil? %> input-group">
+    <input type="text" class="form-control" placeholder="Send Message">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="button">
+        <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+      </button>
+    </span>
+  </div>
+</div>

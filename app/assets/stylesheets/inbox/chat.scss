@@ -40,7 +40,15 @@ $small-medium: 767px;
       content: "Inbox";
     }
     .media {
+      border: 1px solid transparent;
       border-bottom: 1px rgba(183, 183, 183, 0.1) solid;
+      padding: 10px;
+      &.active{
+        background-color: rgba(239, 239, 239, 0.25);
+      }
+      &:hover {
+        border: #B7B7B7 solid 1.5px;
+      }
     }
   }
 }
@@ -63,13 +71,11 @@ $small-medium: 767px;
   }
 }
 @media (min-width: $small-medium) {
+  #inboxList{
+    padding: 0 30px;
+  }
   #chat-box {
-    height: 100%;
-    position: absolute;
-    right: 0px;
-    top: 49px;
     #chat {
-      height: 618px;
       .container {
         height: 100%;
       }

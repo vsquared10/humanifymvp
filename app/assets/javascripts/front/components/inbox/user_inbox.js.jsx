@@ -7,6 +7,7 @@ var InboxNotifications = React.createClass({
       className: "inbox-alerts alerts dropdown-menu"
     };
   },
+  componentDidMount: function() {},
   render: function() {
     return (
       <div>

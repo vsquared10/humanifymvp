@@ -1,0 +1,8 @@
+<div id="inbox-show">
+  <%= render 'inbox/inbox_list' %>
+  <div id="chat-back" class="col-md-6 text-center">
+    <%= link_to "< Back", inbox_index_path,
+        class:"btn btn-default btn-md btn-danger" %>
+  </div>
+  <%= render 'inbox/inbox_chat' %>
+</div>

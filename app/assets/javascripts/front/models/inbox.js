@@ -1,3 +1,1 @@
-Humanify.Models.Inbox = Backbone.Model.extend({
-  urlRoot: '/mailbox'
-});
+Humanify.Models.Inbox = Backbone.Model;

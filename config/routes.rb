@@ -8,18 +8,15 @@ Rails.application.routes.draw do
 
   resources :listings, except: [:index]
 
+  resources :offers, only: [:create, :update]
   resources :listing_offers, only: [:create]
   resources :listing_asks, only: [:create]
   resources :listing_communities, only: [:create]
 
-  resources :offers, only: [:create, :update]
-  resources :notifications, only: [:index]
-  resources :inbox, only: [:index]
-
   resources :reviews, except: [:index,:show]
 
-  # Mail Endpoints
-  resources :mailbox, only: [:index]
+  resources :inbox
+  resources :notifications, only: [:index]
 
   get 'notification/delete' => 'notification#delete'
 
