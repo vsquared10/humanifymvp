@@ -23,7 +23,7 @@ $small-medium: 767px;
 }
 #inboxList {
   .recipients {
-    padding: 5px 15px 25px;
+    padding: 5px 0px 25px;
     min-height: 250px;
     max-height: 517px;
     overflow: scroll;
@@ -43,6 +43,7 @@ $small-medium: 767px;
       border: 1px solid transparent;
       border-bottom: 1px rgba(183, 183, 183, 0.1) solid;
       padding: 10px;
+      margin-top: 0px;
       &.active{
         background-color: rgba(239, 239, 239, 0.25);
       }
@@ -58,9 +59,22 @@ $small-medium: 767px;
   background: $white_100;
   border: solid 1px rgba(0, 0, 0, 0.12);
   padding: 0;
-  .form-control {
+  #chat-input {
     border-radius: 0;
     border: 1px solid rgba(204, 204, 204, 0);
+    postition: absolute;
+    right: 0px;
+    width: 100%;
+  }
+  .input-group-btn {
+    position: absolute;
+    right: 55px;
+    .btn-default:hover{
+      background-color: white;
+      &:before{
+        content: "__";
+      }
+    }
   }
   .btn-default {
     border-radius: 0;
@@ -71,9 +85,6 @@ $small-medium: 767px;
   }
 }
 @media (min-width: $small-medium) {
-  #inboxList{
-    padding: 0 30px;
-  }
   #chat-box {
     #chat {
       .container {

@@ -10,21 +10,22 @@ class InboxController < ApplicationController
   end
 
   def create
-    @mail = current_user.send_message(message_params)
+    conversation = current_user.mailbox.inbox.find(message[:id])
+
+    @mail = current_user.reply_to_conversation(
+              conversation,
+              message[:message],
+              should_untrash = true
+            )
+
+    redirect_to :back
   end
 
   def destroy
   end
 
   private
-    def listing_params
-      params.require(:listing).permit(
-        :title,
-        :list_type,
-        :description,
-        :image,
-        :points,
-        :visibility,
-        :tag_list)
+    def message
+      params.require(:mailbox).permit(:id, :message)
     end
 end

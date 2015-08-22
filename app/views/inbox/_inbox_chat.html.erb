@@ -14,12 +14,18 @@
       <% end %>
     </div>
   </div>
-  <div class="<%= "disable" if params[:id].nil? %> input-group">
-    <input type="text" class="form-control" placeholder="Send Message">
-    <span class="input-group-btn">
-      <button class="btn btn-default" type="button">
-        <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
-      </button>
-    </span>
+  <div id="chat-input" class="<%= "disable " if params[:id].nil? %>input-group">
+    <form action="/inbox"  method="post">
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      <input type="hidden" name="mailbox[id]"
+                           value="<%= @mailbox.inbox.find(params[:id]).id %>">
+      <input type="text" name="mailbox[message]"
+             class="form-control" placeholder="Send Message">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">
+          <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+        </button>
+      </span>
+    </form>
   </div>
 </div>
