@@ -1,0 +1,41 @@
+<div class="container-fluid">
+  <%= @user.name %> Bio | Social Captial | Trusted by | Add To My Circle + Write Message
+  <h4><%= "ORGANIZATION" if @user.organization %></h4>
+  <h1>Karma Points: <%= @user.points%></h1>
+</div>
+
+<div id="listings" class="transitions-enabled">
+  <% @user.listings.each do |listing| %>
+    <div class="box panel panel-default">
+        <%= link_to listing_path(listing), class: "panel-link" do %>
+          <div id="type">
+            <%= listing.listing_type %>
+          </div>
+          <%= image_tag(listing.image.url(:medium)) %>
+          <div class="panel-body">
+            <b><%= listing.title %></b>
+            <br>
+            <span><%= listing.points_starting %> KP</span>
+            <br>
+            <br>
+          </div>
+        <% end %>
+        <div class="panel-footer">
+          <strong>
+            <%= listing.user.name if listing.user %>
+          </strong>
+          <div class="actions">
+            <%= link_to edit_listing_path(listing) do %>
+              <span class="glyphicon glyphicon-edit"></span>
+              Edit
+            <% end %>
+            <%= link_to listing_path(listing), method: :delete,
+              data: { confirm: 'Are you sure?' } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+              Delete
+            <% end %>
+          </div>
+        </div>
+    </div>
+  <% end %>
+</div>

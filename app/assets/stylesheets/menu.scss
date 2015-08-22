@@ -1,0 +1,206 @@
+.nav {
+  #new-session {
+    padding-bottom: 0px;
+    top: 0px;
+  }
+}
+.navbar-fixed-top, .navbar-fixed-bottom {
+  z-index: 8;
+}
+.navbar-default {
+  .navbar-nav {
+    li a.touch {
+        color: #f2253e;
+        padding-top: 1px;
+        padding-bottom: 10px;
+    }
+    .home {
+      padding: 5px 8px;
+      font-size: 16px;
+    }
+  }
+  .glyphicon-search {
+    top: -8px;
+  }
+  .inbox-alerts.alerts.dropdown-menu {
+    margin-top: 6px;
+  }
+  .alerts.dropdown-menu {
+    border-radius: 0px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    margin-top: 18px;
+  }
+  #user-avatar{
+    max-height: 35px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+}
+.navbar.navbar-default .navbar-toggle {
+  border-color: white;
+  padding: 15px;
+  font-size: 16px;
+  margin: 0;
+  font-size: 1.1em;
+}
+.navbar-brand#small-logo {
+  padding: 8px 15px;
+  z-index: 10px;
+}
+
+.navbar-header img {
+  max-height: 35px;
+}
+.navbar-slideout{
+  background-color: white;
+}
+.navbar-right.mobile-toggle{
+  display: none;
+}
+button.toggle-button.navbar-toggle:hover,
+button.toggle-button.navbar-toggle:focus {
+  background-color: white;
+}
+#mobile-menu {
+  display: none;
+}
+#listing-search-input {
+  cursor: default;
+  opacity: 0;
+  width: 40%;
+  position: relative;
+  z-index: -10;
+}
+#listing-search-input input,
+#listing-search-input button,
+#listing-search-input span{
+  cursor: default;
+}
+.listings-index#listing-search-input {
+  display: block;
+  width: 80%;
+  opacity: 1;
+  z-index: 2;
+}
+nav .badge.count {
+  font-size: 14px;
+  color: #f2253e;
+  background-color: transparent;
+  margin-left: 5px;
+  position: relative;
+  z-index: 8;
+}
+#notificationsMenu #userImg,
+#notificationsMenu #notificationsMenuComp,
+#inboxMenu span.inbox,
+#inboxMenu #inboxMenuComp {
+  display: inline-block;
+  min-width: 19px;
+}
+
+#notificationsMenuComp, #inboxMenuComp {
+  position: relative;
+  margin-left: -22px;
+}
+li#notificationsMenu {
+  cursor: pointer;
+}
+#notificationsMenuComp .alerts li {
+  padding: 5px;
+  border-bottom: solid rgb(239, 239, 239) 1px;
+  margin-bottom: 5px;
+}
+#inboxMenu {
+  margin-top: 15px;
+  font-size: 19px;
+  cursor: pointer;
+  color: #D2D2D2;
+  > a {
+    color: #D2D2D2;
+    padding: 0 0;
+  }
+  span.inbox {
+    position: relative;
+    z-index: 4;
+  }
+  .badge.count {
+    top: -8px;
+    left: 0px;
+  }
+}
+li#pointsU a {
+  color: #D2D2D2;
+  font-size: 17px;
+  z-index: 10;
+}
+#footer_wrapper {
+  display: none;
+}
+
+@media (max-width: $small-medium) {
+  .navbar-brand#small-logo {
+    padding: 15px 15px;
+  }
+  .navbar-header img {
+    max-height: 25px;
+  }
+  #listing-search-input .input-group.col-sm-8 {
+    width: 68%;
+  }
+  .navbar-right.avatar {
+    display: none;
+  }
+  .navbar-right.mobile-toggle{
+    display: block
+  }
+}
+.navbar-right.avatar {
+  margin-right: 15px;
+}
+.navbar #listing-search-input .search-query {
+  padding-left: 18px;
+  height: 35px;
+  border: white;
+  box-shadow: inset 0 0px 0px;
+  webkit-box-shadow: inset 0 0px 0px;
+  -webkit-border-radius: 28px;
+  -moz-border-radius: 28px;
+  border-radius: 28px;
+}
+.navbar #listing-search-input button {
+  color: #f2253e;
+}
+#listing-search-input {
+  margin:0;
+  margin-top: 10px;
+  padding: 0;
+}
+
+#listing-search-input .search-query {
+  padding-right: 3px;
+  padding-right: 4px \9;
+  padding-left: 3px;
+  padding-left: 4px \9;
+  /* IE7-8 doesn't have border-radius, so don't indent the padding */
+
+  margin-bottom: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+#listing-search-input button {
+  border: 0;
+  background: none;
+  /** belows styles are working good */
+  padding: 2px 5px;
+  margin-top: 2px;
+  position: relative;
+  left: -28px;
+  /* IE7-8 doesn't have border-radius, so don't indent the padding */
+  margin-bottom: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  color:#D9230F;
+}

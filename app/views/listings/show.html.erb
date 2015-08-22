@@ -1,0 +1,55 @@
+<div id="listing-show" class="container">
+  <%= render 'listings/layouts/notifications' %>
+  <% if @listing.status == "accepted" and @listing.accepted_user == current_user %>
+    <div class="row">
+      <div id="" class="col-sm-12">
+        <div id="" class="col-sm-offset-1 col-sm-10 panel panel-default">
+          <a href="#review" class="touch">
+            <button type="button" class="btn btn-lg home btn-danger">
+              Review <%= @listing.accepted_user.name %>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="row">
+    <%= link_to root_path do %>
+      <div id="back" class="panel col-sm-1">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      </div>
+    <% end %>
+    <%= render "listings/layouts/#{@listing.listing_type}" %>
+
+    <% if @listing.posted_by?(current_user) and @listing.status == "pending" %>
+      <div class="row">
+        <% unless @listing.accepted? %>
+          <% if @listing.valid_offers.any? %>
+            <div class="col-md-offset-1 col-md-10">
+              <%= render "listings/layouts/user/offer_list" %>
+            </div>
+          <% elsif @listing.valid_offers.empty? %>
+            <div class="col-md-offset-2 col-md-8">
+              <%= render "listings/layouts/listing_share" %>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="col-md-offset-2 col-md-8">
+            <div class="panel panel-default">
+              <!-- Default panel contents -->
+              <div class="panel-body text-center">
+                <h3>  </h3>
+                <br>
+                <br>
+                <div class="row">
+                  <div class="col-md-offset-2 col-md-8">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

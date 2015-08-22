@@ -1,0 +1,12 @@
+<% if devise_error_messages!.present? %>
+  <div class="text-center col-md-offset-2 col-md-8 panel panel-default">
+      <%= devise_error_messages! %>
+  </div>
+<% end %>
+<div id="session-new" class="col-xs-offset-2 col-sm-8 panel panel-default">
+  <div class="col-xs-offset-1 col-xs-10 text-center">
+    <h1>Welcome</h1>
+    <%= render "devise/registrations/form_new" %>
+    </br>
+  </div>
+</div>

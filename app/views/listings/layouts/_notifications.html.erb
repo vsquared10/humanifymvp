@@ -1,0 +1,13 @@
+  <% if @listing.posted_by?(current_user) and @listing.accepted? %>
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8">
+        <div class="list-group">
+          <div class="list-group-item active">
+            <h4 class="list-group-item-heading text-center">
+                If you haven't already, set a time and place to exchange your gifts with <%= @listing.accepted_user.name %>!
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>

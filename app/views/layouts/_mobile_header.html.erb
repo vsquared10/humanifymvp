@@ -1,0 +1,40 @@
+<nav id="mobile-menu" class="navbar-slideout">
+  <div class="container-fluid">
+    <!-- Collect the nav links, forms, and other content for toggling -->
+      <ul class="nav navbar-nav avatar text-center">
+        <% if user_signed_in? %>
+          <!-- Username & Kudos Balance -->
+          <%= link_to profile_path  do %>
+            <li class="panel">
+              <div class="panel-body">
+                <img data-src="holder.js/140x140" class="img-circle" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNGViMGI0OGY4MCB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE0ZWIwYjQ4ZjgwIj48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA0Njg3NSIgeT0iNzQuNSI+MTQweDE0MDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==" data-holder-rendered="true" style="width: 70px; height: 70px;">
+                <h3><%= current_user.name %></h3>
+                <h2> KP: <%= current_user.points %> </h2>
+              </div>
+            </li>
+          <% end %>
+          <br>
+          <li><%= link_to 'New Listing', new_listing_path %></li>
+          <br>
+          <li> 
+            <div class="btn-group" role="group" aria-label="...">
+              <%= link_to edit_user_registration_path do %>
+                <button type="button" class="btn btn-default">Settings</button>
+              <% end %>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <button type="button" class="btn btn-default">Log out</button>
+              <% end %>
+            </div>
+          </li>
+        <% else %>
+          <!-- Sign-Up & Sign-In -->
+          <li data-toggle="" data-target="">
+            <%= image_tag('elements-11.png', id: "user-avatar") %>
+          </li>
+        <% end %>
+      </ul>
+
+    <!-- Brand and toggle get grouped for better mobile display -->
+      <% link_to image_tag('humanify-a.png'), root_path, id:"small-logo", class: "navbar-brand"%><!-- image_tag gives huge image;doesn't resize appropriately -->
+  </div><!-- /.container-fluid -->
+</nav>
