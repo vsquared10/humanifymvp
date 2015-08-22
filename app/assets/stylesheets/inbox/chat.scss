@@ -65,6 +65,9 @@ $small-medium: 767px;
     postition: absolute;
     right: 0px;
     width: 100%;
+    .input-group .form-control {
+      height: 3em;
+    }
     &.disable{
       .form-control[disabled],
       fieldset[disabled] .form-control {
@@ -92,9 +95,6 @@ $small-medium: 767px;
     border-radius: 0;
     border-color: rgba(204, 204, 204, 0);
   }
-  #chat {
-    padding: 8px;
-  }
 }
 @media (min-width: $small-medium) {
   #chat-box {
@@ -106,9 +106,10 @@ $small-medium: 767px;
   }
 }
 #chat {
-  height: 480px;
+  height: 100%;
   font-size: 62.5%;
   line-height: 1;
+  padding-top: 25px;
   background: $white_100;
   .container {
     width: 100%;
@@ -160,7 +161,7 @@ $small-medium: 767px;
     //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 2px;
     margin-bottom: 20px;
-    padding: 10px 25px;
+    padding: 5px 10px;
     color: $white;
     word-wrap: break-word;
     &:before {
@@ -178,7 +179,7 @@ $small-medium: 767px;
       left: -5px;
     }
     p {
-      font-size: 1.4em;
+      font-size: 1.8em;
     }
   }
   .bubble-alt {

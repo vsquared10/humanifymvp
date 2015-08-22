@@ -56,6 +56,17 @@ div.panel {
   font-weight: lighter;
   z-index: 10;
 }
+@media (max-width: $small-medium) {
+  #back {
+    width: auto;
+    margin-top: 0px;
+    font-weight: 400;
+    text-align: center;
+    &:after {
+      content: "Back"
+    }
+  }
+}
 #review {
 }
 

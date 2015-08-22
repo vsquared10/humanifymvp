@@ -1,11 +1,11 @@
-<div id="listing-body" class="box">
+<div id="listing-body">
   <div id="head">
     <% unless @listing.listing_type != "offer" || @listing.duration.nil? %>
       <div id="time">
         Time left: <%= @listing.expired? ? "0 days" : @listing.days_left %>
       </div>
     <% end %>
-    <%= image_tag @listing.image.url(:medium) %>
+    <%= image_tag @listing.image.url(:medium), class:"img-responsive" %>
   </div>
   <div class="panel-heading center-block">
     <h2><%= @listing.title %></h2>
