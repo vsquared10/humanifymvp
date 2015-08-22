@@ -3,11 +3,13 @@ var NotificationsMenu = React.createClass({
   getDefaultProps: function() {
     return {
       notificationsComponents: [],
-      className: "alerts dropdown-menu"
+      className: "alerts dropdown-menu",
     };
   },
   notificationsCount: function() {
-    return this.props.notificationsComponents.length;
+    if (this.props.notificationsComponents.length > 0){
+      return this.props.notificationsComponents.length;
+    }
   },
   notificationsItems: function() {
       return this.props.notificationsComponents;

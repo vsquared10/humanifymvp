@@ -1,0 +1,38 @@
+<div id="chat-box" class="col-sm-offset-4 col-sm-5">
+  <div id="chat">
+    <div class="container">
+      <% if params[:id].present? %>
+        <% current_user.messages(params[:id]).each do |message| %>
+          <div class="bubble <%= "bubble-alt" if message.sender_id != current_user.id %>">
+            <p><%= message.body %></p>
+          </div>
+        <% end %>
+        <% if conversation_past_day?(params[:id]) %>
+          <p class="humanify datestamp">
+          <%= @mailbox.inbox.find(params[:id]).created_at.strftime("%b %d, %Y") %>
+          </p>
+        <% end %>
+      <% else %>
+      <% end %>
+    </div>
+  </div>
+  <div id="chat-input" class="<%= "disable " if params[:id].nil? %>input-group">
+    <form action="/inbox"  method="post">
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      <% unless params[:id].nil? %>
+        <input type="hidden" name="mailbox[id]"
+               value="<%= @mailbox.inbox.find(params[:id]).id %>">
+      <% end %>
+      <input type="text" name="mailbox[message]"
+                         class="form-control"
+                         placeholder="Send Message"
+                         <%= "disabled" if params[:id].nil? %>>
+      <span class="input-group-btn">
+        <button class="btn btn-default"
+                type="button" <%= "disabled" if params[:id].nil? %>>
+          <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+        </button>
+      </span>
+    </form>
+  </div>
+</div>
