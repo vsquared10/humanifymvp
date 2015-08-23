@@ -6,19 +6,21 @@ Rails.application.routes.draw do
   get 'about' => 'pages#about' #create about_path
   get 'profile' => 'pages#profile' #create profile_path
 
-  resources :listings, except: [:index]
+  get 'users/:id/:name' => 'users#show'
 
-  resources :offers, only: [:create, :update]
+  resources :listings, except: [:index]
   resources :listing_offers, only: [:create]
   resources :listing_asks, only: [:create]
   resources :listing_communities, only: [:create]
 
+  resources :offers, only: [:create, :update]
   resources :reviews, except: [:index,:show]
 
   resources :inbox
   resources :notifications, only: [:index]
 
   get 'notification/delete' => 'notification#delete'
+
 
   # Pusher Auth Endpoint
   # 'pusher/auth' => 'pusher#auth'

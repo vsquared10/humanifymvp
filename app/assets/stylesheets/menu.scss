@@ -133,9 +133,6 @@ li#pointsU a {
   font-size: 17px;
   z-index: 10;
 }
-#footer_wrapper {
-  display: none;
-}
 
 @media (max-width: $small-medium) {
   .navbar-brand#small-logo {
@@ -152,6 +149,9 @@ li#pointsU a {
   }
   .navbar-right.mobile-toggle{
     display: block
+  }
+  #footer_wrapper {
+    display: none;
   }
 }
 .navbar-right.avatar {

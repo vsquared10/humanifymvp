@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <div id="user-profile" class="col-md-12 panel panel-default text-center">
+    <div class="col-md-3">
+      <div id="profile" class="text-center">
+        <%= image_tag('elements-11.png', size: "70x70", id: "user-avatar") %>
+        <p>
+          <%= @user.name %>
+          </br>
+          <%= @user.zip_code.to_s.to_region %>
+        </p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <h3>Social Captial</h3>
+    </div>
+    <div class="col-md-3">
+      <h3>Trusted by</h3>
+    </div>
+    <div id="action" class="col-md-3">
+      <div class="col-md-11">
+        <button type="button" class="btn btn-default btn-danger">
+          Add To My Circle
+        </button>
+        <button type="button" class="btn btn-default btn-danger">
+          Write Message
+        </button>
+      </div>
+    </div>
+    <div class="col-md-2 col-offset-md-2">
+      <h4><%= "ORGANIZATION" if @user.organization %></h4>
+    </div>
+  </div>
+</div>
