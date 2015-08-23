@@ -13,7 +13,7 @@ precomplie_assets = %w( listings listing_offers
                         listing_asks listing_communities
                         pages devise/registrations
                         devise/sessions devise/passwords
-                        inbox )
+                        inbox users )
 
 compile = []
 precomplie_assets.each do |a|
