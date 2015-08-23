@@ -28,10 +28,10 @@ class User < ActiveRecord::Base
   after_create :set_id
   # Move to Messages Concern
   def messages(id)
-    self.mailbox.inbox.find(id)
+    self.mailbox.conversations.find(id)
         .messages.order(created_at: :desc)
   end
-  def url_params 
+  def url_params
     "#{self.id}/#{URI.escape(self.name)}"
   end
 

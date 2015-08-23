@@ -1,0 +1,12 @@
+<div id="profile" class="text-center">
+  <%= link_to "/users/#{@listing.user.url_params}" do %>
+    <%= image_tag('elements-11.png', size: "70x70", id: "user-avatar") %>
+  <% end %>
+  <p>
+    <%= link_to "/users/#{@listing.user.url_params}" do %>
+      <%= @listing.user.name %>
+    <% end %>
+    </br>
+    <%= @listing.user.zip_code.to_s.to_region %>
+  </p>
+</div>

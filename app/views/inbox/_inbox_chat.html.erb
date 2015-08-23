@@ -9,7 +9,7 @@
         <% end %>
         <% if conversation_past_day?(params[:id]) %>
           <p class="humanify datestamp">
-          <%= @mailbox.inbox.find(params[:id]).created_at.strftime("%b %d, %Y") %>
+          <%= @mailbox.conversations.find(params[:id]).created_at.strftime("%b %d, %Y") %>
           </p>
         <% end %>
       <% else %>
@@ -21,7 +21,7 @@
       <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
       <% unless params[:id].nil? %>
         <input type="hidden" name="mailbox[id]"
-               value="<%= @mailbox.inbox.find(params[:id]).id %>">
+               value="<%= @mailbox.conversations.find(params[:id]).id %>">
       <% end %>
       <input type="text" name="mailbox[message]"
                          class="form-control"
