@@ -1,12 +1,5 @@
 <div id="listing-offer">
-  <div id="profile" class="text-center">
-    <%= image_tag('elements-11.png', size: "70x70", id: "user-avatar") %>
-    <p>
-      <%= @listing.user.name %>
-      </br>
-      <%= @listing.user.zip_code.to_s.to_region %>
-    </p>
-  </div>
+  <%= render "listings/layouts/listing_profile" %>
   <% if @listing.points.nil? || @listing.points == 0 %>
     <div id="boost">
       <p id="title" class="text-center">

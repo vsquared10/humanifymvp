@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'about' => 'pages#about' #create about_path
   get 'profile' => 'pages#profile' #create profile_path
 
-  get 'users/:id/:name' => 'users#show'
+  get 'users/:id/:name' => 'users#show', as: 'user_profile'
 
   resources :listings, except: [:index]
   resources :listing_offers, only: [:create]
@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   resources :offers, only: [:create, :update]
   resources :reviews, except: [:index,:show]
 
-  resources :inbox
+  resources :inbox, except: [:new]
+  get '/inbox/:id/new' => 'inbox#new', as: 'new_inbox'
+
   resources :notifications, only: [:index]
 
   get 'notification/delete' => 'notification#delete'
