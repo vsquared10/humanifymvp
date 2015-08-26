@@ -16,4 +16,8 @@ $(document).ready(function(){
   if ($(".tagit").length > 1){
     $(".tagit").last().hide();
   }
+
+  $("#type .panel").on('click', function() {
+    $(this).children('input').prop('checked',true)
+  });
 });
