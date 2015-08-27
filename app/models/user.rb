@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
     self.mailbox.conversations.find(id)
         .messages.order(created_at: :desc)
   end
+
   def url_params
     "#{self.id}/#{URI.escape(self.name)}"
   end

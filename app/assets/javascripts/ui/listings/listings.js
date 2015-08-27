@@ -17,7 +17,7 @@ $(document).ready(function(){
     $(".tagit").last().hide();
   }
 
-  $("#type .panel").on('click', function() {
+  $("#type .panel,#location .panel").on('click', function() {
     $(this).children('input').prop('checked',true)
   });
 });

@@ -1,0 +1,30 @@
+<div id="message-new" class="container text-center">
+  <div class="row">
+    <div id="message-form" class="col-md-offset-2 col-md-8 panel panel-default">
+      <div class="col-md-offset-2 col-md-8">
+        <div class="col-md-offset-2 col-md-8">
+          <%= render 'users/profile_box'%>
+        </div>
+        <div class="col-md-offset-1 col-md-10">
+          <form action="/inbox"  method="post">
+            <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+            <input type="hidden" name="mailbox[recipient_id]"
+                  value="<%= @user.id %>">
+            <input type="text" name="mailbox[subject]"
+                              class="form-control"
+                              placeholder="Subject">
+            <textarea type="text"
+                      rows="4" cols="50"
+                      name="mailbox[message]"
+                      class="form-control"
+                      placeholder="Message"></textarea>
+            <br>
+            <input class="btn btn-danger btn-default"
+                   value="Send Message"
+                    type="submit">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

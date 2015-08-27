@@ -19,7 +19,7 @@
   <div id="chat-input" class="<%= "disable " if params[:id].nil? %>input-group">
     <form action="/inbox"  method="post">
       <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-      <% unless params[:id].nil? %>
+      <% unless params[:action] == "new" || params[:id].nil? %>
         <input type="hidden" name="mailbox[id]"
                value="<%= @mailbox.conversations.find(params[:id]).id %>">
       <% end %>
