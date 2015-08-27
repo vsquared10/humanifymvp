@@ -116,6 +116,12 @@ $small-medium: 767px;
     height: 435px;
     overflow: scroll;
   }
+  #profile {
+    p {
+      color: #777;
+      font-size: 1.8em;
+    }
+  }
   p {
     color: white;
     font-size: 1.2em;

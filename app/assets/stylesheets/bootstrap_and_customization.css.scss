@@ -19,6 +19,8 @@ body {
 #disable, .disable {
   opacity: 0.4;
 }
+.hidden { display: none; }
+
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-weight: 500;
   font-family: "Museo Slab 500", Rockwell, Georgia, serif;
