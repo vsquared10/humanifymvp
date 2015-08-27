@@ -5,7 +5,20 @@
       <%= link_to image_tag('h_full.jpg'), root_path, id:"small-logo", class: "navbar-brand"%><!-- image_tag gives huge image;doesn't resize appropriately -->
     <!-- Collect the nav links, forms, and other content for toggling -->
 
-        <button class="toggle-button navbar-toggle">☰</button>
+      <div id="mobile">
+        <% if user_signed_in? %>
+          <button class="toggle-button navbar-toggle">
+            <span class="glyphicon glyphicon-align-justify"
+                  aria-hidden="true"></span>
+          </button>
+        <% else %>
+          <!-- Sign-Up & Sign-In -->
+          <%= link_to "Sign In",
+                :new_user_session, id:"new-session",
+                class: "btn btn-lg home btn-danger touch"%>
+        <% end %>
+      </div>
+
       <ul class="nav navbar-nav navbar-right avatar">
         <% if user_signed_in? %>
           <!-- Username & Kudos Balance -->
@@ -13,9 +26,9 @@
         <% else %>
           <!-- Sign-Up & Sign-In -->
           <li>
-            <%= link_to :new_user_session, id:"new-session", class:"btn touch" do %>
-              <button type="button" class="btn btn-lg home btn-danger">Sign In</button>
-            <% end %>
+            <%= link_to "Sign In",
+                  :new_user_session, id:"new-session",
+                  class: "btn btn-lg home btn-danger touch"%>
           </li>
         <% end %>
       </ul>

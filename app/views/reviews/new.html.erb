@@ -5,24 +5,19 @@
         <h1 class="title">Review <%= @review.accepted_user.name %></h1>
 
         <%= form_for @review, html: { multipart: true } do |f| %>
-          <div class="field">
-            <%= f.label :rating %><br />
-            <%= f.range_field :rating, min: 0, max: 100, autofocus: true %>
-          </div>
-          <div class="field">
-            <%= f.label :recommend,
-              "Would you recommend #{@review.accepted_user.name}" %><br />
-            <%= f.label :recommend, 'Yes' %>
-            <%= f.radio_button :recommend, true, class: "touch" %>
-            <%= f.label :recommend, 'No' %>
-            <%= f.radio_button :recommend, false, class: "touch" %>
-          </div>
-          <div class="field">
-            <%= f.label :text, "Comments" %><br />
-            <%= f.text_area :text,
-                    placeholder: "Leave additional comments for #{@review.user.name}. (500 Character Max)",
-                    autofocus: true %>
-          </div>
+          <%= f.label :rating %><br />
+          <%= f.range_field :rating, min: 0, max: 100, autofocus: true %>
+
+          <%= f.label :recommend,
+            "Would you recommend #{@review.accepted_user.name}" %><br />
+          <%= f.label :recommend, 'Yes' %>
+          <%= f.radio_button :recommend, true, class: "touch" %>
+          <%= f.label :recommend, 'No' %>
+          <%= f.radio_button :recommend, false, class: "touch" %>
+          <%= f.label :text, "Comments" %><br />
+          <%= f.text_area :text,
+                  placeholder: "Leave additional comments for #{@review.user.name}. (500 Character Max)",
+                  autofocus: true %>
           <div class="actions">
             <%= f.submit "Submit" %>
           </div>

@@ -6,10 +6,12 @@
   #profile {
     margin: 15px;
   }
+  div.col-md-3 {
+    min-height: 160px;
+  }
   @media (min-width: 992px) {
     div.col-md-3 {
       border-right: 1px solid #F1F1F1;
-      min-height: 160px;
     }
   }
   #action {

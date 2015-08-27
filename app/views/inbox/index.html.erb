@@ -1,4 +1,7 @@
 <div id="inbox-index">
   <%= render 'inbox/inbox_list' %>
-  <%= render 'inbox/inbox_chat' %>
+  <%= render 'inbox/inbox_chat',
+    { conversation_id: nil,
+      recipient_id: nil
+    } %>
 </div>

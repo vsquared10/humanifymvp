@@ -1,16 +1,14 @@
 class InboxController < ApplicationController
+  before_action :set_mailbox, only: [:show, :index, :new]
   before_action :authenticate_user!
 
   def index
-    @mailbox = current_user.mailbox
   end
 
   def show
-    @mailbox = current_user.mailbox
   end
 
   def new
-    @user = User.find(params[:id])
   end
 
   def create
@@ -29,13 +27,13 @@ class InboxController < ApplicationController
       redirect_to :back
     else
       recipient = User.find(message[:recipient_id])
+      subject = "Hi #{recipient.name}" || message[:subject]
       @mail = current_user.send_message(
                 recipient,
                 message[:message],
-                message[:subject]
+                subject
               )
-
-      redirect_to "/users/#{recipient.url_params}"
+      redirect_to inbox_path(@mail.conversation.id)
     end
   end
 
@@ -46,5 +44,9 @@ class InboxController < ApplicationController
     def message
       params.require(:mailbox).permit(:id, :recipient_id,
                                       :message, :subject)
+    end
+
+    def set_mailbox
+      @mailbox = current_user.mailbox
     end
 end

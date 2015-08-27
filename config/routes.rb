@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   resources :reviews, except: [:index,:show]
 
   resources :inbox, except: [:new]
+
+
   get '/inbox/:id/new' => 'inbox#new', as: 'new_inbox'
 
   resources :notifications, only: [:index]

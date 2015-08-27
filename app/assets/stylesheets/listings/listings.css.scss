@@ -11,20 +11,12 @@ a.panel-link {
   color: #333333;
   &:hover { text-decoration: none; }
 }
-#location {
-  .panel {
-    padding: 15px 0px 15px;
-    font-size: 12px;
-  }
-  span {
-    font-size: 35px;
-  }
-}
 
-#type {
+#location, #type {
   .panel {
     padding: 15px 0px 15px;
     font-size: 12px;
+    cursor: pointer;
     margin: 5px;
   }
   span {
