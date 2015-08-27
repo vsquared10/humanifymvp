@@ -23,7 +23,7 @@ $small-medium: 767px;
 }
 #inboxList {
   .recipients {
-    padding: 5px 15px 25px;
+    padding: 5px 0px 25px;
     min-height: 250px;
     max-height: 517px;
     overflow: scroll;
@@ -40,7 +40,16 @@ $small-medium: 767px;
       content: "Inbox";
     }
     .media {
+      border: 1px solid transparent;
       border-bottom: 1px rgba(183, 183, 183, 0.1) solid;
+      padding: 10px;
+      margin-top: 0px;
+      &.active{
+        background-color: rgba(239, 239, 239, 0.25);
+      }
+      &:hover {
+        border: #B7B7B7 solid 1.5px;
+      }
     }
   }
 }
@@ -50,26 +59,46 @@ $small-medium: 767px;
   background: $white_100;
   border: solid 1px rgba(0, 0, 0, 0.12);
   padding: 0;
-  .form-control {
+  #chat-input {
     border-radius: 0;
     border: 1px solid rgba(204, 204, 204, 0);
+    postition: absolute;
+    right: 0px;
+    width: 100%;
+    .input-group .form-control {
+      height: 3em;
+    }
+    &.disable{
+      .form-control[disabled],
+      fieldset[disabled] .form-control {
+        cursor: default;
+      }
+      .btn-default:hover{
+        cursor: default;
+        &:before{
+          content: normal;
+        }
+      }
+    }
+  }
+  .input-group-btn {
+    position: absolute;
+    right: 55px;
+    .btn-default:hover{
+      background-color: white;
+      &:before{
+        content: "__";
+      }
+    }
   }
   .btn-default {
     border-radius: 0;
     border-color: rgba(204, 204, 204, 0);
   }
-  #chat {
-    padding: 8px;
-  }
 }
 @media (min-width: $small-medium) {
   #chat-box {
-    height: 100%;
-    position: absolute;
-    right: 0px;
-    top: 49px;
     #chat {
-      height: 618px;
       .container {
         height: 100%;
       }
@@ -77,14 +106,21 @@ $small-medium: 767px;
   }
 }
 #chat {
-  height: 480px;
+  height: 100%;
   font-size: 62.5%;
   line-height: 1;
+  padding-top: 25px;
   background: $white_100;
   .container {
     width: 100%;
     height: 435px;
     overflow: scroll;
+  }
+  #profile {
+    p {
+      color: #777;
+      font-size: 1.8em;
+    }
   }
   p {
     color: white;
@@ -131,7 +167,7 @@ $small-medium: 767px;
     //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 2px;
     margin-bottom: 20px;
-    padding: 10px 25px;
+    padding: 5px 10px;
     color: $white;
     word-wrap: break-word;
     &:before {
@@ -149,7 +185,7 @@ $small-medium: 767px;
       left: -5px;
     }
     p {
-      font-size: 1.4em;
+      font-size: 1.8em;
     }
   }
   .bubble-alt {

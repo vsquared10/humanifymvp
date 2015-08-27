@@ -1,9 +1,4 @@
-<div class="container-fluid">
-  <%= @user.name %> Bio | Social Captial | Trusted by | Add To My Circle + Write Message
-  <h4><%= "ORGANIZATION" if @user.organization %></h4>
-  <h1>Karma Points: <%= @user.points%></h1>
-</div>
-
+<%= render 'users/profile' %>
 <div id="listings" class="transitions-enabled">
   <% @user.listings.each do |listing| %>
     <div class="box panel panel-default">

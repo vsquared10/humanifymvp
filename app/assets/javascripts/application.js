@@ -18,7 +18,7 @@
 //
 //= require ui/webfonts
 //= require lib/_bootstrap
-//= require lib/ratchet
+//  require lib/ratchet
 //= require lib/slideout
 //
 //= require ui/application
@@ -35,15 +35,15 @@
 //= require lib/cx
 //
 //
-//= require front/backbone/humanify
-//= require front/backbone/models/notification
-//= require front/backbone/models/inbox
-//= require front/backbone/collections/notification
-//= require front/backbone/collections/inbox
+//= require front/humanify
+//= require front/models/notification
+//= require front/models/inbox
+//= require front/collections/notification
+//= require front/collections/inbox
 //
 //= require_tree ./front/components/inbox
 //= require_tree ./front/components/notifications
 //
-//= require front/events/notification
-//= require front/events/inbox
+//= require front/views/notification-view
+//= require front/views/inbox-view
 //

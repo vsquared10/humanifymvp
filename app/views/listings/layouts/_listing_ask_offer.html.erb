@@ -1,16 +1,9 @@
 <div id="listing-offer">
-  <div id="profile" class="text-center">
-    <%= image_tag('elements-11.png', size: "70x70", id: "user-avatar") %>
-    <p>
-      <%= @listing.user.name %>
-      </br>
-      <%= @listing.user.zip_code.to_s.to_region %>
-    </p>
-  </div>
+  <%= render "listings/layouts/listing_profile" %>
   <% if @listing.points.nil? || @listing.points == 0 %>
     <div id="boost">
       <p id="title" class="text-center">
-        Boost your Social Capital by helping <%= @listing.user.name %> this ask.
+        Boost your Social Capital by helping <%= @listing.user.name %> with this ask.
       </p>
     </div>
   <% elsif @listing.points > 0 %>
@@ -25,11 +18,9 @@
     <%= form_for @listing.offers.build, html: { multipart: true } do |f| %>
       <%= f.hidden_field :listing_id, value: @listing.id %>
       <%= f.hidden_field :type, value: "Help" %>
-      <div class="col-md-12 <%= "disable" if @listing.closed? %>">
-        <div class="form-group">
+      <div class="<%= "disable" if @listing.closed? %>">
           <%= f.submit "Help", class: "btn btn-danger",
                                disabled: @listing.expired? %>
-        </div>
       </div>
     <% end %>
   </div>

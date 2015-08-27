@@ -19,11 +19,17 @@ body {
 #disable, .disable {
   opacity: 0.4;
 }
+.hidden { display: none; }
+
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-weight: 500;
   font-family: "Museo Slab 500", Rockwell, Georgia, serif;
   font-style: normal; 
 }
+hr {
+  color: #666666;
+}
+
 .close {
   font-size: 20px;
   font-weight: bold;
@@ -55,6 +61,17 @@ div.panel {
   font-size: 18px;
   font-weight: lighter;
   z-index: 10;
+}
+@media (max-width: $small-medium) {
+  #back {
+    width: auto;
+    margin-top: 0px;
+    font-weight: 400;
+    text-align: center;
+    &:after {
+      content: "Back"
+    }
+  }
 }
 #review {
 }
@@ -101,11 +118,6 @@ span.input-group-btn {
   padding: 2.5rem 0 2.5rem 0;
 }
 
-
-.search-query:focus + button {
-    z-index: 3;
-}
-
 .col-centered {
     float: none;
     margin: 0 auto;
@@ -145,10 +157,17 @@ span.input-group-btn {
     margin-bottom: 268px;
   }
 }
-hr {
-  color: #666666;
+#profile {
+  padding: 10px 5px 0px;
+  margin-bottom: 15px;
+  background-color: rgba(205, 205, 205, 0.04);
+  border-radius: 2px;
+  border: rgba(0, 0, 0, 0.05) 1px solid;
+  min-height: 140px;
+  #user-avatar{
+    margin-bottom: 10px;
+  }
 }
-
 @import "menu";
 @import "bootstrap-sprockets";
 @import "_bootstrap";

@@ -62,7 +62,6 @@ class ListingsController < ApplicationController
     @listing.destroy
     respond_to do |format|
       format.html { redirect_to profile_path, notice: "Your listing for #{@listing.title} has been deleted." }
-      format.json { head :no_content }
     end
   end
 

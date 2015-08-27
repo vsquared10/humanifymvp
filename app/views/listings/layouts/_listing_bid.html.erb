@@ -1,12 +1,5 @@
 <div id="listing-bid">
-  <div id="profile" class="text-center">
-    <%= image_tag('elements-11.png', size: "70x70", id: "user-avatar") %>
-    <p>
-      <%= @listing.user.name %>
-      </br>
-      <%= @listing.user.zip_code.to_s.to_region %>
-    </p>
-  </div>
+  <%= render "listings/layouts/listing_profile" %>
   <div id="bidding" class="<%= "disable" if @listing.closed? %>">
     <% if @listing.valid_offers.present?  %>
       <div id="disable">

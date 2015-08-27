@@ -1,2 +1,49 @@
-@import "chat";
+#footer_wrapper {
+  display: none;
+}
+#message-form {
+  padding: 50px 0px;
+}
+@media (min-width: 767px) {
+  #chat-box {
+    height: 100%;
+    position: absolute;
+    right: 0px;
+    top: 49px;
+    #chat {
+      height: 618px;
+      .container {
+        height: 100%;
+      }
+    }
+  }
+}
+@media (max-width: 767px) {
+  #inbox-index {
+    #chat-box {
+      display: none;
+    }
+  }
+  #inbox-show {
+    #inboxList {
+      display: none;
+    }
+    #chat-back {
+      display: block;
+      .btn {
+        width: 85%;
+        margin-bottom: 15px;
+        font-weight: 500;
+      }
+    }
+  }
+}
+.media-body {
+  height: 70px;
+}
+#chat-back {
+  display: none;
+}
 
+
+@import "chat";

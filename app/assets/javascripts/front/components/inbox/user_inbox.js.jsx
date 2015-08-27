@@ -3,19 +3,18 @@ var InboxNotifications = React.createClass({
   getDefaultProps: function() {
     return {
       inboxComponents: [],
+      unreadCount: "",
       className: "inbox-alerts alerts dropdown-menu"
     };
   },
-
-  inboxCount: function() {
-    return this.props.inboxComponents.length;
-  },
+  componentDidMount: function() {},
   render: function() {
     return (
       <div>
-        <span className="badge count">{this.inboxCount()}</span>
+        <span className="badge count">{this.props.unreadCount}</span>
         <InboxList inboxItems={this.props.inboxComponents}
-                          className={this.props.className}/>
+                   unreadCount={this.props.unreadCount}
+                   className={this.props.className}/>
       </div>
     );
   }

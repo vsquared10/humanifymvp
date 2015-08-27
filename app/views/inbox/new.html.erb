@@ -1,0 +1,14 @@
+<div id="inbox-show">
+  <%= render 'inbox/inbox_list' %>
+  <div id="chat-back" class="col-md-6 text-center">
+    <%= link_to inbox_index_path,
+        class:"btn btn-default btn-md btn-danger" do %>
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true">      </span>
+      Back
+    <% end %>
+  </div>
+  <%= render 'inbox/inbox_chat',
+    { conversation_id: nil,
+      recipient_id: params[:id]
+    } %>
+</div>
