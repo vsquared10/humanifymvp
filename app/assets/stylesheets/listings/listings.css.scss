@@ -4,8 +4,25 @@ $link-color: #f2253e;
   width: 315px;
 }
 
-.box img {
-  width: 100%;
+.box {
+  img {
+    width: 100%;
+  }
+  #avatar{
+    img {
+      width: 45px;
+    }
+    a {
+      margin: 0px 5px;
+      font-weight: 500;
+    }
+    p {
+      display: inline-block;
+    }
+  }
+  .panel-footer {
+    padding: 5px 15px;
+  }
 }
 a.panel-link {
   color: #333333;
