@@ -3,10 +3,10 @@
   <meta property="og:description" content="<%= @listing.description %>" />
   <meta property="og:site_name" content="Humanify" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="<%= "#{request.host_with_port}#{request.fullpath}" %>" />
-  <meta property="og:image" content="<%= "#{request.host_with_port}#{@listing.image.url(:medium)}" %>" />
-  <meta property="og:image:width" content="300" />
-  <meta property="og:image:height" content="229" />
+  <meta property="og:url" content="<%= "http://#{request.host_with_port}#{request.fullpath}" %>" />
+  <meta property="og:image" content="<%= "#{@listing.image.url(:medium)}" %>" />
+  <meta property="og:image:width" content="249" />
+  <meta property="og:image:height" content="190" />
   <% @listing.tags.each do |tag| %>
   <meta property="og:tag" content="<%= tag.name %>" />
   <% end %>
