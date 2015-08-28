@@ -26,9 +26,15 @@
           </div>
         <% end %>
         <div class="panel-footer">
-          <strong>
-            <%= listing.user.name if listing.user %>
-          </strong>
+          <div id="avatar">
+            <%= image_tag('elements-11.png', size: "45x45", id: "user-avatar") %>
+            <%= link_to "/users/#{listing.user.url_params}" do %>
+              <%= listing.user.name if listing.user %>
+            <% end %>
+            <p>
+              <%= time_ago_in_words(listing.created_at) %> ago
+            </p>
+          </div>
         </div>
     </div>
   <% end %>
