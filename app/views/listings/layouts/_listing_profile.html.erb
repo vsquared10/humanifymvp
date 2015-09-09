@@ -1,6 +1,7 @@
 <div id="profile" class="text-center">
   <%= link_to "/users/#{@listing.user.url_params}" do %>
-    <%= image_tag('elements-11.png', size: "70x70", id: "user-avatar") %>
+    <%= image_tag(@listing.user.user_img, size: "70x70",
+                  class:"img-circle", id: "user-avatar") %>
   <% end %>
   <p>
     <%= link_to "/users/#{@listing.user.url_params}" do %>
