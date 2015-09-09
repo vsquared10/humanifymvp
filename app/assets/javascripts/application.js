@@ -6,6 +6,7 @@
 //= require jquery.turbolinks
 //= require turbolinks
 //= require masonry/jquery.masonry
+//= require ga
 //= require underscore
 //= require backbone
 //= require backbone_rails_sync
