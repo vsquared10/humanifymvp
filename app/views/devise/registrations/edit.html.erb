@@ -1,12 +1,27 @@
+
 <div id="user-edit" class="container">
   <div class="row">
     <div id="user-content" class="col-md-offset-2 col-md-8 panel panel-default text-center">
       <div class="col-md-offset-2 col-md-8">
+            <%= devise_error_messages! %>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="user-edit" class="container">
+  <div class="row">
+    <div id="user-content" class="col-md-offset-2 col-md-8 panel panel-default text-center">
+      <div class="col-md-offset-2 col-md-8">
+
+        <h1>
+          <%= image_tag(current_user.user_img, size: "70x70", 
+                      class:"img-circle", id: "user-avatar") %>
+        </h1>
         <h1>Edit Your Account</h1>
 
+        </br>
         <div class="form-group">
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-            <%= devise_error_messages! %>
 
             <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
             <%= f.password_field :current_password, autocomplete: "off" %>
@@ -39,11 +54,9 @@
     </div>
     <div id="user-content" class="col-md-offset-3 text-center col-md-6 panel panel-default">
       <div class="col-md-offset-2 col-md-8">
-        </br>
-        </br>
-        <h3>Cancel Account</h3>
+        <h3>Deactivate Account</h3>
         <p>
-          <%= button_to "Cancel account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger"%>
+          <%= button_to "Deactivate", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger"%>
         </p>
         </br>
       </div>

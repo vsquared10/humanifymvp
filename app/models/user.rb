@@ -36,6 +36,10 @@ class User < ActiveRecord::Base
     "#{self.id}/#{URI.escape(self.name)}"
   end
 
+  def user_img
+    "letters/#{self.name[0].downcase}.png"
+  end
+
   private
 
   def init_karma

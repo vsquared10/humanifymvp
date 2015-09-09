@@ -1,5 +1,6 @@
 <div id="profile" class="text-center">
-  <%= image_tag('elements-11.png', size: "70x70", id: "user-avatar") %>
+  <%= image_tag(user.user_img, size: "70x70",
+                class:"img-circle", id: "user-avatar") %>
   <p>
     <%= user.name %>
     </br>
