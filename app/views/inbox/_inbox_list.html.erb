@@ -6,14 +6,17 @@
           <%= link_to "/users/#{participants(conversation,
                                 @mailbox.messageable)
                                 .first.url_params}" do %>
-            <%= image_tag(@mailbox.messageable.user_img, size: "64x64",
+            <%= image_tag(participants(conversation,
+                                @mailbox.messageable)
+                                .first.user_img, size: "64x64",
                           class:"media-object img-circle",
                           id: "user-avatar") %>
           <% end %>
         </div>
         <div class="media-body">
           <%= link_to inbox_path conversation.id do %>
-            <h4 class="media-heading"><%= conversation.subject %></h4>
+            <h4 class="media-heading"><%= participants(conversation,
+                                @mailbox.messageable).first.name %></h4>
             <p>
               <%= truncate conversation.messages.first.body,
                 length: 75 %>
