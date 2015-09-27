@@ -29,7 +29,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 hr {
   color: #666666;
 }
-
+.img-circle {
+  border-radius: 50%;
+}
 .close {
   font-size: 20px;
   font-weight: bold;
@@ -165,6 +167,7 @@ span.input-group-btn {
   border: rgba(0, 0, 0, 0.05) 1px solid;
   min-height: 140px;
   #user-avatar{
+    border-radius: 50%;
     margin-bottom: 10px;
   }
 }

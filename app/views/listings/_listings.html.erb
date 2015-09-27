@@ -27,7 +27,8 @@
         <% end %>
         <div class="panel-footer">
           <div id="avatar">
-            <%= image_tag('elements-11.png', size: "45x45", id: "user-avatar") %>
+            <%= image_tag(listing.user.user_img, size: "45x45",
+                          class: "img-circle", id: "user-avatar") %>
             <%= link_to "/users/#{listing.user.url_params}" do %>
               <%= listing.user.name if listing.user %>
             <% end %>

@@ -5,7 +5,8 @@
 </li>
 <li id="notificationsMenu">
   <div id="userImg">
-    <%= image_tag('elements-11.png', id: "user-avatar") %>
+    <%= image_tag(current_user.user_img, class:"img-circle",
+                  id: "user-avatar") %>
   </div>
   <div id="notificationsMenuComp"> 
     <%= react_component('NotificationsMenu', prerender: true) %>

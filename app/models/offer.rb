@@ -7,7 +7,7 @@ class Offer < ActiveRecord::Base
   validate :offer_not_expired, on: :create
   validate :user_doesnt_own_listing, on: :create
 
-  after_save :notify_first_listing_offer
+  after_save :notify_listing_offer
 
   def accept
     # Attempt to Exchange Points
@@ -44,10 +44,10 @@ class Offer < ActiveRecord::Base
 
   private
   # Notifications
-  def notify_first_listing_offer
-    if self.listing.offers.first == self
+  def notify_listing_offer
+    unless self.listing.offers.count > 4
       self.listing.user.notifications.create(
-        message: "Your post for #{ self.listing.title} has its first offer.",
+        message: "Your post for #{ self.listing.title} has a new offer.",
         url: "/listings/#{self.listing.id}")
     end
   end

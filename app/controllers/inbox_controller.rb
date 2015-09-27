@@ -47,6 +47,8 @@ class InboxController < ApplicationController
     end
 
     def set_mailbox
-      @mailbox = current_user.mailbox
+      if current_user.present?
+        @mailbox = current_user.mailbox
+      end
     end
 end
