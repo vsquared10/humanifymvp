@@ -90,6 +90,12 @@ gem 'sqlite3'
   gem 'dotenv-rails'
 
   gem 'faker'
+
+  gem 'rspec-rails'
+  gem 'shoulda'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'capybara'
 end
 
 group :production do
