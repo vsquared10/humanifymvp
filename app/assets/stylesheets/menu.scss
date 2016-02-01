@@ -63,6 +63,21 @@
     display: none;
   }
 }
+
+#notification.alert.alert-info {
+  background: #FFF;
+  padding: 15px;
+  margin: 18px;
+
+  &:after {
+    content: "X";
+    float: right;
+    cursor: pointer;
+    color: #D2D2D2;
+    font-weight: 700;
+  }
+}
+
 #listing-search-input {
   cursor: default;
   opacity: 0;
