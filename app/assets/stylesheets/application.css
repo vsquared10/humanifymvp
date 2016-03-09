@@ -2,7 +2,10 @@
  *= require 'masonry/transitions'
  *= require 'slideout'
  *= require 'ratchet'
+ * require 'lib/alertify'
+ * require 'lib/alertify.core'
+ * require 'lib/alertify.default'
  *
- *= require 'bootstrap_and_customization'
+ *= require 'app'
  *= require_self
  */
