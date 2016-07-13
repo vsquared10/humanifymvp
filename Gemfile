@@ -50,6 +50,8 @@ gem 'elasticsearch-rails'
 
 gem 'dotenv-rails' # .env file...
 
+gem 'therubyracer', platforms: :ruby # js runtime
+
 group :development do
   gem 'spring' # keeps app running in bg, see github/rails/spring
   gem 'spring-commands-rspec' # rspec binstub
