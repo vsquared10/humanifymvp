@@ -64,13 +64,13 @@ group :development, :test do
   gem 'better_errors' # Better error page for Rack apps.
   gem 'binding_of_caller'
   gem 'faker'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails'
 end
 
 group :test do
   gem 'capybara'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers', '~> 3.1'
   gem 'database_cleaner'
 end
 
