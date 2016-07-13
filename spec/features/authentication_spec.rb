@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 feature 'Authentication' do
   let(:password) { Faker::Internet.password(8) }
   let(:user) { create(:user, password: password) }
@@ -16,7 +14,7 @@ feature 'Authentication' do
       submit_form
     end
 
-    expect(page).to have_content 'Welcome! You have signed up successfully.'
+    expect(page).to have_content 'You have signed up successfully.'
   end
 
   scenario 'signing in' do
@@ -27,6 +25,6 @@ feature 'Authentication' do
       fill_in 'Password', with: password
       submit_form
     end
-    expect(page).to have_content 'Signed in successfully.'
+    expect(page).to have_content user.name
   end
 end
