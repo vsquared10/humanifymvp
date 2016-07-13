@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.0' # insecure
 gem 'puma'
 gem 'foreman' # foreman start starts the app, bundle here to make explicit dependency
 
@@ -23,8 +22,8 @@ gem 'rails-backbone'
 
 gem 'devise', '~> 3.4.1'
 
-gem 'aws-sdk', '~> 1.5.7'
 gem 'paperclip', '~> 4.2'
+gem 'fog' # local images
 
 gem 'masonry-rails', '~> 0.2.0'
 
@@ -77,4 +76,5 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor' # heroku requirement
+  gem 'aws-sdk', '~> 1.5.7' # deprecated
 end

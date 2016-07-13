@@ -21,4 +21,8 @@
 
 # Ignore npm packages
 /node_modules/*
+
 .env
+
+# ignore local images (paperclip + fog)
+public/listings/
