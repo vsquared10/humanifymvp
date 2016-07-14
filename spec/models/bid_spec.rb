@@ -1,8 +1,8 @@
 describe Bid do
-   before do
-     # maybe not the best way to stub external notif service
-     allow(Pusher).to receive(:trigger)
-   end
+  before do
+    # maybe not the best way to stub external notif service
+    allow(Pusher).to receive(:trigger)
+  end
 
   it 'inherits from Offer' do
     expect(described_class).to be < Offer

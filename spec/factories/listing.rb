@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :listing do
     description { Faker::Lorem.sentence }
-    image { Faker::Avatar.image }
+    image { File.new(Rails.root.join('spec', 'support', 'fixtures', 'robohash.png')) }
     title { Faker::Lorem.word }
     visibility { ['global', 'local'].sample }
     points 1
