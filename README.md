@@ -16,12 +16,34 @@ PUSHER_SECRET='YOUR PUSHER SECRET'
 GOOGLE_ANALYTICS='YOUR GOOGLE ANALYTICS KEY'
 ```
 
-## Create Database and Migrate
-```
-rake db:create db:migrate
-```
+# Dockerify
+preface: [easiest way to install docker](https://docs.docker.com/docker-for-mac/)
 
-## Start Rails Server
-```
-rails s
-```
+1. Build the images (rails with gems, elasticsearch, etc.)
+
+	```
+	docker-compose build
+	```
+
+2. Run the images (logs to stdout, navigate to localhost:3000 in your browser)
+
+	```
+	docker-compose up
+	```
+
+3. Set up db and stuff
+
+	- run a shell in the docker container (to run rake commands)
+	```
+	docker exec -it humanifymvp_web_1 /bin/bash
+	```
+
+	- set up the dev and test db
+	```
+	rake db:create db:migrate db:test:prepare
+	```
+
+	- run the specs
+	```
+	./bin/rspec
+	```
