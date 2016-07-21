@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 describe Review do
   describe 'associations' do
     it { should belong_to :user }
@@ -9,13 +7,8 @@ describe Review do
   describe 'validations' do
     it { should validate_presence_of :recommend }
     it { should validate_presence_of :rating }
-
-    it { should allow_value("a" * 400).for(:text) }
-    it { should_not allow_value("b" * 600).for(:text) }
-
-    it { should allow_value(100).for(:rating) }
-    it { should_not allow_value("abc").for(:rating) }
-    # Inclusion is a separate validation, refactor model + chat with ed
-    # it { should validate_inclusion_of(:rating).in_array (1..100).to_a }
+    it { should validate_length_of(:text).is_at_most(500) }
+    it { should validate_numericality_of(:rating) }
+    it { should validate_inclusion_of(:rating).in_range(0..100) }
   end
 end
