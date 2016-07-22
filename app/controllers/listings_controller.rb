@@ -25,7 +25,7 @@ class ListingsController < ApplicationController
   def new
     @listing = current_user.listings.build
   end
-  
+
   # POST /listings
   # POST /listings.json
   def create
