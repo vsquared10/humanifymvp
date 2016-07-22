@@ -25,4 +25,4 @@
 .env
 
 # ignore local images (paperclip + fog)
-public/listings/
+public/listing*
