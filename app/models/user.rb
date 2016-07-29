@@ -25,18 +25,17 @@ class User < ActiveRecord::Base
     with: /\A(\d{5}\z)|(\d{5}-\d{4}\z)/, presence: true
 
   after_create :init_karma
-  after_create :set_id
-  # Move to Messages Concern
-  def messages(id)
+
+  def messages(id) # todo: Move to Messages Concern
     self.mailbox.conversations.find(id)
         .messages.order(created_at: :desc)
   end
 
-  def url_params
+  def url_params # todo: move to route helper
     "#{self.id}/#{URI.escape(self.name)}"
   end
 
-  def user_img
+  def user_img # todo: rename
     "letters/#{self.name[0].downcase}.png"
   end
 
@@ -45,13 +44,4 @@ class User < ActiveRecord::Base
   def init_karma
     self.add_points(250)
   end
-
-  def set_id
-    now = Time.now
-    macro = now.strftime("%y%m").to_f
-    micro = now.strftime("%d%k").to_f
-
-    self.id = macro + self.id + micro
-  end
-
 end
