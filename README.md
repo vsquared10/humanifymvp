@@ -48,3 +48,9 @@ preface: [easiest way to install docker](https://docs.docker.com/docker-for-mac/
 	```
 	./bin/rspec
 	```
+
+4. update bundle cache
+
+  ```
+  docker-compose run web bundle update
+  ```

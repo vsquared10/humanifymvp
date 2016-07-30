@@ -1,19 +1,25 @@
 version: '2'
 services:
-  #db: (let's totes do pg in dev)
-    #image: postgres
   elasticsearch:
     image: elasticsearch:1.7
+
   web:
     build: .
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
-    volumes:
-      - .:/myapp
+    command: foreman start
     ports:
-      - "3000:3000"
+      - "5000:5000"
     environment:
       ELASTICSEARCH_URL: http://elasticsearch:9200/
     env_file: .env
     depends_on:
       - elasticsearch
-      #- db
+    volumes:
+      - .:/humanifymvp
+    volumes_from:
+      - bundle
+
+  bundle:
+    image: humanifymvp_web
+    command: echo "I'm a little data container, short and stout..."
+    volumes:
+      - /bundle
