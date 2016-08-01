@@ -18,4 +18,14 @@ FactoryGirl.define do
       end
     end
   end
+
+  factory :listing_offer do
+    description { Faker::Lorem.sentence }
+    image { File.new(Rails.root.join('spec', 'support', 'fixtures', 'robohash.png')) }
+    title { Faker::Lorem.word }
+    visibility { ['global', 'local'].sample }
+    points 1
+    type 'ListingOffer'
+    user
+  end
 end
