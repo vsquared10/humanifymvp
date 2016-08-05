@@ -44,7 +44,7 @@ class Listing < ActiveRecord::Base
   end
 
   def expired?
-    self.expiration.future? unless self.duration.nil?
+    !self.expiration.future? unless self.duration.nil?
   end
 
   def closed?

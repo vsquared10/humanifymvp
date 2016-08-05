@@ -1,7 +1,6 @@
 describe Bid do
   before do
-    # maybe not the best way to stub external notif service
-    allow(Pusher).to receive(:trigger)
+    allow(Pusher).to receive(:trigger) #dup1
   end
 
   it 'inherits from Offer' do

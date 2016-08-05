@@ -19,7 +19,7 @@ class Offer < ActiveRecord::Base
         self.update(status: "accepted")
         self.listing.update(status: "accepted")
 
-        self.user.notifications.create(
+        self.user.notifications.create( #dup2
           message: "#{ self.listing.user.name } has accepted your offer.",
           url: "/listings/#{self.listing.id}")
         #Open dialogue message between both users
@@ -28,7 +28,7 @@ class Offer < ActiveRecord::Base
       self.update(status: "accepted")
       self.listing.update(status: "accepted")
 
-      self.user.notifications.create(
+      self.user.notifications.create( #dup2
         message: "#{ self.listing.user.name } has accepted your offer.",
         url: "/listings/#{self.listing.id}")
       #Open dialogue message between both users

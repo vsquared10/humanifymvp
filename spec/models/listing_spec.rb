@@ -170,8 +170,8 @@ describe Listing do
           subject.duration = 2
         end
 
-        it 'is true' do
-          expect(subject.expired?).to be true
+        it 'is false' do
+          expect(subject.expired?).to be false
         end
       end
 
@@ -180,8 +180,8 @@ describe Listing do
           subject.duration = 1
         end
 
-        it 'is false' do
-          expect(subject.expired?).to be false
+        it 'is true' do
+          expect(subject.expired?).to be true
         end
       end
     end
