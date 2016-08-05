@@ -9,6 +9,10 @@ class Listing < ActiveRecord::Base
     styles: { :medium => "300x300>", :thumb => "100x100>" },
     default_url: "small_Humanify.png"
 
+  scope :open_global, -> do
+    params = { visibility: "global", status: "pending" }
+    where(["visibility = :visibility or status = :status", params])
+  end
 
   validates_presence_of :description, :image, :title, :visibility
   validates_attachment_content_type :image, :content_type => /\Aimage/
@@ -40,18 +44,11 @@ class Listing < ActiveRecord::Base
   end
 
   def expired?
-    unless self.duration.nil?
-      self.expiration.day - Time.now.day <= 0
-    end
+    self.expiration.future? unless self.duration.nil?
   end
 
   def closed?
     self.status != "pending"
-  end
-
-  def self.open_global
-    self.where(["visibility = :visibility or status = :status",{
-      visibility:"global", status:"pending"}])
   end
 
   def accepted?
@@ -63,11 +60,11 @@ class Listing < ActiveRecord::Base
   end
 
   def points_starting
-    self.valid_offers.present? ? self.highest_offer.points : self.points
+    self.highest_offer.try(:points) || self.points
   end
 
   def highest_offer
-    self.offers.where(status:"pending").order("points DESC").first
+    self.offers.where(status: "pending").order("points DESC").first
   end
 
   def valid_offers
