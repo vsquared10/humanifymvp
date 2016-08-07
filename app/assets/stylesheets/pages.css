@@ -1,0 +1,6 @@
+/*
+ *= require 'application'
+ *= require 'profile'
+ *= require './listings/listings'
+ *= require_self
+ */

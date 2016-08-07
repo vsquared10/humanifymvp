@@ -1,0 +1,11 @@
+/*
+ *= require 'masonry/transitions'
+ *= require 'slideout'
+ *= require 'ratchet'
+ * require 'lib/alertify'
+ * require 'lib/alertify.core'
+ * require 'lib/alertify.default'
+ *
+ *= require 'app'
+ *= require_self
+ */

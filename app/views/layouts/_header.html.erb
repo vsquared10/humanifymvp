@@ -1,0 +1,39 @@
+<nav class="navbar navbar-default navbar-fixed-top bar bar-nav">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <%= link_to image_tag('h_full.jpg'), root_path, id:"small-logo", class: "navbar-brand"%><!-- image_tag gives huge image;doesn't resize appropriately -->
+    <!-- Collect the nav links, forms, and other content for toggling -->
+
+      <div id="mobile">
+        <% if user_signed_in? %>
+          <button class="toggle-button navbar-toggle">
+            <span class="glyphicon glyphicon-align-justify"
+                  aria-hidden="true"></span>
+          </button>
+        <% else %>
+          <!-- Sign-Up & Sign-In -->
+          <%= link_to "Sign In",
+                :new_user_session, id:"new-session",
+                class: "btn btn-lg home btn-danger touch"%>
+        <% end %>
+      </div>
+
+      <ul class="nav navbar-nav navbar-right avatar">
+        <% if user_signed_in? %>
+          <!-- Username & Kudos Balance -->
+          <%= render 'layouts/authenticated' %>
+        <% else %>
+          <!-- Sign-Up & Sign-In -->
+          <li>
+            <%= link_to "Sign In",
+                  :new_user_session, id:"new-session",
+                  class: "btn btn-lg home btn-danger touch"%>
+          </li>
+        <% end %>
+      </ul>
+      <!-- Search function -->
+      <%= render 'layouts/searchbar' %>
+    </div>
+  </div><!-- /.container-fluid -->
+</nav>

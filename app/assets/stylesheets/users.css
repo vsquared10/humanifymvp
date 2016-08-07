@@ -1,0 +1,6 @@
+/*
+ *= require 'application'
+ *= require './users/users'
+ *= require 'profile'
+ *= require_self
+ */

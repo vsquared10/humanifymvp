@@ -1,0 +1,48 @@
+<div id="listing-bid">
+  <%= render "listings/layouts/listing_profile" %>
+  <div id="bidding" class="<%= "disable" if @listing.closed? %>">
+    <% if @listing.valid_offers.present?  %>
+      <div id="disable">
+        <p id="title">
+          <%= @listing.user.name %> is asking for
+        </p>
+        <h2 id="points">
+          <%= @listing.points %> <i>KP</i>
+        </h2>
+      </div>
+      </br>
+      <p id="title">
+        Highest Bid <br>
+        <h2 id="points">
+          <%= @listing.highest_offer.points %> <i>KP</i>
+        </h2>
+      </p>
+    <% else %>
+      <p id="title">
+        <%= @listing.user.name %> is asking for
+      </h2>
+      <h2 id="points">
+        <%= @listing.points %> <i>KP</i>
+      </h2>
+    <% end %>
+    <br>
+    <% unless @listing.posted_by?(current_user) %>
+      <p>
+        <%= render "listings/layouts/user/offer" %>
+      </p>
+    <% end %>
+  </div>
+  <div class="text-right">
+    <% if @listing.user == current_user %>
+      <%= link_to edit_listing_path(@listing) do %>
+        <span class="glyphicon glyphicon-edit"></span>
+        Edit
+      <% end %>
+      <%= link_to listing_path(@listing), method: :delete,
+        data: { confirm: 'Are you sure?' } do %>
+        <span class="glyphicon glyphicon-trash"></span>
+        Delete
+      <% end %>
+    <% end %>
+  </div>
+</div>

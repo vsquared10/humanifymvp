@@ -1,0 +1,29 @@
+<div id="inboxList" class="panel col-sm-7">
+  <div class="recipients">
+    <% @mailbox.conversations.each do |conversation| %>
+      <div class="media<%= " active" if conversation.id == params[:id].to_i %>">
+        <div class="media-left">
+          <%= link_to "/users/#{participants(conversation,
+                                @mailbox.messageable)
+                                .first.url_params}" do %>
+            <%= image_tag(participants(conversation,
+                                @mailbox.messageable)
+                                .first.user_img, size: "64x64",
+                          class:"media-object img-circle",
+                          id: "user-avatar") %>
+          <% end %>
+        </div>
+        <div class="media-body">
+          <%= link_to inbox_path conversation.id do %>
+            <h4 class="media-heading"><%= participants(conversation,
+                                @mailbox.messageable).first.name %></h4>
+            <p>
+              <%= truncate conversation.messages.first.body,
+                length: 75 %>
+            </p>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

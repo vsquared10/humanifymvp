@@ -1,0 +1,66 @@
+<% if devise_error_messages!.present? %>
+  <div id="user-edit" class="container">
+    <div class="row">
+      <div id="user-content" class="col-md-offset-2 col-md-8 panel panel-default text-center">
+        <div class="col-md-offset-2 col-md-8">
+              <%= devise_error_messages! %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<div id="user-edit" class="container">
+  <div class="row">
+    <div id="user-content" class="col-md-offset-2 col-md-8 panel panel-default text-center">
+      <div class="col-md-offset-2 col-md-8">
+
+        <h1>
+          <%= image_tag(current_user.user_img, size: "70x70", 
+                      class:"img-circle", id: "user-avatar") %>
+        </h1>
+        <h1>Edit Your Account</h1>
+
+        </br>
+        <div class="form-group">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
+            <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+            <%= f.password_field :current_password, autocomplete: "off" %>
+              <br />
+
+            <%= f.label :name %><br />
+            <%= f.text_field :name, autofocus: true %>
+
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true %>
+            <%= f.label :zip_code %><br />
+            <%= f.text_field :zip_code, autofocus: true %>
+              <br />
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
+
+            <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+            <%= f.password_field :password, autocomplete: "off" %>
+
+            <%= f.label :password_confirmation,"Password Confirmation" %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            <div class="actions">
+              <%= f.submit "Update", class: "btn btn-danger"%>
+            </div>
+            </br>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div id="user-content" class="col-md-offset-3 text-center col-md-6 panel panel-default">
+      <div class="col-md-offset-2 col-md-8">
+        <h3>Deactivate Account</h3>
+        <p>
+          <%= button_to "Deactivate", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger"%>
+        </p>
+        </br>
+      </div>
+    </div>
+  </div>
+</div>

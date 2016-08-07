@@ -1,0 +1,35 @@
+<div class="col-md-offset-1 col-md-10">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.label :organization, "Are you creating an account for an organization?" %>
+      <br />
+    <%= f.label :organization, 'Yes' %>
+    <%= f.radio_button :organization, true %>
+    <%= f.label :organization, 'No' %>
+    <%= f.radio_button :organization, false %>
+      <br />
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+
+    <%= f.label :zip_code %><br />
+    <%= f.text_field :zip_code, autofocus: true %>
+
+    <%= f.label :password %>
+    <% if @validatable %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %>
+      <br />
+    <%= f.password_field :password, autocomplete: "off" %>
+
+    <%= f.label :password_confirmation, "Password Confirmation" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+
+    <div class="actions">
+      <%= f.submit "Sign up", class:"btn btn-danger" %>
+    </div>
+  <% end %>
+  <br />
+  <br />
+</div>

@@ -1,0 +1,43 @@
+<% if @listing.id.nil? %>
+  <%= form_for @listing do |f| %>
+    <% if @listing.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          Please dont forget that:
+        </h2>
+        <% @listing.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <h1><%= f.label :type, "Listing Type" %></h1>
+      <span>What type of listing would you like to post.</span>
+      </br>
+      </br>
+      <div id="type" class="col-md-12">
+        <div class="col-md-3 panel">
+          <%= f.label :type, 'Make an Ask' %>
+          </br>
+          <%= f.radio_button :type, "ListingAsk"  %>
+        </div>
+        <div class="col-md-3 panel">
+          <%= f.label :type, 'Make an Offer' %>
+          </br>
+          <%= f.radio_button :type, "ListingOffer" %>
+        </div>
+        <div class="col-md-5 panel">
+          <%= f.label :type, 'Propose a Community Project' %>
+          </br>
+          <%= f.radio_button :type, "ListingCommunity" %>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.submit "Next", class: "btn btn-danger" %>
+    </div>
+    </br>
+  <% end %>
+<% end %>

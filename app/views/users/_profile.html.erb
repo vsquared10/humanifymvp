@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div id="user-profile" class="col-md-12 panel panel-default text-center">
+    <div class="col-md-3">
+      <%= render 'users/profile_box', user: @user %>
+    </div>
+    <div class="col-md-3">
+      <h3>Social Captial</h3>
+    </div>
+    <div class="col-md-3">
+      <h3>Trusted by</h3>
+    </div>
+    <div id="action" class="col-md-3">
+      <div class="col-md-11">
+        <%= link_to "Add To My Circle", "/#",  class:"btn btn-default btn-danger" %>
+        <%= link_to "Write Message", new_inbox_path(@user.id),  class:"btn btn-default btn-danger" %>
+      </div>
+    </div>
+    <div class="col-md-2 col-offset-md-2">
+      <h4><%= "ORGANIZATION" if @user.organization %></h4>
+    </div>
+  </div>
+</div>

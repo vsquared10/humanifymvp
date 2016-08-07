@@ -1,0 +1,9 @@
+<div id="profile" class="text-center">
+  <%= image_tag(user.user_img, size: "70x70",
+                class:"img-circle", id: "user-avatar") %>
+  <p>
+    <%= user.name %>
+    </br>
+    <%= user.zip_code.to_s.to_region %>
+  </p>
+</div>

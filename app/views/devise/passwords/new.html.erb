@@ -1,0 +1,22 @@
+<% if devise_error_messages!.present? %>
+  <div class="text-center col-md-offset-2 col-md-8 panel panel-default">
+      <%= devise_error_messages! %>
+  </div>
+<% end %>
+<div id="session-new" class="text-center col-md-offset-2 col-md-8 panel panel-default">
+  <div class="col-md-offset-2 col-md-8">
+  <h1>Forgot your password?</h1>
+  <h4>No Problem. We will send you a link to reset it.</h4>
+  <br>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true %>
+
+    <div class="actions">
+      <%= f.submit "Send me reset password instructions", class: "btn btn-danger" %>
+    </div>
+  <% end %>
+    <br>
+    <br>
+  </div>
+</div>

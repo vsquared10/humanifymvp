@@ -1,0 +1,47 @@
+<div id="chat-box" class="col-sm-offset-4 col-sm-5">
+  <div id="chat">
+    <div class="container">
+      <% if conversation_id.present? %>
+        <% current_user.messages(conversation_id).each do |message| %>
+          <div class="bubble <%= "bubble-alt" if message.sender_id != current_user.id %>">
+            <p><%= message.body %></p>
+          </div>
+        <% end %>
+        <% if conversation_past_day?(conversation_id) %>
+          <p class="humanify datestamp">
+          <%= @mailbox.conversations.find(conversation_id).created_at.strftime("%b %d, %Y") %>
+          </p>
+        <% end %>
+      <% elsif recipient_id.present? %>
+        <%= render 'users/profile_box',
+            user: User.find(recipient_id) %>
+          <p class="humanify">
+            Message <%= User.find(recipient_id).name %> below.
+          </p>
+      <% else %>
+      <% end %>
+    </div>
+  </div>
+  <div id="chat-input" class="<%= "disabled" if conversation_id.nil? and recipient_id.nil? %> input-group">
+    <form action="/inbox"  method="post">
+      <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+      <% if conversation_id.present? %>
+        <input type="hidden" name="mailbox[id]"
+               value="<%= @mailbox.conversations.find(conversation_id).id %>">
+      <% elsif params[:action] == "new" || conversation_id.nil? %>
+        <input type="hidden" name="mailbox[recipient_id]"
+               value="<%= params[:id] %>">
+      <% end %>
+      <input type="text" name="mailbox[message]"
+                         class="form-control"
+                         placeholder="Send Message"
+                         <%= "disabled" if conversation_id.nil? and recipient_id.nil? %>>
+      <span class="input-group-btn">
+        <button class="<%= "hidden" if conversation_id.nil? and recipient_id.nil? %> btn btn-default" type="button">
+          <span class="glyphicon glyphicon-send" aria-hidden="true">
+          </span>
+        </button>
+      </span>
+    </form>
+  </div>
+</div>

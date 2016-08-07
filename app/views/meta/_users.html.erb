@@ -1,0 +1,12 @@
+<% if @user.present? %>
+  <meta property="og:title" content="<%= @user.name %> Profile" />
+  <meta property="og:description" content="<%= @user.zip_code.to_s.to_region%>" />
+  <meta property="og:site_name" content="Humanify" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="<%= "http://#{request.host_with_port}#{request.fullpath}" %>" />
+  <meta property="og:image" content="<%= image_url('elements-11.png', size: "50x50", id: "user-avatar") %>" />
+  <meta property="og:image:width" content="55" />
+  <meta property="og:image:height" content="55" />
+<% else %>
+  <%= render "meta/basic" %>
+<% end %>

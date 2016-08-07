@@ -1,0 +1,25 @@
+version: '2'
+services:
+  elasticsearch:
+    image: elasticsearch:1.7
+
+  web:
+    build: .
+    command: foreman start
+    ports:
+      - "5000:5000"
+    environment:
+      ELASTICSEARCH_URL: http://elasticsearch:9200/
+    env_file: .env
+    depends_on:
+      - elasticsearch
+    volumes:
+      - .:/humanifymvp
+    volumes_from:
+      - bundle
+
+  bundle:
+    image: humanifymvp_web
+    command: echo "I'm a little data container, short and stout..."
+    volumes:
+      - /bundle
