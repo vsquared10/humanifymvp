@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 describe NotificationsController do
   describe '#index' do
     context 'with a guest user' do

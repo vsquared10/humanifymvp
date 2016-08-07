@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 describe ListingsController do
   describe '#index' do
     context 'with an guest user' do
