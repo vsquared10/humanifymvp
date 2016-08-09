@@ -25,7 +25,7 @@
 //       }
 //     });
 //     var model = new Backbone.Model({foo: 'bar'});
-//     React.render(<MyComponent model={model} />, document.body);
+//     ReactDOM.render(<MyComponent model={model} />, document.body);
 
 (function (root, factory) {
   // Universal module definition

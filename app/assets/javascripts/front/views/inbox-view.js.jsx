@@ -16,7 +16,7 @@ var renderInboxNotifications = function() {
                             className="text-center" />);
         });
       // Render Main Notification Component with InboxItems passed
-      React.render(
+      ReactDOM.render(
         <InboxNotifications
           unreadCount = {unreadObj.length}
           inboxComponents = {unreadInboxComponents} />,
@@ -24,7 +24,7 @@ var renderInboxNotifications = function() {
       );
     },
     error: function() {
-    React.render(
+    ReactDOM.render(
       <InboxNotifications
           inboxComponents = {<InboxItem
             message="Your inbox could not be loaded." 
@@ -41,7 +41,7 @@ $('#inboxMenu span').on('click', function(event) {
   $('#inboxMenu .inbox-alerts.dropdown-menu').toggle();
 });
 
-React.render(
+ReactDOM.render(
   <InboxNotifications/>,
   document.getElementById('inboxMenuComp')
 );

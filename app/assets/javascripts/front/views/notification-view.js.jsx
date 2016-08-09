@@ -17,14 +17,14 @@ var getNotifications = function() {
                                    className="text-center" />);
         });
 
-      React.render(
+      ReactDOM.render(
         <NotificationsMenu
           notificationsComponents = {notificationsComponents} />,
         document.getElementById('notificationsMenuComp')
       );
     },
     error: function() {
-      React.render(
+      ReactDOM.render(
         <NotificationsMenu
               notificationsComponents = {<NotificationItem
               message="Notifications could not be loaded."
